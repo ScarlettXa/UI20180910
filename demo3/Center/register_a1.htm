@@ -1,0 +1,605 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>注册会员</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var getType = "reg", getName = "", para = "", actName = "memberReg", chkPwd2Flag = 0;
+            var id1 = 0;
+            var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=2"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+
+
+<script type="text/javascript" language="javascript">
+
+    //ajax更换会员编号
+    function changeUserName() {
+
+        document.getElementById("lblBianhao").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeUserName&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+    function (data) {
+        $("#txtBianhao").val(data.userName);
+        document.getElementById("lblBianhao").innerHTML = '';
+
+    }
+);
+    }
+
+    function getUserName(oid1, showid1, msgErr, msgRight) {
+
+        $.getJSON(ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetUserName&jstype=jsonp&callback=?&UserName=" + $("#" + oid1).val(),
+    function (value) {
+        if (value.result == "nouser") {
+            document.getElementById(showid1).innerHTML = msgErr;
+            return false;
+        } else {
+            if (msgRight == "")
+                document.getElementById(showid1).innerHTML = value.result;
+            else
+                document.getElementById(showid1).innerHTML = msgRight;
+            return;
+        }
+
+    }
+);
+
+    }
+
+
+    function ShowValidImage() {
+        var numkey = Math.random();
+        document.getElementById("imgRandom").src = "/demo1/Validcode2.aspx?ns=" + numkey;
+    }
+</script>
+
+    <style type="text/css">
+        .form {
+            min-height: 720px;
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 414px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangBusiness"><!--业务--></h3>
+    <ul>
+        <li class="register"><a href="../Center/register.htm">注册会员</a></li>
+        <li class="centerlists"><a href="../Center/centerlists.htm">会员审核</a></li>
+        <!--<li class="nofulllists"><a href="../Center/nofulllists.htm?r=1">空点会员</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">注册会员</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>会员编号：</td>
+                        <td>
+                            <div id="id" class="m-text" style="width:354px;" data-val="" data-tip="请输入会员编号"></div>
+                        </td>
+                       <!-- <td>
+                            <input type="button" class="m-btn m-btn-blue" value="验证" onclick="pck.exists(m.node('#id').plugin('text').value(), true)" style="height:25px;margin-left:-50px;" />
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>推荐人：</td>
+                        <td>
+                            <div id="recmid" class="m-text" style="width:354px;" data-tip="请输入会员编号">
+                                <input type="text" class="m-text-ipt" value="" />
+                            </div>
+                        </td>
+                        <!--<td>
+                            <input type="button" class="m-btn m-btn-blue" value="验证" onclick="pck.exists(m.node('#recmid').plugin('text').value())" style="height:25px;margin-left:-50px;" />
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>接点人：</td>
+                        <td>
+                            <div id="parentid" class="m-text" style="width:354px;" data-tip="请输入会员编号"></div>
+                        </td>
+                        <!--<td>
+                            <input type="button" class="m-btn m-btn-blue" value="验证" onclick="pck.exists(m.node('#parentid').plugin('text').value())" style="height:25px;margin-left:-50px;" />
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>代理中心：</td>
+                        <td>
+                            <div id="centerid" class="m-text" style="width:354px;" data-val="10000" data-tip="请输入会员编号"></div>
+                        </td>
+                       <!-- <td>
+                            <input type="button" class="m-btn m-btn-blue" value="验证" onclick="pck.exists(m.node('#centerid').plugin('text').value())" style="height:25px;margin-left:-50px;" />
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>安置位置：</td>
+                        <td>
+                            <div id="area" class="m-select"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>会员等级：</td>
+                        <td>
+                            <div id="level" class="m-select"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>真实姓名：</td>
+                        <td>
+                            <div id="username" class="m-text" data-tip="请输入会员姓名"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>登录密码：</td>
+                        <td>
+                            <div id="password" class="m-text" data-type="password"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>确认登录密码：</td>
+                        <td>
+                            <div id="cpassword" class="m-text" data-type="password"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>安全密码：</td>
+                        <td>
+                            <div id="safeword" class="m-text" data-type="password"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>确认安全密码：</td>
+                        <td>
+                            <div id="csafeword" class="m-text" data-type="password"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>身份证：</td>
+                        <td>
+                            <div id="idcard" class="m-text" data-tip="请输入会员身份证"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>所属银行：</td>
+                        <td>
+                            <div id="bankid" class="m-select"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>银行卡号：</td>
+                        <td>
+                            <div id="bankno" class="m-text" data-tip="请输入银行卡号"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>开户行：</td>
+                        <td>
+                            <div id="bankname" class="m-text" data-tip="请输入开户行"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>开户人：</td>
+                        <td>
+                            <div id="bankuser" class="m-text" data-tip="请输入开户人"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>手机：</td>
+                        <td>
+                            <div id="moblie" class="m-text" data-tip="请输入手机"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">邮箱：</td>
+                        <td>
+                            <div id="email" class="m-text"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">邮编：</td>
+                        <td>
+                            <div id="zipcode" class="m-text">
+                                <input type="text" class="m-text-ipt" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label>地址：</td>
+                        <td>
+                            <div id="address" class="m-text" style="height: 60px;">
+                                <textarea class="m-text-ipt"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">地区：</td>
+                        <td>
+                            <table id="location" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div class="country m-select" style="width:120px;"></div>
+                                    </td>
+                                    <td>
+                                        <div class="province m-select" style="width:90px;margin-left:5px;"></div>
+                                    </td>
+                                    <td>
+                                        <div class="county m-select" style="width:90px;margin-left:5px;"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">验证码：</td>
+                        <td>
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div id="checkcode" class="m-text" data-tip="请输入右侧字母" style="width:180px;"></div>
+                                    </td>
+                                    <td>
+                                        <img id="checkimg" alt="验证码" style="border-color:#eee;cursor:pointer;margin-left:5px;" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认注册" style="width:75px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        //设置地址
+        setplace: function (selt, root, callback) {
+            if (root < 0) { return; }
+            engine.ajax.place(root, function (json) {
+                selt.clear();
+                selt.add("请选择", -1);
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //是否调用回调
+                if (callback) { callback(); }
+            });
+        },
+        //是否存在
+        exists: function (memberid, reverse) {
+            if (memberid.length <= 0) {
+                mpi.news("请输入编号", 3000);
+                return;
+            }
+            mpi.news("正在验证...", 99999);
+            var ajax = m.ajax("../Center/api_member_exists", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.Success) {
+                    if (reverse == true) {
+                        mpi.news("会员编号已存在", 3000);
+                    }
+                    else {
+                        mpi.news("会员编号可用", 3000);
+                    }
+                }
+                else {
+                    mpi.news(json.Data, 3000);
+                }
+            });
+            ajax.data.add("memberid", memberid);
+            ajax.send();
+        },
+        submit: function () {
+            var id = m.node("#id").plugin("text").value();
+            var parentid = m.node("#parentid").plugin("text").value();
+            var recmid = m.node("#recmid").plugin("text").value();
+            var centerid = m.node("#centerid").plugin("text").value();
+            var area = m.node("#area").plugin("select").value();
+            var level = m.node("#level").plugin("select").value();
+            var password = m.node("#password").plugin("text").value();
+            var cpassword = m.node("#cpassword").plugin("text").value();
+            var safeword = m.node("#safeword").plugin("text").value();
+            var csafeword = m.node("#csafeword").plugin("text").value();
+            var username = m.node("#username").plugin("text").value();
+            var idcard = m.node("#idcard").plugin("text").value();
+            var bankid = m.node("#bankid").plugin("select").value();
+            var bankno = m.node("#bankno").plugin("text").value();
+            var bankuser = m.node("#bankuser").plugin("text").value();
+            var bankname = m.node("#bankname").plugin("text").value();
+            var moblie = m.node("#moblie").plugin("text").value();
+            var email = m.node("#email").plugin("text").value();
+            var zipcode = m.node("#zipcode").plugin("text").value();
+            var address = m.node("#address").plugin("text").value();
+            var place = m.node("#location .county").plugin("select").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            //非空判断
+            if (id.length <= 0) {
+                mpi.news("请输入编号", 3000);
+                return;
+            }
+            if (recmid.length <= 0) {
+                engine.news("请输入推荐人", 2000);
+                return;
+            }
+            if (parentid.length <= 0) {
+                mpi.news("请输入接点人", 3000);
+                return;
+            }
+            if (centerid.length <= 0) {
+                mpi.news("请输入代理中心", 3000);
+                return;
+            }
+            if (area == null || area.length <= 0) {
+                mpi.news("请选择安置位置", 3000);
+                return;
+            }
+            if (level == null || level.length <= 0) {
+                mpi.news("请选择会员等级", 3000);
+                return;
+            }
+            if (password.length <= 0) {
+                mpi.news("请输入登录密码", 3000);
+                return;
+            }
+            if (password != cpassword) {
+                mpi.news("登录密码输入不一致", 3000);
+                return;
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (safeword != csafeword) {
+                mpi.news("安全密码输入不一致", 3000);
+                return;
+            }
+            if (username.length <= 0) {
+                mpi.news("请输入真实姓名", 3000);
+                return;
+            }
+            if (idcard.length <= 0) {
+                mpi.news("请输入身份证", 3000);
+                return;
+            }
+            if (bankid == null || bankid.length <= 0) {
+                mpi.news("请选择所属银行", 3000);
+                return;
+            }
+            if (bankno.length <= 0) {
+                mpi.news("请输入银行卡号", 3000);
+                return;
+            }
+            if (bankuser.length <= 0) {
+                mpi.news("请输入开户人", 3000);
+                return;
+            }
+            if (bankname.length <= 0) {
+                mpi.news("请输入开户行", 3000);
+                return;
+            }
+            if (moblie.length <= 0) {
+                mpi.news("请输入手机", 3000);
+                return;
+            }
+            if (place == null || place.length <= 0) {
+                mpi.news("请选择地区", 3000);
+                return;
+            }
+            if (address.length <= 0) {
+                mpi.news("请输入地址", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../Center/api_register_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("新增会员成功", 3000, true);
+                        break;
+                    case -10002:
+                        mpi.news("新增会员失败", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("id", id);
+            ajax.data.add("parentid", parentid);
+            ajax.data.add("recmid", recmid);
+            ajax.data.add("centerid", centerid);
+            ajax.data.add("area", area);
+            ajax.data.add("level", level);
+            ajax.data.add("password", password);
+            ajax.data.add("safeword", safeword);
+            ajax.data.add("username", username);
+            ajax.data.add("idcard", idcard);
+            ajax.data.add("bankid", bankid);
+            ajax.data.add("bankno", bankno);
+            ajax.data.add("bankuser", bankuser);
+            ajax.data.add("bankname", bankname);
+            ajax.data.add("moblie", moblie);
+            ajax.data.add("email", email);
+            ajax.data.add("zipcode", zipcode);
+            ajax.data.add("address", address);
+            ajax.data.add("place", place);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取等级
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#level").plugin("select");
+            selt.clear();
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取位置
+            engine.ajax.memberarea(0, function (json) {
+                var selt = m.node("#area").plugin("select");
+                selt.clear();
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //获取银行
+                engine.ajax.bank(0, function (json) {
+                    var selt = m.node("#bankid").plugin("select");
+                    selt.clear();
+                    for (var i in json) {
+                        selt.add(json[i].name, json[i].id);
+                    }
+                    //获取地区
+                    engine.ajax.place('001', function (json) {
+                        var lt = m.node("#location .country").plugin("select");
+                        lt.onchange = function (text, val) {
+                            var pv = m.node("#location .province").plugin("select");
+                            pck.setplace(pv, val);
+                        };
+                        var ltpv = m.node("#location .province").plugin("select");
+                        ltpv.onchange = function (text, val) {
+                            var ct = m.node("#location .county").plugin("select");
+                            pck.setplace(ct, val);
+                        };
+                        //填充初始数据
+                        lt.add("请选择", -1);
+                        for (var i in json) {
+                            lt.add(json[i].name, json[i].id);
+                        }
+                        m.node("#parentid").plugin("text").value(m.queryString("root"));
+                        m.node("#area").plugin("select").value(m.queryString("area"));
+                    });
+                });
+            });
+        });
+    });
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".ms-menu .register").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+    <div class="mn-suspend">
+        <dl>
+            <dt class="IE6PNG"></dt>
+            <dd class="suspendQQ ajaxkefuQQLink"></dd>
+            <dd class="suspendTel"><span class="ajaxkefuTel"></span></dd>
+        </dl>
+    </div>
+    <!--底部栏-->
+
+<div class="mn-bottom">
+    <div class="mn-inner">
+        <div style="clear:both"></div>
+        <div style="text-align:center;margin-top:10px;">
+            <table cellpadding="2" cellspacing="0" style="width:550px; margin:auto;">
+                <tr>
+                    <td>Copyright &#169;  2016 Company. All Rights Reserved</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+    <input type="hidden" class="HD_SKEY" value="000:44B198BE3FD868E418BBE4CA103AD9" />
+    <input type="hidden" class="HD_IPADDRESS" value="222.73.135.181:8009" />
+</body>
+</html>

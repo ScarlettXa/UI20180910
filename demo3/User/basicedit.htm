@@ -1,0 +1,368 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "myInfoModi", chkPwd2Flag = 1;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+</script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026529"></script>
+    <style type="text/css">
+        .form {
+            min-height: 720px;
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 414px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+   
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+ 
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+      
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+            <li><a href="../User/basicedit.htm" style="background:#df4719" >资料修改</a></li>
+            <li><a href="../User/safeinfo.htm" style="background:#61baff">密码修改</a></li>
+            <li><a href="../User/mibao.htm" style="background:#61baff">密保修改</a></li>
+            <li><a href="../User/mobedit.htm" style="background:#61baff">手机修改</a></li>
+            <li><a href="../User/transfer.htm" style="background:#61baff">开户币转账</a></li>
+            <li><a href="../User/acctran.htm" style="background:#61baff">账户转换</a></li>
+            </ul>
+        </div>
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangModifyData">资料修改</h2>
+            <div class="ms-info" style="-webkit-overflow-scrolling:touch;overflow: auto;">          
+            <!-- <div class="ms-info">      -->
+                <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormMyInfoModi()">
+                    <table class="form" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="td-title ajaxlangUserName"><!--会员编号：--></td>
+                            <td>
+                                <span class="ajaxuserName"></span>    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangName"><!--真实姓名：--></td>
+                            <td>
+                                <div>
+                                    <span class="ajaxtrueName"></span>
+                                    <input id="txtTrueName" type="hidden" class="m-text-ipt ajaxtrueNameInput" />
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangIDCard"></td>
+                            <td>
+                                <div>
+                                    <span class="ajaxidCard"></span>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr style=" display:none;">
+                            <td class="td-title" valign="top">身份证正面</td>
+                            <td>
+                                <iframe id="iframepic1" src="" frameborder="0"  width="100%" height="250" scrolling="no"></iframe>
+                            </td>
+                        </tr>
+                        <tr style=" display:none;">
+                            <td class="td-title" valign="top">身份证反面</td>
+                            <td>
+                                <iframe id="iframepic2" src="" frameborder="0"  width="100%" height="250" scrolling="no" ></iframe>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title" valign="top">手持身份证</td>
+                            <td>
+                                <iframe id="iframepic3" src="" frameborder="0"  width="100%" height="250" scrolling="no" ></iframe>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangBank"><!--银行名称：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <select id="selBank" class="m-text-ipt"></select>
+                                    <span id="regBank_notice"  style=" color:Red;"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangBankUser"><!--开户名：--></td>
+                            <td>
+                                <div>
+                                   <span class="ajaxbankUser"></span>
+                                    <input id="txtBankUser" type="hidden" class="m-text-ipt ajaxbankUserInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangBankAccount"><!--银行账号：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input id="txtBankNumber" type="text" class="m-text-ipt ajaxbankNumberInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangBankAddress"><!--开户地址：--></td>
+                            <td>
+                                    <span id="reg_notice2"  style=" color:Red;"></span>
+                             <select  id="selProvince2" onChange="provincechange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:140px;" >
+                             </select><br />
+                             <select  id="selCity2" onChange="citychange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:160px;" >
+                             </select> <br />
+                             <select  id="selArea2" style="width:160px;">
+                             </select><br />
+                         
+                            </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>
+                          <div class="m-text">
+                           <input name="txtBankAddress" type="text"  maxlength="30" id="txtBankAddress" class="m-text-ipt ajaxbankAddressInput" />
+                              </div>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangPostcode"><!--邮编：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input id="txtPostCode" maxlength="6" type="text" class="m-text-ipt ajaxpostCodeInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangAlipay"><!--支付宝：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input id="txtAlipayNumber" maxlength="30" type="text" class="m-text-ipt ajaxalipayNumberInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title">QQ：</td>
+                            <td>
+                                <div class="m-text">
+                                    <input id="txtQQ" type="text" maxlength="15" class="m-text-ipt ajaxqqInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangWeChat"><!--微信：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input id="txtwxid" type="text" maxlength="30" class="m-text-ipt ajaxwxidInput" />
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td class="td-title ajaxlangSex"></td>
+                            <td>
+                                <select id="selSex">
+                               <option value="1" class="ajaxlangMale"></option>
+                               <option value="0" class="ajaxlangFemale"></option>
+                       </select>  
+                            </td>
+                        </tr> -->
+                         <tr style=" display:none;">
+                            <td class="td-title ajaxlangAddress"></td>
+                            <td>
+                                 <span id="reg_notice1"  style=" color:Red;"></span>
+                             <select id="selProvince" class="selector" onChange="provincechange('selProvince','selCity','selArea','reg_notice1')" style="width:140px;">
+                             </select><br />
+                             <select id="selCity" onChange="citychange('selProvince','selCity','selArea','reg_notice1')" style="width:160px;">
+                             </select> <br />
+                             <select id="selArea" style="width:160px;">
+                             </select><br />
+                           <input name="txtAddress" type="text" value="" maxlength="30" id="txtAddress" class="span4 ajaxaddressInput" />
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="td-title ajaxlangSecurityPassword"><!--二级密码：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input name="txtPwd" type="password" maxlength="20" id="txtPwd" class="m-text-ipt" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title">Email：</td>
+                            <td>
+                                   <!-- <span class="ajaxemail"></span>-->
+                               
+                                    <span><input id="txtEmail" maxlength="30" type="text" class=" ajaxemailInput" /></span>
+                              
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangMobileNumber"><!--手机号码：--></td>
+                            <td>
+                                    <span class="ajaxmob"></span>
+                               
+                                    <input id="txtMob" maxlength="11" type="text" class=" ajaxmobInput" style=" display:none;" />
+                               
+                            </td>
+                        </tr>
+                        <tr style=" display:none;">
+                            <td class="td-title ajaxlangVerifiyMode"><!--验证方式：--></td>
+                            <td>
+                                <span><input id="CodeType1" name="CodeType" type="radio"  value="1" checked /><span class="ajaxlangMobilePhone">手机</span></span>
+                           <span><input id="CodeType2" name="CodeType" type="radio"  value="2" /><span class="ajaxlangEmail">邮箱</span></span>
+                           
+                           
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangValidCode"><!--验证码：--></td>
+                            <td>
+                                    <span><input type="text" id="txtmobilecode" class="paw_inp" style="width:60px;" maxlength="6" value="" /></span>
+           <!--<input type="button" id="btnGetMobileCode" value="获取验证码" />-->
+                         <button id="btnGetMobileCode" type="button" class="buttom ajaxlangGetVerificationCode"></button>
+                            <span id="infoMobileCode"></span>
+                            <input type="hidden" id="txtmodi" value="1" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title"></td>
+                            <td>
+                                <!--<input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认修改" style="width:75px" />-->
+                                <!--<input id="BtnSave" type="submit" class="m-btn m-btn-blue" value="确认修改" style="width:75px" />-->
+                                <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div>
+ -->
+<script type="text/javascript">
+    getTop();
+      $("#btnGetMobileCode").click(function () {
+          sendMobileCode('txtMob', 'infoMobileCode');
+      });
+    
+    m.event("ready").add(function () {
+        m.node(".ms-menu .basicedit").addClass("choose");
+        m.node(".p-left-menu .user").addClass("active");
+    });
+
+    document.getElementById("iframepic1").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=1';
+    document.getElementById("iframepic2").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=2';
+    document.getElementById("iframepic3").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=3';
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

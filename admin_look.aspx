@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin_look.aspx.cs" Inherits="direct_demo.admin_look" %>

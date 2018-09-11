@@ -1,0 +1,13 @@
+﻿var s1;
+s1 = '';
+//s1 += '<li class="basicinfo"><a href="../User/basicinfo.htm" class="ajaxlangAccountInfo">账户资料</a></li>';
+s1 += '<li class="basicedit"><a href="../User/basicedit.htm" class="ajaxlangModifyData">资料修改</a></li>';
+s1 += '<li class="safeinfo"><a href="../User/safeinfo.htm" class="ajaxlangModifyPassword">密码修改</a></li>';
+s1 += '<li class="mibao"><a href="../User/mibao.htm" class="ajaxlangModifyMB">密保修改</a></li>';
+s1 += '<li class="mobedit"><a href="../User/mobedit.htm" class="ajaxlangMobileModi">手机修改</a></li>';
+//s1 += '<li class="emailedit"><a href="../User/emailedit.htm" class="ajaxlangEmailModify">邮箱修改</a></li>';
+//s1 += '<li class="deposit"><a href="../User/deposit.htm" class="ajaxlangRecharge">充值</a></li>';
+//s1 += '<li class="withdraw"><a href="../User/withdraw.htm" class="ajaxlangCash">提现</a></li>';
+s1 += '<li class="transfer"><a href="../User/transfer.htm" class="ajaxlangTransfer">内部转账</a></li>';
+s1 += '<li class="acctran"><a href="../User/acctran.htm" class="ajaxlangAccountTransfer">账户转换</a></li>';
+document.write(s1);

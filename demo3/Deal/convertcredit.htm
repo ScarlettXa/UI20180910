@@ -1,0 +1,236 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>奖金币转积分币</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .form {
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 414px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="/Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="/Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="../Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="/Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3>奖金</h3>
+    <ul>
+        <li class="main"><a href="../Deal/main.htm">资金记录</a></li>
+        <li class="recordlists"><a href="../Deal/recordlists.htm">奖金记录</a></li>
+        <!--<li class="convertinside"><a href="../Deal/convertinside.htm">奖金币转报单币</a></li>
+        <li class="convertcredit"><a href="../Deal/convertcredit.htm">奖金币转积分币</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info" style="min-height:700px;">
+                <div class="title">奖金币转积分币</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">会员编号：</td>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">奖金币：</td>
+                        <td>397.00</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">积分币：</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">转换金额：</td>
+                        <td>
+                            <div id="number" class="m-text" style="width:180px;">
+                                <input type="text" class="m-text-ipt" value="1" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">二级密码：</td>
+                        <td>
+                            <div id="safeword" class="m-text" style="width:180px;">
+                                <input type="password" class="m-text-ipt" value="" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">验证码：</td>
+                        <td>
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div id="checkcode" class="m-text" data-tip="请输入右侧字母" style="width:180px;"></div>
+                                    </td>
+                                    <td>
+                                        <img id="checkimg" alt="验证码" style="border-color:#eee;cursor:pointer;margin-left:5px;" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认转换" style="width:75px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    var pck = {
+        submit: function () {
+            var safeword = m.node("#safeword").plugin("text").value();
+            var number = m.node("#number").plugin("text").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            //非空判断
+            if (number.length <= 0) {
+                mpi.news("请输入购买份数", 3000);
+                return;
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入二级密码", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../Deal/api_convertcredit_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("转换成功", 3000, true);
+                        break;
+                    case -10002:
+                        mpi.news("转换成功", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("number", number);
+            ajax.data.add("safeword", safeword);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        //加载页面
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    pck.init();
+    m.event("ready").add(function () {
+        m.node(".ms-menu .convertcredit").addClass("choose");
+        m.node(".mn-meter-menu .deal").addClass("choose");
+        //绑定事件
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

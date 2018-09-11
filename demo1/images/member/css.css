@@ -1,0 +1,191 @@
+BODY {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-TOP: 0px;
+	FONT-FAMILY: "宋体", "Arial";
+BACKGROUND-COLOR: #000000
+	
+
+
+scrollbar-face-color: #000;
+	scrollbar-highlight-color: #CAD7F7;
+	scrollbar-shadow-color: #000;
+	scrollbar-3dlight-color: #000;
+	scrollbar-arrow-color: #000;
+	scrollbar-track-color: #ECE9D8;
+	scrollbar-darkshadow-color: #CAD7F7;
+	background-color: #333333;
+
+	
+	
+	
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: "宋体", "Arial"
+}
+TABLE {
+	FONT-SIZE: 9pt; FONT-FAMILY: "宋体", "Arial"
+}
+.left_ng {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(/images/images/index_16.jpg); BACKGROUND-REPEAT: no-repeat
+}
+.title_14 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+.text_green {
+	FONT-SIZE: 12px; COLOR: #70a0cb; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.link:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.link:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.link:hover {
+	FONT-SIZE: 12px; COLOR: #ffcc00; LINE-HEIGHT: 20px; TEXT-DECORATION: underline
+}
+A.wl:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.wl:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.wl:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.wl:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #666666; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BORDER-LEFT: black 1px solid; COLOR: #00006a; LINE-HEIGHT: normal; BORDER-BOTTOM: black 1px solid; FONT-STYLE: normal; HEIGHT: 18px; BACKGROUND-COLOR: #cccccc; FONT-VARIANT: normal
+}
+.style1 {
+	FONT-SIZE: 12px; COLOR: #ffffff
+}
+.style3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px
+}
+.style4 {
+	COLOR: #ff0000
+}
+.style5 {
+	FONT-WEIGHT: bold; COLOR: #000099
+}
+.style10 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff
+}
+.style7 {
+	FONT-WEIGHT: bold; COLOR: #ffffff
+}
+.style8 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px
+}
+.OeMenuBG {
+	BACKGROUND-POSITION: left 50%; PADDING-LEFT: 20px; BACKGROUND-IMAGE: url(../images/icon/left_menu.jpg); PADDING-TOP: 4px; BACKGROUND-REPEAT: no-repeat
+}
+.OeMenuBGTwo {
+	BACKGROUND-POSITION: right 50%; PADDING-LEFT: 0px; BACKGROUND-IMAGE: url(../images/icon/left_menu_1.jpg); PADDING-TOP: 4px; BACKGROUND-REPEAT: no-repeat
+}
+.link01 {
+	COLOR: #ff7979
+}
+.link01 A {
+	COLOR: #ff7979; TEXT-DECORATION: none
+}
+.link01 A:hover {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+.link02 {
+	COLOR: #c2c2c2
+}
+.link02 A {
+	COLOR: #c2c2c2; TEXT-DECORATION: none
+}
+.link02 A:hover {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+.link03 {
+	FONT-SIZE: 14px; COLOR: #f2d995; PADDING-TOP: 5px
+}
+.link03 A {
+	FONT-SIZE: 14px; COLOR: #f2d995; TEXT-DECORATION: none
+}
+.link03 A:hover {
+	FONT-SIZE: 14px; COLOR: #fff; TEXT-DECORATION: underline
+}
+.link04 {
+	COLOR: #00ffff
+}
+.link04 A {
+	COLOR: #00ffff; TEXT-DECORATION: none
+}
+.link04 A:hover {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #f2d995; TEXT-DECORATION: underline
+}
+/* kefu
+----------------------------------------------------------------- */
+
+.kefu1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: 12px "宋体"; COLOR: #000; PADDING-TOP: 0px
+}
+#qtfw {
+	PADDING-BOTTOM: 0px; MARGIN-TOP: -5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #fff; PADDING-TOP: 0px
+}
+#ywzx {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: -5px; COLOR: #fff; PADDING-TOP: 0px
+}
+#shfw {
+	MARGIN: 0px; COLOR: #fff
+}
+.ywzx {
+	MARGIN: 0px; WIDTH: 115px; BACKGROUND: url(/kefu/kf-middle3.jpg) repeat-y
+}
+.ywzx-neirong {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f2f2; WIDTH: 105px; FLOAT: left; MARGIN-LEFT: 5px; _margin-left: 2px
+}
+.ywzx-neirong UL {
+	TEXT-ALIGN: left; MARGIN: 0px; PADDING-LEFT: 15px; WIDTH: 80px; FONT: 12px "宋体"; PADDING-TOP: 3px
+}
+.ywzx-neirong UL LI {
+	PADDING-BOTTOM: 3px; LINE-HEIGHT: 20px; LIST-STYLE-TYPE: none; WIDTH: 80px; HEIGHT: 18px; TEXT-DECORATION: none; PADDING-TOP: 5px
+}
+.ywzx-neirong UL LI A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.ywzx-neirong UL LI A:hover {
+	COLOR: #f00
+}
+#keqi {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #9badd9; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 109px; PADDING-RIGHT: 0px; FONT: 12px "宋体"; COLOR: #000; CLEAR: left; PADDING-TOP: 3px; _width: 110px
+}
+.titles {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px; MARGIN: 0px; WIDTH: 110px; FONT: 15px "黑体"; BACKGROUND: url(/kefu/kf-top1.jpg) no-repeat; HEIGHT: 15px; COLOR: #ffffff; _height: 10px;
+}
+.titles b{
+	COLOR: #ffffff;
+}
+.padding-top {
+	PADDING-TOP: 10px
+}
+/* ----------------------------------------------------------------- */

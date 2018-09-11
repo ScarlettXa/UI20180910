@@ -1,0 +1,113 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+
+<!--tecson add-->
+    <link href="/styles/ui-2.0-min.css" rel="stylesheet" />
+    <link href="images/engine.css" rel="stylesheet" />
+<link rel="stylesheet" href="New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="New_themes/css/master.css" type="text/css" />
+
+<!--<script type="text/javascript" src="New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="New_themes/js/jquery.placeholder.js"></script>-->
+<script type="text/javascript">
+//  $(function () {
+//    // Invoke the plugin
+//    $('input, textarea').placeholder();
+//  });
+</script>
+
+<script type="text/javascript" src="New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+<script type="text/javascript" language="javascript">
+    var getType = "info1", getName = "GetLogin";    
+</script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/files/jquery.min.js"></script>
+<script type="text/javascript" src="/Js/json2.js"></script>
+<script type="text/javascript" src="/js/comm.js?r=6"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=14"></script>
+
+<script type="text/javascript" language="javascript">
+    if (asktype == '1'){
+        window.location.href="m-login.html";
+    }
+    
+</script>
+
+</head>
+<body>
+
+<div class="p-login-body">
+    <img src="New_themes/images/login-body.png" class="p-body-bg">
+    <div class="w2">
+        <div class="p-login-main">
+            <div class="p-login-top cl">
+                
+            </div>
+            <div class="p-login-con mt-5">
+                <div class="p-login-conbg">
+                    <img src="New_themes/images/login-main-bg_03.png">
+                </div>
+                <div class="p-login-center">
+                    <h1 class="p-login-logo mb-30">
+                        <!-- <img src="New_themes/images/login-logo.png"> -->
+                        <span class="ajaxlangsiteName"><!--网络办公管理系统--></span>
+                    </h1>
+                    <span class="ajaxlangAccessTimeToday"></span>：<span class="ajaxaaskTime1"></span>--<span class="ajaxaaskTime2"></span>
+                    <form id="theForm" name="theForm" method="post" action="" onsubmit="return memberLogin()">
+                      <div class="plogin-c-user mb-25">
+                            <i><img src="New_themes/images/back-login-user.png"></i>
+                            <input name="TextBoxLoginID" type="text" id="TextBoxLoginID"/>
+                      </div>
+                      <div class="plogin-c-pw mb-25">
+                            <i><img src="New_themes/images/back-login-lock.png"></i>
+                            <input  name="TextBoxPassword" type="password" id="TextBoxPassword"/>
+                      </div>
+                      <div class="plogin-c-memory">
+                        <!-- <label>
+                            <input type="checkbox" name="CheckboxGroup1" value="记住密码" id="CheckboxGroup1_0">
+                            记住密码
+                        </label> -->
+                        <a href="/getpasswd/default.htm" class="fr">找回密码</a>
+                      </div>
+                      <div class="plogin-c-btn">
+                            <input id="btSubmit" name="Submit" type="submit" value="立即登录" style="border: none;">
+                            <span id="boxLoginLoading"></span>  <br />
+                      </div>
+                      <div style=" display:none;">
+                         <input name="verifycode" type="text" class="textinput" id="verifycode" tabindex="300"  style="width:65px;" value="12345" maxlength="5"/>
+                            <img id="checkimg" alt="" style="border-color:#eee;cursor:pointer;margin-left:5px;" />
+                      </div>
+                    </form>
+                    <div class="p-login-other">
+                        <h3><span>扫描二维码登录</span></h3>
+                        <img style="margin-left:82px;cursor:pointer;" src="http://qr.topscan.com/api.php?text=http://www.iudac.com" />
+                        <div class="ajaxlangScanLoginMobileVersion"></div>
+                    </div>
+                    
+                </div>
+                <div class="p-login-conbg">
+                    <img src="New_themes/images/login-main-bg_08.png">
+                </div>
+        
+            </div><!-- p-login-con end -->
+        
+        </div>
+    </div>
+</div>
+
+<!-- <script type="text/javascript" src="New_themes/js/form-validate.js"></script> -->
+</body>
+</html>

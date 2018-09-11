@@ -1,0 +1,133 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .ms-info,
+        .ms-menu {
+            min-height: 600px;
+        }
+
+        .pg-title {
+            font-size: 18px;
+            text-align: center;
+            height: 22px;
+            margin-top: 8px;
+            line-height: 22px;
+        }
+
+        .pg-info {
+            color: #aaa;
+            text-align: center;
+            margin-top: 6px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #f3f3f3;
+        }
+
+        .pg-content {
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="../Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="../Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="../Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="../Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangEmail"><!--邮箱--></h3>
+    <ul>
+        <li class="message"><a href="../Mail/message.htm">发表留言</a></li>
+        <li class="messagelists"><a href="../Mail/messagelists.htm?para=to_admin">留言板</a></li>
+            <li class="send"><a href="../Mail/send.htm">发送邮件</a></li>
+            <li class="sendlists"><a href="../Mail/sendlists.htm?para=to_1">发件箱</a></li>
+            <li class="collectlists"><a href="../Mail/collectlists.htm?para=from_1">收件箱</a></li>
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <h3 class="pg-title">aaa</h3>
+                <div class="pg-info">10000 发送与 2016 - 04 - 01 10: 17</div>
+                <div class="pg-content"><p>aaaaaaa</p>
+</div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    m.event("ready").add(function () {
+        m.node(".ms-menu .messagelists").addClass("choose");
+        m.node(".mn-meter-menu .mail").addClass("choose");
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

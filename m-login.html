@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>登录</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+ 	<!-- <link rel="stylesheet" href="assets/css/component.css"> -->
+  
+  <script src="assets/js/jquery-1.9.1.min.js"></script>
+  <script src="assets/js/amazeui.min.js"></script>
+
+  <script type="text/javascript" language="javascript">
+    var getType = "info1", getName = "GetLogin";    
+  </script>
+  <script type="text/javascript" src="/js/utils.js"></script>
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/files/jquery.min.js"></script>
+  <script type="text/javascript" src="/Js/json2.js"></script>
+  <script type="text/javascript" src="/js/comm.js?r=6"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?r=14"></script>
+	
+</head>
+<body class="i-body">
+
+
+<header data-am-widget="header" class="am-header am-header-default login-header">
+      <div class="am-header-left am-header-nav">
+          <a href="#left-link" class="">
+						<img class="am-header-icon-custom" src="data:image/svg+xml;charset&#x3D;utf-8,&lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 12 20&quot;&gt;&lt;path d&#x3D;&quot;M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z&quot; fill&#x3D;&quot;%23fff&quot;/&gt;&lt;/svg&gt;" alt=""/>
+          </a>
+      </div>
+
+      <h1 class="am-header-title">
+          <a href="#title-link" class="ajaxlangsiteName">
+           	会员登录
+          </a>
+      </h1>
+  </header>
+
+<main class="i-main">
+
+ <div class="login-bg">
+			<img src="assets/images/login-bg.png">
+	</div>
+	
+	<div class="login-main">
+		
+	  <form class="login-form" method="post" onsubmit="return memberLogin('Mobile')">
+      <input name="requestType" type="hidden" class="am-form-field"  value="Mobile">
+	  	<div class="am-input-group">
+			  <span class="am-input-group-label"><i class="login-icon"><img src="assets/images/login-icon1.png"></i></span>
+			  <div class="login-inputbox">
+			  	<input name="TextBoxLoginID" type="text" id="TextBoxLoginID" class="am-form-field"  value="" placeholder="手机号">
+			  </div>
+			</div>
+			
+			<div class="am-input-group">
+			  <span class="am-input-group-label"><i class="login-icon"><img src="assets/images/login-icon2.png"></i></span>
+			  <div class="login-inputbox">
+			  	<input name="TextBoxPassword" type="password" id="TextBoxPassword" class="am-form-field" value="" placeholder="密码">
+			  </div>
+			</div>
+	  	
+	  	<div class="am-input-group quick-input-group" style=" display:none;">
+			  <span class="am-input-group-label"><i class="login-icon"><img src="assets/images/login-icon3.png"></i></span>
+			  <div class="login-inputbox">
+				  <input type="text" name="verifycode" id="verifycode" value="12345" class="am-form-field" style="width:60%">
+				  <a href="#" class="yanzhengma"><img src="assets/images/login-yzm_03.png"></a>
+			  </div>
+			</div>
+			
+			<div class="login-btn mt10">
+				<button id="btSubmit" name="Submit" type="submit" class="bg-green">登  录</button>
+        <span id="boxLoginLoading"></span>
+			</div>
+			
+			<div class="login-low mt3">
+				<!-- <a href="#">立即注册</a> -->
+				<a href="/getpasswd/default.htm">找回密码</a>
+			</div>
+			
+			
+			
+	  </form>
+     
+  </div>
+
+
+
+</main>
+
+<!--i-main end-->
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4">
+      <li>
+        <a href="#" class="i-footer-active">
+        	<span class="i-icon footer-icon1"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" class="">
+        	<span class="i-icon footer-icon2"></span>
+            <span class="am-navbar-label">交易中心</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" class="">
+        	<span class="i-icon footer-icon3"></span>
+            <span class="am-navbar-label">团队中心</span>
+        </a>
+      </li>
+     
+      <li>
+        <a href="#" class="">
+        	<span class="i-icon footer-icon4"></span>
+            <span class="am-navbar-label">用户中心</span>
+        </a>
+      </li>
+      
+  </ul>
+</div>
+
+
+
+</body>
+</html>

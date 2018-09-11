@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>付款列表</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+      var id1 = 0, classid = 0, pagesize = 5, pagecount = 1, rscount = 1;
+      var getType = "list", getName = "GetHelpTradeList,GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+      var _pageindex = 1;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1496026799"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1496026899"></script>
+  <script type="text/javascript" language="javascript">
+      para = getUrlParam('para');
+      date1 = getUrlParam('addtime');
+  </script>  
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Home/m-main.html" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangApplyList">
+       打款列表
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom: 56px">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      
+      <div class="am-tabs-bd">
+          <table class="form" style="display: none;" cellpadding="0" cellspacing="0" id="boxList"></table>
+          <div id="helpTradeList" data-tab-panel-0 class="am-tab-panel am-active login-quick">
+          
+           <!-- <div class="liebiao3">
+           <div class="liebiao-tit">买入交易匹配订单</div>
+           <ul>
+           		<li><span>2017/5/20日 11:40:56</span>卖出交易号</li>
+                <li><span>731364</span>买入交易号</li>
+                <li><span><a href="#">我要付款</a></span>状态</li>
+    
+           </ul>
+           </div>
+           <div class="liebiao3">
+           <div class="liebiao-tit">买入交易匹配订单</div>
+           <ul>
+           		<li><span>2017/5/20日 11:40:56</span>卖出交易号</li>
+                <li><span>731364</span>买入交易号</li>
+                <li><span><a href="#">我要付款</a></span>状态</li>
+    
+           </ul>
+           </div> -->
+          </div>  
+          <div class="paging" id="boxPages"></div>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div> -->
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="9" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+</body>
+<script type="text/javascript">
+    getTop('m-main');
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        memberid: null,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.memberid = m.node("#search_id").plugin("text").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Center/centerlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //删除会员
+        del: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_del", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("删除成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("删除失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //审核会员
+        audit: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_audit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("审核成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("审核失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.memberid = m.node(".HD_MEMBERID").value();
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        m.node(".p-left-menu .center").addClass("active");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+</html>

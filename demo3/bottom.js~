@@ -1,0 +1,15 @@
+﻿var s1 = '';
+s1 += '<div class="mn-bottom">';
+s1 += '<div class="mn-inner">';
+s1 += '<div style="clear:both"></div>';
+s1 += '<div style="text-align:center;margin-top:10px;">';
+s1 += '<table cellpadding="2" cellspacing="0" style="width:550px; margin:auto;">';
+s1 += '<tr>';
+s1 += '<td>Copyright &#169;  2017 Company. All Rights Reserved</td>';
+s1 += '</tr>';
+s1 += '</table>';
+s1 += '</div>';
+s1 += '</div>';
+s1 += '</div>';
+s1 += '';
+document.write(s1);

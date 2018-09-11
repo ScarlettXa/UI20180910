@@ -1,0 +1,227 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetShopCarList,GetUserInfo", para = "", actName = "submitShopCar", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para');
+</script>
+    <style type="text/css">
+        .ms-info,
+        .ms-menu{min-height:700px;}
+
+        .form{border-bottom:1px solid #eee;border-right:1px solid #eee;width:100%;}
+        .form td{border-left:1px solid #eee;border-top:1px solid #eee;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;position:relative;}
+        .form-item td:first-child{text-align:left;}
+        .from-icon{width:80px;height:80px;}
+
+        .info{margin-top:15px;width:100%;border-top:1px dashed #eee;padding-top:10px;}
+        .info td {padding-top:18px;}
+        .info .td-title{width:200px;text-align:right;padding-right:6px;}
+        .info .m-text{height:25px;width:150px;}
+        .info .address {list-style:none;margin:0px;padding:0px;}
+        .info .address li{margin-top:6px;cursor:pointer;border:1px solid #ddd;height:25px;width:450px;line-height:25px;padding:0px 5px;}
+        .info .address .li-choose{border-color:#0088cc;color:#0088cc;}
+        .opera{margin-top:15px;width:100%;border-top:1px dashed #eee;padding-top:10px;}
+        .opera .td-span{width:130px;font-size:25px;color:#666;}
+        .opera span{color:#4ab9f3;}
+        .paging{margin-top:8px;}
+        .m-btn{ width:75px; margin-right:10px;}
+    </style>
+
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+ <!--导航栏-->   
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+
+
+    <!--内容页-->
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+          
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+                <li class="register"><a href="../Product/main.htm" class="ajaxlangProductList" style="background:#61baff" ><!--产品列表--></a></li>
+                <li class="recmlists"><a href="../Product/report.htm" class="ajaxlangShoppingCheckout" style="background:#df4719" ><!--购物结账--></a></li>
+                <li class="netcharttj"><a href="../Product/order.htm" class="ajaxlangMyOrders" style="background:#61baff"><!--我的订单--></a></li>
+            </ul>
+        </div>
+
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangShoppingCheckout"></h2>
+            <div class="ms-info" style="text-align: center;">
+<form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormShopCarSubmit()">
+            <div class="ms-info">
+                           <table class="form" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr class="form-title">
+                                    <td class="ajaxlangNumber"><!--商品编号--></td>
+                                    <td class="ajaxlangMingCheng"><!--商品名称--></td>
+                                    <td class="ajaxlangPrice"><!--单价--></td>
+                                    <td class="ajaxlangNum"><!--购买数量--></td>
+                                    <td class="ajaxlangAmount"><!--总金额--></td>
+                                    <td class="ajaxlangOperate"><!--操作--></td>   
+                                </tr>
+                            </thead>
+                             <tbody id="boxList"></tbody>
+                 
+                 </table> 
+ <table class="info" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+         <span class="ajaxlangAmount"></span><!--金额合计-->：<span class="cDRed">￥ <span class="ajaxtotalMoney"></span></span> 元 &nbsp;  &nbsp;  &nbsp; 
+         <div id="Div1" style=" display:none;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<table>
+                    <tr>
+                        <td align="right" class="ajaxlangName">
+                            <!--收货人姓名：-->
+                        </td>
+                        <td align="left" class="style1">
+                            
+                            <input type="text" id="txtContactor" maxlength="8" class="ajaxtrueNameInput" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="ajaxlangMobile">
+                            <!--联系电话：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <input type="text" id="txtMob" maxlength="15" value="" class="ajaxmobInput" />
+                        </td>
+                    </tr>
+                   
+                      <tr>
+                        <td align="right" class="ajaxlangAddress">
+                           <!-- 收货地址：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <input type="text" id="txtAddress" maxlength="40" value="" class="ajaxaddressInput" />
+                        </td>
+                    </tr>
+                      <tr>
+                        <td align="right" class="ajaxlangPayMethod">
+                           <!-- 支付方式：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <select id="selPayType">
+                              <option value="0" class="ajaxlangPayMethod"><!--支付方式--></option>
+                              <option value="1" class="ajaxlangAccountHuobei1"><!--现金账户--></option>
+                              <option value="2" class="ajaxlangAccountHuobei2"><!--消费账户--></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            &nbsp;</td>
+                        <td align="left" class="style1">
+                            <table>
+                        <tr>
+                         <td>
+                               <input type="submit" name="btnPay" value="确认支付" onClick="return confirm('确定要支付该订单吗？');" id="btnPay" class="m-btn m-btn-blue" />
+                            </td>
+                            <td>
+                                <input type="button" name="btnClear" value="清空购物车" id="btnClear" class="m-btn m-btn-blue"  onclick="shopCarClear()"/>
+                            </td>
+                            <td>
+                                <input type="button" name="btnBack" value="继续购物" onClick="javascript:location.href='ProductList.html'" id="btnBack" class="m-btn m-btn-blue" />
+                            </td>
+                           
+                        </tr>
+                    </table>&nbsp;</td>
+                    </tr>
+                </table>
+      </td>
+    </tr>
+</table>   
+            </div>
+</form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+<script type="text/javascript">
+    getTop();
+    </script>
+</body>
+</html>

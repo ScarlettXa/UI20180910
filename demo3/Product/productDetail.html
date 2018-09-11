@@ -1,0 +1,466 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title class="ajaxtitle"></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo,GetProductInfo", id1, para = "";
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=2"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=1"></script>
+<script type="text/javascript" language="javascript">
+    id1 = getUrlParam('id');
+</script>
+
+    <link href="/Scripts/jquery.zoompicture/zoompicture.css" rel="stylesheet" />
+    <style type="text/css">
+        .pg-information {
+            margin-top: 10px;
+            font-size: 15px;
+            padding: 17px;
+            width: 100%;
+        }
+
+            .pg-information .inner {
+                width: 100%;
+            }
+
+                .pg-information .inner td {
+                    padding-bottom: 15px;
+                    position: relative;
+                }
+
+            .pg-information .title {
+                font-size: 25px;
+                margin-top: 15px;
+                font-weight: bold;
+            }
+
+            .pg-information .explain {
+                font-size: 15px;
+                color: #666;
+            }
+
+            .pg-information .money div {
+                font-size: 28px;
+                color: #fff;
+                background: #ff7474;
+                border-radius: 8px;
+                height: 48px;
+                line-height: 48px;
+                padding: 6px 20px;
+                padding-top: 5px;
+            }
+
+            .pg-information .money label {
+                font-size: 42px;
+                font-weight: bold;
+            }
+
+            .pg-information .money ul {
+                margin: 0px;
+                padding: 0px;
+                position: absolute;
+                right: 15px;
+                top: 16px;
+                list-style: none;
+            }
+
+                .pg-information .money ul li {
+                    float: left;
+                    color: #fff;
+                    margin-left: 10px;
+                    font-size: 18px;
+                }
+
+            .pg-information .td-title {
+                width: 80px;
+                text-align: left;
+                padding-right: 8px;
+            }
+
+            .pg-information .td-items {
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+
+                .pg-information .td-items li {
+                    margin-top: 6px;
+                    cursor: pointer;
+                    border: 1px solid #ddd;
+                    height: 25px;
+                    width: auto;
+                    line-height: 25px;
+                    padding: 0px 5px;
+                    float: left;
+                    margin-right: 8px;
+                }
+
+                .pg-information .td-items .li-choose {
+                    border-color: #0088cc;
+                    color: #0088cc;
+                }
+        /*其他商户*/
+        .pg-otherprocs {
+            padding: 8px;
+            margin-top: 17px;
+        }
+
+            .pg-otherprocs h3 {
+                margin: 0;
+                padding-bottom: 6px;
+            }
+
+            .pg-otherprocs ul {
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+                font-size: 14px;
+            }
+
+                .pg-otherprocs ul li {
+                    float: left;
+                    position: relative;
+                    width: 100%;
+                    border-bottom: 1px dashed #eee;
+                    padding: 2px 0px;
+                }
+
+                    .pg-otherprocs ul li:last-child {
+                        border-bottom: 0px none;
+                    }
+
+                    .pg-otherprocs ul li .money {
+                        color: #dc3535;
+                        font-weight: bold;
+                        margin-right: 5px;
+                    }
+
+                    .pg-otherprocs ul li .visit {
+                        position: absolute;
+                        right: 0px;
+                        color: #888;
+                    }
+        /*信息块样式*/
+        .pg-content {
+            padding: 8px;
+            margin-top: 17px;
+        }
+
+            .pg-content h3 {
+                margin: 0;
+                padding-bottom: 6px;
+            }
+
+            .pg-content table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+                .pg-content table td {
+                    padding-bottom: 18px;
+                }
+
+            .pg-content .td-title {
+                width: 80px;
+                text-align: left;
+                padding-right: 8px;
+            }
+
+        .pg-content-detail table {
+            color: #888;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            border-left: 1px solid #eee;
+        }
+
+            .pg-content-detail table .td-title {
+                background: #fafafa;
+                width: 150px;
+                color: #555;
+            }
+
+            .pg-content-detail table td {
+                padding-bottom: 5px;
+                padding-top: 5px;
+                padding-left: 8px;
+                border-top: 1px solid #eee;
+                border-right: 1px solid #eee;
+            }
+
+        .zoompicture {
+            width: 535px;
+            height: 460px;
+        }
+
+        .zoompicture-lists {
+            width: 525px;
+        }
+
+        .zoompicture-lists-box {
+            width: 510px;
+        }
+
+        .zoompicture-lists-scroll.zoompicture-lists-down, .zoompicture-lists-scroll.zoompicture-lists-down.disabled {
+            margin-left: 510px;
+        }
+
+        .zoompicture-stage {
+            height: 395px;
+        }
+    </style>
+        <script src="/cdn/jquery.zoompicture/zoompicture.js"></script>
+
+
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+ <!--导航栏-->   
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<!--商品概括-->
+<table class="pg-information mn-box" cellpadding="0" cellspacing="0">
+    <tr style="height:390px;">
+        <td valign="top" style="width:535px;">
+            <div class="zoompicture">
+                <div class="zoompicture-stage">
+                    <img src="" width="400" height="400" alt="" class="zoompicture-stage-midimg ajaximg" />
+                    <div style="display:none;" class="zoompicture-stage-choose" id="zoompicture-stage-choose"></div>
+                </div>
+                <div class="zoompicture-lists">
+                    <div class="zoompicture-lists-scroll zoompicture-lists-up disabled"></div>
+                    <div class="zoompicture-lists-box">
+                        <ul>
+                            <li id="zoompicture_choose"><img src="" alt="" class="ajaximg" /></li>
+                        </ul>
+                    </div>
+                    <div class="zoompicture-lists-scroll zoompicture-lists-down"></div>
+                </div>
+                <div class="zoompicture-view" style="display:none;"><img id="proPic" width="800" height="800" alt="" src="" class="ajaximg" /></div>
+            </div>
+        </td>
+        <td valign="top" style="padding-left:25px;">
+            <table class="inner" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="title ajaxtitle" colspan="2"></td>
+                </tr>
+                <!--<tr>
+                    <td class="explain" colspan="2">瘦身小熊</td>
+                </tr>-->
+                <tr>
+                    <td class="money" colspan="2">
+                        <div><label class="ajaxprice2"></label></div>
+                        <ul>
+                            <li style="text-decoration:line-through;">原价：<span class="ajaxprice1"></span></li>
+                        </ul>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td class="td-title">业绩：</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td class="td-title">人气：</td>
+                    <td>共售出2只，41次浏览</td>
+                </tr>-->
+                <tr>
+                    <td class="td-title">库存：</td>
+                    <td><span class="ajaxpnum"></span> <span class="ajaxdanwei"></span></td>
+                </tr>
+                <!--<tr>
+                    <td class="td-title">运费：</td>
+                    <td>5.00元</td>
+                </tr>
+                <tr>
+                    <td class="td-title">尺码：</td>
+                    <td>
+                        <ul class="td-items td-items-size">
+                                <li onclick="pck.setSize(this,100008)">默认</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-title">颜色：</td>
+                    <td>
+                        <ul class="td-items td-items-color">
+                                <li onclick="pck.setColor(this,100007)">默认</li>
+                        </ul>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td class="td-title" valign="top">
+                        <div id="txt_sum" class="m-text" style="width:60px;height:32px;" data-tip="购买件数" data-val="1"></div>
+                        <a style="position:absolute;top:-5px;right:9px;font-size:15px;font-weight:bold;" onclick="pck.sumAdd()">+</a>
+                        <a style="position:absolute;top:15px;right:7px;font-size:15px;font-weight:bold;" onclick="pck.sumSub()">－</a>
+                    </td>
+                    <td valign="top">
+                        <input type="button" class="m-btn" value="加入购物车" style="width:150px;height:34px;" onclick="addToCar()" />
+                        <input type="button" class="m-btn m-btn-blue" value="结算报单" style="width:120px;height:34px;" onclick="location.href='report.htm'" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!--产品详情-->
+<div class="mn-box pg-content" style=" display:none;">
+    <h3>其他属性</h3>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="td-title">产品分类：</td>
+            <td>营养保健</td>
+        </tr>
+        <tr>
+            <td class="td-title">更新时间：</td>
+            <td>2016年02月29日</td>
+        </tr>
+    </table>
+</div>
+<div class="mn-box pg-content ajaxconFrm"></div>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PRODUCTID" value="10000002" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    function addToCar() {
+
+        addCar2(id1, m.node("#txt_sum").plugin("text").value(), 0);
+    }
+
+
+    var pck = {
+        color: -1,
+        size: -1,
+        //设置颜色
+        setColor: function (elm, id) {
+            m.node(".td-items-color li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            pck.color = id;
+        },
+        //设置大小
+        setSize: function (elm, id) {
+            m.node(".td-items-size li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            pck.size = id;
+        },
+        //数量加
+        sumAdd: function () {
+            var val = m.node("#txt_sum").plugin("text").value();
+            val = m.parse.toInteger(val) + 1;
+            m.node("#txt_sum").plugin("text").value(val.toString());
+        },
+        //数量减
+        sumSub: function () {
+            var val = m.node("#txt_sum").plugin("text").value();
+            val = m.parse.toInteger(val) - 1;
+            if (val > 0) {
+                m.node("#txt_sum").plugin("text").value(val.toString());
+            }
+            else { return; }
+        },
+        //添加到购物车
+        addCart: function (callback) {
+            var sum = m.node("#txt_sum").plugin("text").value();
+            if (pck.color < 0) {
+                mpi.news("请选择颜色", 3000);
+                return;
+            }
+            if (pck.size < 0) {
+                mpi.news("请选择尺码", 3000);
+                return;
+            }
+            if (m.parse.toInteger(sum) <= 0) {
+                mpi.news("购买数量不能为零", 3000);
+                return;
+            }
+            //发送请求
+            mpi.news("正在处理...", 99999);
+            var ajax = m.ajax("../Product/api_detail_addcart", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.success) {
+                    mpi.news("添加成功", 3000);
+                }
+                else { mpi.news(json.message, 3000); }
+                //调用回调
+                if (callback) { callback(); }
+            });
+            ajax.data.add("productid", m.node(".HD_PRODUCTID").value());
+            ajax.data.add("color", pck.color);
+            ajax.data.add("size", pck.size);
+            ajax.data.add("sum", sum);
+            ajax.send();
+        },
+        //添加并结算
+        addCount: function () {
+            this.addCart(function () {
+                mpi.news("正在跳转至结算页面...", 99999);
+                setTimeout(function () { m.redirect("../Product/report"); }, 1500);
+            });
+        }
+    }
+    m.event("ready").add(function () {
+        m.node(".mn-meter-menu .product").addClass("choose");
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var getType = "info", getName = "GetUserInfo", para = "", actName = "serviceApply", chkPwd2Flag = 1;
+            var id1 = 0;
+</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/files/jquery.min.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+
+    <style type="text/css">
+        .form {
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 414px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangBusiness"><!--业务--></h3>
+    <ul>
+    <script src="menu_center.js"></script>
+        <!--<li class="register"><a href="../Center/register.htm">注册会员</a></li>
+        <li class="centerlists"><a href="../Center/centerlists.htm">会员审核</a></li>-->
+        <!--<li class="nofulllists"><a href="../Center/nofulllists.htm?r=1">空点会员</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangServiceApply"><!--服务中心申请--></div>
+<div id="boxMain" style=" display:none;">
+<form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormServiceApply()">
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label><span class="ajaxlangLevel"></span><!--级别-->：</td>
+                        <td>
+               <div class="m-text"  class="m-select">
+                        <select id="seljiBie" class="m-select">
+					       <option value="1">1</option>
+					       <option value="2">2</option>
+					       <option value="3">3</option>
+					    </select>
+               </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label><span class="ajaxlangMingCheng"></span><!--服务中心名称-->：</td>
+                        <td>
+                 <input name="txtServiceName" type="text" value="" maxlength="20" id="txtServiceName" class="m-text"  />
+                   
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"><label class="m-label-red">*</label><span class="ajaxlangAddress"></span><!--负责地区-->：</td>
+                        <td>
+                          <div class="m-select">
+                                <select id="selProvince" onChange="provincechange('selProvince','selCity','selArea','reg_notice1')" class="m-select">
+                                 </select>
+                          </div>
+                          <div class="m-select">
+                                 <select id="selCity" onChange="citychange('selProvince','selCity','selArea','reg_notice1')" class="m-select">
+	                             </select>
+                          </div>
+                          <div class="m-select">
+	                             <select id="selArea"  class="m-select">
+	                             </select>
+                          </div>
+                          
+                          <div class="m-text">
+					           <input type="text" value="" id="txtAddress" class="m-text"  maxlength="30" />
+                          </div>
+
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="td-title"><span class="ajaxlangNote"></span><!--备注-->：</td>
+                        <td>
+                           <input name="txtNote" type="text" maxlength="20" id="txtNote" class="m-text" />
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <!--<input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认注册" style="width:75px" />-->
+                            <!--<input id="BtnSave" type="submit" class="m-btn m-btn-blue" value="确认注册" style="width:75px" />-->
+                            <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+                        </td>
+                    </tr>
+                </table>
+</form>
+      </div>
+  <div id="boxLoading"><img src="/images/loading.gif" width="16" height="16" alt="loading" /></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    
+    //加载完
+  
+    m.event("ready").add(function () {
+        //alert("aaa");
+        m.node(".ms-menu .register").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+        //alert("bbbb");
+    });
+</script>
+        </div>
+    </div>
+      <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

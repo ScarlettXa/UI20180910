@@ -1,0 +1,160 @@
+﻿body
+{
+    font-size: 13px;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    background-color: #2C2C2C;
+}
+.bjbc
+{
+    background-repeat: no-repeat;
+}
+
+th
+{
+    background-color: #eeeeee;
+    line-height: 25px;
+}
+td
+{
+    line-height: 25px;
+}
+
+#top
+{
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+
+#main0
+{
+    clear: both;
+    width: 1000px;
+    height: 100%;
+    overflow: auto;
+    margin: 0px auto 0px auto;
+}
+
+#main
+{
+    width: 990px;
+    height: 100%;
+    overflow: auto;
+    margin: 0px auto 0px auto;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+#left
+{
+    width: 0px;
+    height: 100%;
+    float: left;
+    padding-right: 10px;
+}
+
+#right
+{
+    width: 990px;
+    height: 100%;
+    float: left;
+}
+
+#bottom
+{
+    margin: 0px auto 0px auto;
+    width: 100%;
+}
+
+a
+{
+    font-size: 13px;
+    color: #333333;
+}
+a:link
+{
+    text-decoration: none;
+}
+a:visited
+{
+    text-decoration: none;
+    color: #333333;
+}
+a:hover
+{
+    text-decoration: none;
+    color: #cc0000;
+}
+a:active
+{
+    text-decoration: none;
+}
+.td1
+{
+    border-bottom: #cccccc 1px solid;
+    background-color: #f3f7fa;
+}
+.td2
+{
+    border-right: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+}
+.td3
+{
+    border-right: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+    line-height: 25px;
+}
+.td4
+{
+    border-right: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+}
+.td5
+{
+    padding-left: 50px;
+}
+.table1
+{
+    border-right: #cccccc 3px double;
+    border-top: #cccccc 3px double;
+    border-left: #cccccc 3px double;
+    border-bottom: #cccccc 3px double;
+}
+.table2
+{
+    border: 1px solid #cccccc;
+}
+.table3
+{
+    border: #cccccc 1px solid;
+}
+
+.table4
+{
+    border: solid 1px #B7206D;
+}
+.zi
+{
+    font-size: 14px;
+    color: #CC0000;
+    font-weight: bold;
+}
+
+.wenzhang
+{
+    font-family: "微软雅黑";
+    font-size: 15px;
+    color: #CC0000;
+    width: 95%;
+    border: solid 1px #B7206D;
+    padding: 8px;
+    text-align: left;
+}
+.adtxgv1
+{
+    width: 100%;
+    margin-top: 15px;
+    line-height: 22px;
+}

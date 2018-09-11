@@ -1,0 +1,121 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+       <script type="text/javascript" language="javascript">
+           var getType = "info1", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 0;
+           var id1 = 0;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+    <style type="text/css">
+        .m-text-ipt{font-size:22px;font-weight:bold;letter-spacing:5px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<div class="mn-box" style="margin-top:0px;height:666px;">
+    <h3 class="title ajaxlangPasstwoLogin"><!--账户授权验证--></h3>
+    <table cellpadding="0" cellspacing="0" style="width:320px;margin-left:400px;margin-top:230px;">
+        <tr>
+            <td valign="top">
+            <!--<div id="safeword" class="m-text" data-type="password" style="width:240px;height:35px;"></div>-->
+            <input id="safeword" type="password" class="m-text"  style="width:240px;"/>
+            </td>
+            <td valign="top">
+                <!--<input type="button" id="btn_enter" class="m-btn m-btn-blue" style="width:80px;height:36px;margin-left:8px;font-size:14px;" value="验证解锁" />-->
+                <button type="button" id="btn_enter" class="m-btn m-btn-blue ajaxlangSubmit" style="width:80px;height:36px;margin-left:8px;font-size:14px;"></button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><span class="m-icon m-icon-exclamation-sign" style="margin-right:3px;"></span><span class="ajaxlangPasstwoLoginNotice"></span><!--访问此页面需要验证安全密码，授权验证仅此一次--></td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        submit: function () {
+            var safeword = document.getElementById("safeword").value; //m.node("#safeword").plugin("text").value()
+            //非空判断
+            if (safeword.length <= 0) {
+                mpi.news("ERROR...", 3000); //请输入二级密码
+                return;
+            }
+            mpi.news("...", 999999, true);//正在验证，请稍后
+            //发送请求
+            var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=Pwd2Login&jstype=jsonp&callback=?&pwd=" + safeword;
+            $.getJSON(url1,
+     function (value) {
+         if (value.result == "false") {
+             mpi.news(value.errInfo, 3000);
+         }
+         else {
+             mpi.news("Success...", 999999, true);//验证成功正在跳转
+             setTimeout(function () {
+                 if (value.curUrl != "")
+                     m.redirect(decodeURIComponent(value.curUrl));
+                 else
+                     m.redirect('../home/main.htm');
+             }, 1000);
+         }
+     }, "json");
+        },
+        init: function () { }
+    }
+    pck.init();
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".mn-meter-menu .home").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

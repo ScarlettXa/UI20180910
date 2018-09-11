@@ -1,0 +1,287 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>订单详情</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .form {
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            width: 100%;
+        }
+
+            .form td {
+                border-left: 1px solid #ddd;
+                border-top: 1px solid #ddd;
+            }
+
+        .form-title {
+            text-align: center;
+            height: 32px;
+            line-height: 32px;
+            font-weight: bold;
+        }
+
+        .form-item {
+            height: 28px;
+            line-height: 28px;
+        }
+
+            .form-item td {
+                padding-left: 5px;
+                text-align: center;
+                position: relative;
+            }
+
+                .form-item td:first-child {
+                    text-align: left;
+                }
+
+        .from-icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        .info {
+            margin-top: 15px;
+            width: 100%;
+            border-top: 1px dashed #ddd;
+            padding-top: 10px;
+        }
+
+            .info td {
+                padding-top: 18px;
+            }
+
+            .info .td-title {
+                width: 200px;
+                text-align: right;
+                padding-right: 6px;
+            }
+
+            .info .m-text {
+                height: 25px;
+                width: 150px;
+            }
+
+            .info .address {
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+
+                .info .address li {
+                    margin-top: 6px;
+                    cursor: pointer;
+                    border: 1px solid #ddd;
+                    height: 25px;
+                    width: 450px;
+                    line-height: 25px;
+                    padding: 0px 5px;
+                }
+
+                .info .address .li-choose {
+                    border-color: #0088cc;
+                    color: #0088cc;
+                }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="/Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="/Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="/Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="/Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangShop"><!--购物--></h3>
+    <ul>
+        <li class="main"><a href="../Product/main">产品列表</a></li>
+        <li class="report"><a href="../Product/report">结算购物</a></li>
+        <li class="order"><a href="../Product/order">我的订单</a></li>
+        <li class="place"><a href="../Product/place">收货地址</a></li>
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">订单详情</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr class="form-title">
+                        <td style="width:80px;">图片</td>
+                        <td>名称</td>
+                        <td style="width:120px;">售价</td>
+                        <td style="width:90px;">数量</td>
+                        <td style="width:120px;">购价</td>
+                    </tr>
+                        <tr class="form-item form-item-10020019">
+                            <td>
+                                <a target="_blank" href="../Product/10000003.html">
+                                    <img class="from-icon" alt="" src="/service/cms.ashx?key=596390D919B37DEE253E339B025A9B&amp;sign=NW5tZWE2WHVvQkw3YlhrNGZLNjlUQT09&amp;reduce=150" />
+                                </a>
+                            </td>
+                            <td style="text-align:left;">
+                                <a target="_blank" href="../Product/10000003.html">PINK瘦身小熊</a>
+                                <div style="color:#888;">颜色：默认，尺码：2箱（40只）</div>
+                            </td>
+                            <td>
+                                    <div style="color:#888;text-decoration:line-through;">原价：<label>11920.00</label></div>
+                                <div>售价：<label class="data - price">3200.00</label></div>
+                                <div>业绩：<label class="data - score">0.00</label></div>
+                            </td>
+                            <td>1</td>
+                            <td>3200.00</td>
+                        </tr>
+                </table>
+                <table class="info" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">订单号：</td>
+                        <td>
+                            10030022
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">购买者编号：</td>
+                        <td>
+                            10000
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">接收者编号：</td>
+                        <td>
+                            10000
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">交易号：</td>
+                        <td>
+                            10050116
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">状态：</td>
+                        <td>
+                            等待发货
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">快递公司：</td>
+                        <td>
+                            -
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">快递单号：</td>
+                        <td>
+                            -
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">总价：</td>
+                        <td>
+                            3205.00 元 (含运费：5.00元)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">总业绩：</td>
+                        <td>
+                            0.00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">说明：</td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">创建时间：</td>
+                        <td>
+                            2016/03/29 18:14:35
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">变更时间：</td>
+                        <td>
+                            2016/03/29 18:14:36
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    m.event("ready").add(function () {
+        m.node(".ms-menu .order").addClass("choose");
+        m.node(".mn-meter-menu .product").addClass("choose");
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

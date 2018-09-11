@@ -1,0 +1,285 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+<!--    <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.zclip.min.js"></script>-->
+    
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+<link href="/style/img_js.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" language="javascript">
+    var getType = "info", getName = "GetHelpTradeInfo1,GetHelpTradeInfo2,GetUserInfo,GetNewsList_demo3", para = "", actName = "MHome", chkPwd2Flag = 0;
+    var classid = 3, pagesize = 10;
+    function openShow() {
+        $(".openShow").css("display", "block");
+        // document.getElementById('fade').style.display = 'block'
+    }
+    function closeShow() {
+        $(".openShow").css("display", "none");
+        // document.getElementById('fade').style.display = 'none'
+    }
+
+    function openPic(imgurl) {
+        $(".picShow").css("display", "block");
+        document.getElementById("pic1").src = imgurl;
+    }
+    function closePic() {
+        $(".picShow").css("display", "none");
+        document.getElementById("pic1").src = "";
+    }
+
+    function getHelpWaiting() {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetHelpTradeList&para=t_1&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            $(".ajaxhelpTradeInfo3").html(data.list);
+
+        }
+        else {
+            // alert(data.errInfo);
+        }
+    }
+);
+    }
+
+    window.onload = function () {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetTopNews&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            // $(".ajaxnews").html(data.info);
+            var newsid = data.id;
+            if (newsid > 0) {
+                $(".ajaxnews").html('<iframe id="frm1" src="' + ajaxUrl + '/ajax/newsview.aspx?id=' + newsid + '&act=membernewsview" frameborder="0" scrolling="auto" width="100%" height="545"></iframe>');
+                openShow();
+            }
+        }
+        else {
+            // alert(data.errInfo);
+        }
+    }
+);
+        getHelpWaiting();
+    }
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=3"></script>
+<script type="text/javascript" src="/js/jquery.zclip.min.js"></script>
+
+<!--<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imgbox.pack.js"></script>-->
+
+    <style type="text/css">
+        /*信息详情*/
+        .mn-deal-detail{width:100%;padding:8px 12px;padding-right:4px;height:240px;}
+        .mn-deal-detail td{position:relative;border-left:1px solid #eee;padding:0px 8px;}
+        .mn-deal-detail td:first-child{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .title{font-size:14px;font-weight:bold;margin:0px;padding:0px;margin-bottom:6px;}
+        .mn-deal-detail .more{position:absolute;top:0px;right:8px;}
+        /*信息详情-历史*/
+        .mn-deal-detail .money td{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .money .m-btn{border:1px solid #ddd;margin-right:5px;line-height:26px;height:26px;width:50px;border:1px solid #ccc;}
+        .mn-deal-detail .money .m-btn-blue{border:1px solid #0088cc;height:25px;}
+        .mn-deal-detail .history{position:absolute;bottom:4px;width:100%;border-top:1px solid #e5e5e5;padding-top:12px;}
+        /*信息详情-菜单*/
+        .mn-deal-detail .menu{margin:0px;padding:0px;list-style:none;}
+        .mn-deal-detail .menu li{float:left;text-align:center; margin-right:5px;}
+        .mn-deal-detail .menu li a{font-weight:bold;}
+        .mn-deal-detail .menu li p{margin:0px;padding:0px;margin-top:5px;}
+        /*信息详情-列表*/
+        .mn-deal-detail .lists {position:relative;width:100%;height:auto;} 
+        .mn-deal-detail .list{width:230px;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;height:25px;}
+        .mn-deal-detail .list .time{position:absolute;right:0px;}
+        /*信息详情-表格*/
+        .mn-deal-detail .table td{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .table .name{min-width:60px;height:25px;}
+        /*资金记录*/
+        .pg-deal-table{width:100%;height:auto;position:relative;}
+        .pg-deal-table #quick{list-style:none;margin:0px;padding:0px;width:100%;}
+        .pg-deal-table #quick li{width:50px;float:left;text-align:center;margin-bottom:5px;}
+        .pg-deal-table #quick li a{font-size:32px;color:#777;}
+        .pg-deal-table #quick li p{color:#777;margin:0px;margin-bottom:18px;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;}
+        .pg-deal-table #quick li:hover a{color:#0088cc;}
+        .pg-deal-table #quick li:hover p{color:#0088cc;}
+        
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form a{ cursor:pointer;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        
+        .form-item2 tr{height:56px;line-height:28px;}
+        .form-item2 td{padding-left:5px;text-align:center;}
+        .form-item2 td:first-child{text-align:left;}
+        
+        .title1{ color:#00f; font-weight:bold;}
+        .title2{color:#f00; font-weight:bold;}
+        
+        .ajaxhelpTradeInfo1 .form-title td{ color:#00f; font-weight:bold;}
+        .ajaxhelpTradeInfo2 .form-title td{ color:#f00; font-weight:bold;background-color:#f2f2f2 }
+        .amount{ color:#f00;}
+        
+        .picShow{ text-align:center; display:none;position:fixed; margin:auto;  width: 100%;  height: 100%;  z-index:1005;}
+        .picShow img{ max-height:600px;}
+        .rndnumber{ max-width:100px;}
+        .rndnumber span{ max-width:100px;float:left; padding:0 3px 0 3px;}
+        
+    </style>
+<!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="value ajaxuserName"></a></font></h4>
+            </div>
+
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+<!-- <img src="../../New_themes/images/login-body.png" class="p-body-bg">
+ --> <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+   
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!--<div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+  
+                </ul>
+            </div>
+        </div>-->
+
+        <div class="i_con_right_icon">
+            <ul>
+            <li><a href="#" onClick="location.href='../center/HelpAdd2.htm'" style="background:#df4719" class="ajaxlangPlantDream"><!-- 买入交易（投资） --></a></li>
+            <li><a href="#" onClick="location.href='../center/HelpAdd1.htm'" style="background:#61baff" class="ajaxlangDreamReal"><!-- 卖出交易（提现） --></a></li>
+            </ul>
+        </div>
+        
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangSupplyHelp"><!-- 付款列表 --></h2>
+            <div class="ms-info" style="text-align: center;height: 134px;-webkit-overflow-scrolling:touch;overflow: auto;">
+                <table width="807" border="0" cellpadding="0" cellspacing="0" class="i_con_table ajaxhelpTradeInfo1">
+                 <!-- <tr bgcolor="#f2f2f2">
+                    <td>申请交易号</td>
+                    <td>援助交易号</td>
+                    <td>接受帮助会员</td>
+                    <td>付款凭证</td>
+                    <td>金额</td>
+                    <td>申请日期</td>
+                    <td>确认日期</td>
+                    <td>操作</td>
+                  </tr>
+                  -->
+                </table>            
+            </div>
+            
+        </div>
+        
+        <div class="i_con_right_help">
+            <h2 class="ajaxlangApplyHelp"><!-- 收款列表 --></h2>
+            <div class="ms-info" style="text-align: center;height: 133px;-webkit-overflow-scrolling:touch;overflow: auto;">
+                <table width="807" border="0" cellpadding="0" cellspacing="0" class="i_con_table ajaxhelpTradeInfo2">
+                 <!-- <tr bgcolor="#f2f2f2">
+                    <td>申请交易号</td>
+                    <td>援助交易号</td>
+                    <td>接受帮助会员</td>
+                    <td>付款凭证</td>
+                    <td>金额</td>
+                    <td>申请日期</td>
+                    <td>确认日期</td>
+                    <td>操作</td>
+                  </tr>
+                    -->
+                </table>                
+            </div>
+            
+        </div>
+    </div>
+</div>
+</main>
+<!-- <div class="link-ad w2"><span class="ajaxlangMyLink">我的推广链接</span>：<span class="ajaxtjLink"></span></div>
+ -->
+<script type="text/javascript">
+    getTop();
+    m.event("ready").add(function () {
+        m.node(".p-left-menu .home").addClass("active");
+        m.node(".mn-deal-detail .menu li").css("width", 100 / m.node(".mn-deal-detail .menu li").count() - 0.1 + "%");
+    });
+
+</script>
+        </div>
+    </div>
+<!--我的推广页-->
+<script src="../popularize.js"></script>
+<!--客服页-->
+<script src="../kefu.js"></script>
+<!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

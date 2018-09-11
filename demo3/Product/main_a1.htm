@@ -1,0 +1,281 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var classid = 0, pagesize = 16, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetUserInfo,GetProductListInfo_demo3", para = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+    <style type="text/css">
+       .ms-menu{min-height:700px;}
+       /*分类*/
+       .pg-classify ul{width:100%;margin:0px;padding:0px;list-style:none;}
+       .pg-classify ul li{position:relative;width:100%;float:left;padding:15px 0px;border-bottom:1px dotted #e5e5e5;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;cursor:pointer;}
+       .pg-classify ul li:last-child{border-bottom:0px none;}
+       .pg-classify ul li .title{color:#666;position:absolute;margin-left:4px;padding-right:20px;font-weight:bold;font-size:15px;border-right:1px solid #e5e5e5;border-bottom:0px none;}
+       .pg-classify ul li ul{margin-left:9%;width:92%;font-size:12px}
+       .pg-classify ul li ul li{width:10%;cursor:pointer;margin:4px 0px;text-align:left;border-bottom:0px none;padding:0px;}
+       .pg-classify ul li ul .li-choose a{background:#3d9ed1;color:#fff;padding:1px 6px}
+       /*列表菜单*/
+       .pg-lists-menu{margin:-7px -12px;padding:0px;list-style:none;height:30px;line-height:30px;border-bottom:2px solid #eee;}
+       .pg-lists-menu li{cursor:pointer;float:left;width:60px;text-align:center;padding-left:10px;padding-right:10px;border-right:1px solid #eee;}
+       .pg-lists-menu li:first-child{border-left:0px none;}
+       .pg-lists-menu .li-choose {font-weight:bold;color:#3d9ed1;border-bottom:2px solid #3d9ed1;}
+       /*列表*/
+       .pg-lists{min-height:513px;}
+       .pg-lists-list{padding-top:12px;}
+       .pg-lists-list ul{margin:0px;padding:0px;list-style:none;margin-top:8px;}
+       .pg-lists-list ul li{float:left;width:24.2%;margin:0.5%;margin-right:0px;margin-top:0px;}.pg-lists-list ul li{float:left;width:24。2%;margin:0.5%;margin-right:0px;margin-top:0px;}
+       .pg-lists-pro{position:relative;height:190px;border:1px solid #fff;overflow:hidden}
+       .pg-lists-pro:hover{border:1px solid #dc3535;cursor:pointer}
+       .pg-lists-pro img{width:100%;height:100%}
+       .pg-lists-pro .box{position:absolute;width:100%;bottom:0;color:#fff;background:rgba(0,0,0,0.7);height:35px}
+       .pg-lists-pro .box-title{margin-left:10px;height:35px;line-height:35px}
+       .pg-lists-pro .box-money{position:absolute;background:#dc3535;width:60px;height:35px;line-height:35px;text-align:center;font-weight:bold;right:0;bottom:0}
+       .pg-lists-more{text-align:center;border:1px solid #e5e5e5;margin:15px;height:30px;line-height:30px;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangShop"><!--购物--></h3>
+    <ul>
+    <script src="menu_product.js"></script>
+        <!--<li class="main"><a href="../Product/main">产品列表</a></li>
+        <li class="report"><a href="../Product/report">结算购物</a></li>
+        <li class="order"><a href="../Product/order">我的订单</a></li>
+        <li class="place"><a href="../Product/place">收货地址</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="mn-box pg-classify" style="margin-top:0px; display:none;">
+                <ul>
+                    <li>
+                        <label class="title">分类</label>
+                        <ul class="pg-classifys">
+                            <li onclick="pck.setClassify(this, -1)" class="li-choose li-classify-none"><a>不限</a></li>
+                                <li onclick="pck.setClassify(this, 10)" class="li-classify-10"><a title="家用电器">家用电器</a></li>
+                                <li onclick="pck.setClassify(this, 11)" class="li-classify-11"><a title="手机数码">手机数码</a></li>
+                                <li onclick="pck.setClassify(this, 12)" class="li-classify-12"><a title="电脑办公">电脑办公</a></li>
+                                <li onclick="pck.setClassify(this, 13)" class="li-classify-13"><a title="家具家具">家具家具</a></li>
+                                <li onclick="pck.setClassify(this, 14)" class="li-classify-14"><a title="男装女装">男装女装</a></li>
+                                <li onclick="pck.setClassify(this, 15)" class="li-classify-15"><a title="个人化妆">个人化妆</a></li>
+                                <li onclick="pck.setClassify(this, 16)" class="li-classify-16"><a title="鞋靴箱包">鞋靴箱包</a></li>
+                                <li onclick="pck.setClassify(this, 17)" class="li-classify-17"><a title="运动户外">运动户外</a></li>
+                                <li onclick="pck.setClassify(this, 18)" class="li-classify-18"><a title="汽车用品">汽车用品</a></li>
+                                <li onclick="pck.setClassify(this, 19)" class="li-classify-19"><a title="食品酒类">食品酒类</a></li>
+                                <li onclick="pck.setClassify(this, 20)" class="li-classify-20"><a title="营养保健">营养保健</a></li>
+                                <li onclick="pck.setClassify(this, 21)" class="li-classify-21"><a title="图书音像">图书音像</a></li>
+                                <li onclick="pck.setClassify(this, 22)" class="li-classify-22"><a title="票务充值">票务充值</a></li>
+                                <li onclick="pck.setClassify(this, 23)" class="li-classify-23"><a title="理财众筹">理财众筹</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label class="title">价格</label>
+                        <ul class="pg-prices">
+                            <li onclick="pck.setPrice(this, 0, 999999)" class="li-choose li-price-none"><a>全部</a></li>
+                            <li onclick="pck.setPrice(this, 0, 99)" class="li-price-0"><a>0~99</a></li>
+                            <li onclick="pck.setPrice(this, 100, 499)" class="li-price-100"><a>100~499</a></li>
+                            <li onclick="pck.setPrice(this, 500, 999)" class="li-price-500"><a>500~999</a></li>
+                            <li onclick="pck.setPrice(this, 1000, 2999)" class="li-price-1000"><a>1000~2999</a></li>
+                            <li onclick="pck.setPrice(this, 3000, 4999)" class="li-price-3000"><a>3000~4999</a></li>
+                            <li onclick="pck.setPrice(this, 5000, 9999)" class="li-price-5000"><a>5000~9999</a></li>
+                            <li onclick="pck.setPrice(this, 10000, 999999)" class="li-price-10000"><a>10000~</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div style="clear:both"></div>
+            </div>
+            <div class="mn-box pg-lists">
+                <ul class="pg-lists-menu" style=" display:none;">
+                    <li onclick="pck.setOrder(this,0)" class="li-choose li-order-0">默认</li>
+                    <li onclick="pck.setOrder(this,1)" class="li-order-1">价格</li>
+                    <li onclick="pck.setOrder(this,2)" class="li-order-2">人气</li>
+                </ul>
+                <div class="pg-lists-list">
+                    <ul class="boxProductList"></ul>
+                    <ul style=" display:none;">
+                            <li class="pg-lists-pro">
+                                <a target="_blank" href="../Product/10000003.html">
+                                    <img alt="" src="/service/cms.ashx?key=596390D919B37DEE253E339B025A9B&amp;sign=NW5tZWE2WHVvQkxnQ3g5K0tjZTBpUT09&amp;reduce=150" />
+                                    <div class="box">
+                                        <div class="box-title">PINK瘦身小熊</div>
+                                        <div class="box-money">3200.00 元</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="pg-lists-pro">
+                                <a target="_blank" href="../Product/10000002.html">
+                                    <img alt="" src="/service/cms.ashx?key=A53C0ADBCA5CA3ADB26342DFABEF9C&amp;sign=YTRvZTFMZEFkRjZKK0RUeENmdmNQZz09&amp;reduce=150" />
+                                    <div class="box">
+                                        <div class="box-title">PINK瘦身小熊</div>
+                                        <div class="box-money">298.00 元</div>
+                                    </div>
+                                </a>
+                            </li>
+                    </ul>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="boxPages" class="pg-paging" style="margin-bottom:17px;"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="24" />
+<input type="hidden" class="HD_COUNT" value="2" />
+<input type="hidden" class="HD_PRICEMIN" value="0" />
+<input type="hidden" class="HD_PRICEMAX" value="999999" />
+<input type="hidden" class="HD_CLASSIFY" value="-1" />
+<input type="hidden" class="HD_ORDER" value="0" />
+<input type="hidden" class="HD_KEYWORD" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        keyword: null,
+        classify: 0,
+        pricemin: 0,
+        pricemax: 999999,
+        page: 0,
+        size: 0,
+        count: 0,
+        order: 0,
+        //设置行业
+        setClassify: function (elm, id) {
+            m.node(".pg-classifys li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.classify = id;
+            this.page = 0;
+            this.search();
+        },
+        //设置价格
+        setPrice: function (elm, min, max) {
+            m.node(".pg-prices li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.pricemin = min;
+            this.pricemax = max;
+            this.page = 0;
+            this.search();
+        },
+        //设置排序
+        setOrder: function (elm, id) {
+            m.node(".pg-lists-menu li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.order = id;
+            this.page = 0;
+            this.search();
+        },
+        //重新搜索
+        search: function () {
+            m.redirect('/Product?keyword=' + this.keyword + "&classify=" + this.classify + "&pricemax=" +
+                this.pricemax + "&pricemin=" + this.pricemin + "&order=" + this.order + "&page=" + this.page);
+        },
+        //加载页面
+        init: function () {
+            this.keyword = m.node(".HD_KEYWORD").value();
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.classify = mtopt.parse.toInteger(m.node(".HD_CLASSIFY").value());
+            this.pricemin = mtopt.parse.toInteger(m.node(".HD_PRICEMIN").value());
+            this.pricemax = mtopt.parse.toInteger(m.node(".HD_PRICEMAX").value());
+            this.order = mtopt.parse.toInteger(m.node(".HD_ORDER").value());
+            //设置行业标记
+            m.node(".pg-classifys li").removeClass("li-choose");
+            if (this.classify <= 0) {
+                m.node(".li-classify-none").addClass("li-choose");
+            }
+            else {
+                m.node(".li-classify-" + this.classify).addClass("li-choose");
+            }
+            //设置价格标记
+            m.node(".pg-prices li").removeClass("li-choose");
+            if (this.pricemin <= 0 && this.pricemax >= 999999) {
+                m.node(".li-price-none").addClass("li-choose");
+            }
+            else {
+                m.node(".li-price-" + this.pricemin).addClass("li-choose");
+            }
+            //设置排序标记
+            m.node(".pg-lists-menu li").removeClass("li-choose");
+            m.node(".li-order-" + this.order).addClass("li-choose");
+        }
+    }
+    //pck.init();
+    m.event("ready").add(function () {
+        m.node(".ms-menu .main").addClass("choose");
+        m.node(".mn-meter-menu .product").addClass("choose");
+        //分页
+        var paging = m.node(".pg-paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

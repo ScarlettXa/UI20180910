@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>修改资料</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+      var getType = "info", getName = "GetUserInfo", para = "", actName = "myInfoModi", chkPwd2Flag = 1;
+      var id1 = 0;
+      var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+    //ajax更换会员编号
+    function changeUserName() {
+
+    }      
+  </script>
+  <script type="text/javascript" src="/js/utils.js"></script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>  
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Member/m-member.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangModifyData">
+       修改资料
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom:56px">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="am-tabs-bd">
+        <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormMyInfoModi()">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+           <ul class="liebiao2">
+           		<li>
+                 <span class="ajaxuserName"></span>
+                <i class="ajaxlangUserName"><!-- 真实姓名 --></i>
+              </li>
+
+              <li>
+                <span class="ajaxtrueName"></span>
+                <input id="txtTrueName" type="hidden" class="m-text-ipt ajaxtrueNameInput" />
+                <i class="ajaxlangName"><!-- 真实姓名 --></i>
+              </li>
+
+              <li>
+                <span class="ajaxidCard"></span>
+                <i class="ajaxlangIDCard"><!-- 身份证号 --></i>
+              </li>
+
+              <li>
+                <iframe id="iframepic1" src="" frameborder="0"  width="100%" height="250" scrolling="no"></iframe>
+                <i class="">身份证正面</i>
+              </li>
+
+              <li>
+                <iframe id="iframepic2" src="" frameborder="0"  width="100%" height="250" scrolling="no" ></iframe><i class="">身份证反面</i>
+              </li>
+
+              <li>
+                <iframe id="iframepic3" src="" frameborder="0"  width="100%" height="250" scrolling="no" ></iframe>
+                <i class="">手持身份证</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selBank" class="m-text-ipt"></select>
+                </span>
+                <i class="ajaxlangBank"><!--银行名称：--></i>
+              </li>
+
+              <li>
+                <span class="ajaxbankUser"></span>
+                <input id="txtBankUser" type="hidden" class="m-text-ipt ajaxbankUserInput" />
+                <i class="ajaxlangBankUser"><!--开户名：--></i>
+              </li>
+
+              <li>
+                <span><input id="txtBankNumber" style="width:230px;background-color: rgb(250, 255, 189);" type="text" class="ajaxbankNumberInput" /></span>
+                <i class="ajaxlangBankAccount"><!--银行账号：--></i>
+              </li>
+
+              <li style="height:120px;align-items: left">
+                  <span>
+                    <span id="reg_notice2"  style=" color:Red;"></span>
+                    <select  id="selProvince2" onChange="provincechange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:160px;" ></select>
+                    <select  id="selCity2" onChange="citychange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:160px;" ></select>
+                    <select  id="selArea2" style="width:160px;">
+                    </select>
+                    <input name="txtBankAddress" type="text"  maxlength="30" id="txtBankAddress" class="ajaxbankAddressInput" />
+                  </span>
+                  <i class="ajaxlangBankAddress"><!--开户地址：--></i>:
+              </li>
+
+              <li>
+                <span>
+                  <input id="txtPostCode" style="width:230px;background-color: rgb(250, 255, 189);" maxlength="6" type="text" class="m-text-ipt ajaxpostCodeInput" />
+                </span>
+                <i class="ajaxlangPostcode"><!-- 邮编 --></i>
+              </li>
+
+              <li>
+                <span>
+                  <input id="txtAlipayNumber" maxlength="30" type="text" class="m-text-ipt ajaxalipayNumberInput" />
+                </span>
+                <i class="ajaxlangAlipay"><!-- 支付宝 --></i>
+              </li>
+
+              <li>
+                <span>
+                  <input id="txtQQ" style="width:230px;background-color: rgb(250, 255, 189);" type="text" maxlength="15" class="m-text-ipt ajaxqqInput" />
+                </span>
+                <i class="">QQ：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input id="txtwxid" type="text" maxlength="30" class="m-text-ipt ajaxwxidInput" />
+                </span>
+                <i class="ajaxlangWeChat"><!-- 微信 --></i>
+                
+              </li>
+
+              <li style=" display:none;">
+                   <span id="reg_notice1"  style=" color:Red;"></span>
+                   <select id="selProvince" class="selector" onChange="provincechange('selProvince','selCity','selArea','reg_notice1')" style="width:140px;">
+                   </select><br />
+                   <select id="selCity" onChange="citychange('selProvince','selCity','selArea','reg_notice1')" style="width:160px;">
+                   </select> <br />
+                   <select id="selArea" style="width:160px;">
+                   </select><br />
+                   <input name="txtAddress" type="text" value="" maxlength="30" id="txtAddress" class="span4 ajaxaddressInput" />
+                   <i class="ajaxlangAddress"><!--  --></i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPwd" type="password" maxlength="20" id="txtPwd" class="m-text-ipt" />
+                </span>
+                <i class="ajaxlangSecurityPassword"><!-- 二级密码 --></i>
+              </li>
+
+              <li>
+                <span class="">
+                <input id="txtEmail" style="width:230px;background-color: rgb(250, 255, 189);" maxlength="30" type="text" class="m-text-ipt ajaxemailInput" />
+                </span>
+                <i class="">Email：</i>
+              </li>
+
+              <li>
+                <span>
+                  <div class="ajaxmob" style="display:none"></div>
+                  <input id="txtMob" maxlength="11" type="text" class="ajaxmobInput" />
+                </span>
+                <i class="ajaxlangMobileNumber"><!-- 手机 --></i>
+              </li>
+
+              <li style="display:none;">
+                <span>
+                  <input id="CodeType1" name="CodeType" type="radio"  value="1" checked />
+                  <span class="ajaxlangMobilePhone">手机</span>
+                </span>
+                <span>
+                  <input id="CodeType2" name="CodeType" type="radio"  value="2" />
+                  <span class="ajaxlangEmail">邮箱</span>
+                </span>
+                <i class="ajaxlangVerifiyMode"><!--  --></i>
+              </li>
+
+              <li>
+                <span>
+                  <input type="text" id="txtmobilecode" class="paw_inp" style="width:150px;background-color: rgb(250, 255, 189);" maxlength="6" value="" />
+                  <a href="#infoMobileCode" id="btnGetMobileCode" class="yanzhengma ajaxlangGetVerificationCode"></a>
+                  <span id="infoMobileCode"></span>
+                  <input type="hidden" id="txtmodi" value="1" />
+                </span>
+                <i class="ajaxlangValidCode"><!--验证码：--></i>
+              </li>
+           </ul>
+           <div class="sousuo">
+              <button id="BtnSave" type="submit" class="sousuo-btn ajaxlangSubmit"></button>
+				    </div>   
+          </div>
+        </form>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+    $("#btnGetMobileCode").click(function () {
+          sendMobileCode('txtMob', 'infoMobileCode');
+      });
+    window.onload = function () {
+      $("#txtMob").val($(".ajaxmob").html());
+    }
+    document.getElementById("iframepic1").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=1';
+    document.getElementById("iframepic2").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=2';
+    document.getElementById("iframepic3").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=3';
+</script>
+</html>

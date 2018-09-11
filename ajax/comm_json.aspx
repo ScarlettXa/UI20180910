@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="comm_json.aspx.cs" Inherits="direct_demo.ajax.comm_json" %>

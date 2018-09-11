@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+<script type="text/javascript" language="javascript">
+    var getType = "info", getName = "GetUserInfo,GetNewsList_demo3list,GetMenuInfo_demo3_2", para = "", actName = "", chkPwd2Flag = 0;
+    var classid = 3, pagesize = 10;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=1"></script>
+
+    <style type="text/css">
+       .ms-info,
+       .ms-menu{min-height:700px;}
+       .pg-lists{margin:8px 0 0 35px;padding:0;list-style:decimal}
+       .pg-lists li{position:relative;height:28px;line-height:28px}
+       .pg-lists li .time{position:absolute;top:0;right:8px;color:#888}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangNotice"><!--公告--></h3>
+    <ul class="ajaxmenuAbout"></ul>
+</div>
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                    <ul class="pg-lists" id="boxList">
+                          <!--  <li><a href="../Notice/show.htm?id=1">test</a><label class="time">2015/11/21 19:22:30</label>
+                            </li>-->
+                    </ul>
+                <div class="m-paging pg-paging" id="boxPages"></div>
+                <!--隐藏域开始-->
+                <input type="hidden" class="HD_PAGE" value="0" />
+                <input type="hidden" class="HD_SIZE" value="20" />
+                <input type="hidden" class="HD_COUNT" value="1" />
+                <input type="hidden" class="HD_CLASSIFY" value="-1" />
+                <!--隐藏域结束-->
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        classify: 0,
+        search: function () {
+            m.redirect('/Notice/main?classify=' + this.classify + '&page=' + this.page);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.classify = mtopt.parse.toInteger(m.node(".HD_CLASSIFY").value());
+        }
+    }
+    pck.init();
+    //系统加载
+    m.event("ready").add(function () {
+        m.node(".mn-meter-menu .notice").addClass("choose");
+        var paging = m.node(".pg-paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

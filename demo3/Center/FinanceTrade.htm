@@ -1,0 +1,237 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetFinanceTradeList,GetUserInfo", para = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para');
+    date1 = getUrlParam('addtime');
+</script>
+
+    <style type="text/css">
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .form-item2 tr{height:56px;line-height:28px;}
+        .form-item2 td{padding-left:5px;text-align:center;}
+        .form-item2 td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangBusiness"><!--业务--></h3>
+    <ul>
+    <script src="menu_center.js"></script>
+        <!--<li class="register"><a href="../Center/register.htm">注册会员</a></li>
+        <li class="centerlists"><a href="../Center/centerlists.htm">会员审核</a></li>-->
+        <!--<li class="nofulllists"><a href="../Center/nofulllists.htm">空点会员</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangRegularFinance"><!--定期理财--></div>
+                           <table class="form" cellpadding="0" cellspacing="0">
+                               <thead>
+                                <tr class="form-title">
+                                    <td class="ajaxlangNumber"><!--序号--></td>
+                                    <td class="ajaxlangAmount"><!--金额--></td>
+                                    <td class="ajaxlangDays"><!--天数--></td>
+                                    <td class="ajaxlangDate"><!--日期--></td>
+                                    <td class="ajaxlangDaysRemaining"><!--剩余天数--></td>
+                                    <td class="ajaxlangAnnualInterestRate"><!--年利率--></td>
+                                    <td class="ajaxlangStatus"><!--状态--></td>
+                                </tr>
+                                </thead>
+                                <tbody id="boxList" class="form-item2"></tbody>
+                             </table>  
+                <div class="paging" id="boxPages"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="9" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        memberid: null,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.memberid = m.node("#search_id").plugin("text").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Center/centerlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //删除会员
+        del: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_del", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("删除成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("删除失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //审核会员
+        audit: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_audit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("审核成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("审核失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.memberid = m.node(".HD_MEMBERID").value();
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        m.node(".ms-menu .financetrade").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+      <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>我要付款</title>
+    <link href="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "info", getName = "GetUserInfo,GetMemberInfo", id1, para = "", actName = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    id1 = getUrlParam('id');
+</script>
+
+    <style type="text/css">
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangBusiness"><!--业务--></h3>
+    <ul>
+    <script src="menu_center.js"></script>
+        <!--<li class="register"><a href="../Center/register.htm">注册会员</a></li>
+        <li class="centerlists"><a href="../Center/centerlists.htm">会员审核</a></li>-->
+        <!--<li class="nofulllists"><a href="../Center/nofulllists.htm">空点会员</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">我要付款</div>
+  <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">会员编号：</td>
+                        <td class="ajaxuserName2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">手机：</td>
+                        <td class="ajaxmob2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">支付宝：</td>
+                        <td class="ajaxalipayNumber2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">开户行：</td>
+                        <td class="ajaxbank2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">开户行地址</td>
+                        <td class="ajaxbankAddress2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">卡号</td>
+                        <td class="ajaxbankNumber2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">收款人</td>
+                        <td class="ajaxbankUser2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">付款金额</td>
+                        <td class="ajaxpayAmount"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">已付款凭证</td>
+                        <td id="boxUpload">
+                           <iframe id="iframepic" src="" frameborder="0"  width="100%" scrolling="no" onload="setiFrameHeight('iframepic')"></iframe>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <!--<input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认注册" style="width:75px" />-->
+                            <!--<input id="BtnSave" type="submit" class="m-btn m-btn-blue" value="确认注册" style="width:75px" />-->
+                             <!--<input id="btnReturn" type="button" value="提交" class="m-btn m-btn-blue"    onclick="javascript:history.back(-1); " />-->
+                             <input id="btnOk" type="button" value="提交" class="m-btn m-btn-blue" />
+                        </td>
+                    </tr>
+                </table>
+              
+                
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="9" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+
+    $("#btnOk").click(function () {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetHelpPay&id=" + helpid + "&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            if (data.picFlag == "1")
+                location.href = "/demo3/home/main.htm";
+            else
+                mbox("请上传凭证");
+        }
+        else {
+            alert(data.errInfo);
+        }
+    }
+);
+    });
+    
+    m.event("ready").add(function () {
+        m.node(".ms-menu .centerlists").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+    });
+
+
+    var helpid;
+    helpid = getUrlParam('helpid');
+    
+    window.onload = function () {
+//document.getElementById("boxUpload").innerHTML = '<iframe id="iframepic" src="' + ajaxUrl + '/ajax/uploadFrm.aspx?helpid=' + helpid + '" frameborder="0" scrolling="no" style="width: 500px; height: 150px;"  onload=setiFrameHeight("iframepic")></iframe>';
+        document.getElementById("iframepic").src = ajaxUrl + '/ajax/uploadFrm.aspx?helpid=' + helpid;
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetHelpPay&id=" + helpid + "&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            $(".ajaxpayAmount").html(data.m1);
+        }
+        else {
+            alert(data.errInfo);
+        }
+    }
+);
+    }
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

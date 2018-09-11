@@ -1,0 +1,339 @@
+/*----------------------------------
+			Seal Popin
+-----------------------------------*/
+
+.seal-popin {
+	/*border: 8px solid #ccdce3;*/
+	border: 8px solid #baa769;
+	background-color: #fff;
+	width: 521px;	
+	padding: 20px;
+	font-family: arial;
+	margin: auto;
+}
+
+.seal-main-container {
+	border: 1px solid #d9c087;
+	background-color: #fff;
+	font-size: 11px;
+	padding: 20px 20px 8px;
+	position: relative;
+	height: 1%;
+}
+
+.seal-main-container a.close-popin,
+.seal-main-container a.close-popin:link,
+.seal-main-container a.close-popin:visited {
+	background-image: url(../images/background/seal-transparent-sprite.gif);
+	background-position: 0 0;
+	height: 15px;
+	width: 15px;
+	display: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.seal-main-container a.close-popin span {
+	display: none;
+}
+
+.seal-main-container a,
+.seal-main-container a:link,
+.seal-main-container a:visited {
+	text-decoration: underline;
+	color: #2f87e7;
+}
+
+.seal-main-container a:hover {
+	text-decoration: none;
+}
+
+h1.verified,
+h1.certified {
+	
+	height: 37px;
+	margin: 0;
+	padding: 0;
+	font-size: 42px;
+	font-family: trebuchet ms, verdana, arial, sans-serif;
+	line-height: 1;
+	font-weight: normal;
+}
+
+h1.verified {
+	background-position: -312px -37px;
+	width: 100%;
+}
+
+h1.certified {
+	background-position: -312px 0;
+	width: 171px;
+}
+
+h1.certified span,
+h1.verified span {
+	display: none;
+}
+
+h2.secured-by {
+	font-size: 18px;
+	font-family: trebuchet ms, verdana, arial, sans-serif;
+	margin: 0;
+	padding: 13px 0;
+	line-height: 1;
+}
+
+.seal-main-container h3 {
+	margin: 0;
+	padding: 0 0 2px;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.seal-main-container p {
+	clear: both;
+	margin: 0 0 13px;
+	padding: 0;
+	line-height: 13px;
+}
+
+* html .seal-main-container p {
+	zoom: 1;
+}
+
+.seal-main-container ul {
+	list-style-type: disc;
+	padding: 0 15px 0px;
+	margin: 0;
+	line-height: 13px;
+}
+
+.seal-main-container ul li {
+	padding-bottom: 15px;
+}
+
+.seal-main-container dl {
+	margin: 0 0 15px;
+	padding: 0;
+	height: 1%;
+}
+
+.seal-main-container dl dt {
+	width: 151px;
+	float: left;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+
+.seal-main-container dl dd {
+	width: 298px;
+	float: left;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+
+.cert-provider-logo {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.cert-type {
+	font-size: 18px;
+	font-family: trebuchet ms, verdana, arial, sans-serif;
+	background-color: #e7dec0;
+	text-align: center;
+	padding: 5px 0;
+	margin: 0 -12px 10px;
+}
+
+ul.print-link {
+	list-style-type: none;
+	margin: 0 -7px;
+	padding: 0;
+	height: 1%;
+}
+
+ul.print-link li {
+	display: inline;
+	padding: 0 5px 0 0;
+	margin: 0;
+	float: left;
+}
+
+/*----------------------------------
+		  End Seal Popin
+-----------------------------------*/
+
+/*----------------------------------
+			Blue Popin
+-----------------------------------*/
+
+.protect-site-popin {
+	border: 8px solid #ccdce3;
+	width: 550px;	
+}
+
+.protect-site-popin-middle {
+	border: 1px solid #fff;
+	background-image: url(../images/background/seal-bg.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-color: #fefeff;
+	min-height: 421px;
+	height: auto !important;
+	height: 421px;
+	
+	position: relative;
+	font-family: arial;
+	font-size: 12px;
+	line-height: 1;
+}
+
+.protect-site-popin-middle a,
+.protect-site-popin-middle a:link,
+.protect-site-popin-middle a:visited {
+	text-decoration: underline;
+	color: #2f87e7;
+}
+
+.protect-site-popin-middle a:hover {
+	text-decoration: none;
+}
+
+a.print-link,
+a.print-link:link,
+a.print-link:visited {
+	position: absolute;
+	top: 4px;
+	left: 4px;	
+}
+
+a.close-popin,
+a.close-popin:link,
+a.close-popin:visited {
+	background-image: url(../images/background/seal-transparent-sprite.png);
+	background-position: 0 0;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+a.close-popin span {
+	display: none;
+}
+
+.protect-site-popin-middle h1 {
+	font-family: trebuchet ms;
+	margin: 28px 0 40px 28px;
+	padding: 0;
+	font-size: 44px;
+	font-weight: normal;
+	background-image: url(../images/background/seal-sprite.png);
+	background-position: 0 -156px;
+	width: 253px;
+	height: 38px;
+}
+
+.protect-site-popin-middle h1 span {
+	display: none;
+}
+
+ul.protect-site-list {
+	margin: 0 36px 0 28px;
+	padding: 0;
+	list-style: none;
+}
+
+ul.protect-site-list li {
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 17px;
+	height: 1%;
+	clear: both;
+}
+
+.clear-fix:after,
+ul.protect-site-list li:after {
+	content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 1px;
+    clear: both;
+}
+
+ul.protect-site-list li h2 {
+	margin: 0;
+	padding: 0 0 5px;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1;
+}
+
+.seal-icon {
+	width: 78px;
+	height: 78px;
+	float: left;
+	background-image: url(../images/background/seal-sprite.png);
+}
+
+.seal-icon span {
+	display: none;
+}
+
+.seal-text {
+	float: right;
+	width: 385px;
+}
+
+.certified {
+	background-position: 0 0;
+}
+
+.private {
+	background-position: -78px 0;
+}
+
+.secure {
+	background-position: -156px 0;
+}
+
+.safe {
+	background-position: -234px 0;	
+}
+
+a.protect-site-button,
+a.protect-site-button:link,
+a.protect-site-button:visited {
+	display: block;
+	background-image: url(../images/background/seal-sprite.png);
+	background-position: 0 -78px;
+	width: 277px;
+	height: 77px;
+	margin: 0 auto 20px;
+}
+
+a.protect-site-button span {
+	display: none;
+}
+
+.verified-by {
+	color: #898989;
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 10px
+}
+
+.cert-container {
+	height:765px;
+	margin: 3px auto 0;
+	position: relative;
+	width: 536px;
+}
+
+

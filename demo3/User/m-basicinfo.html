@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>修改资料</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="../../assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="../../assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/js/amazeui.min.js"></script>
+  
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>  
+
+
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Member/m-member.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangAccountInfo">
+       <!--账户资料-->
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom:56px">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="am-tabs-bd">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+           <ul class="liebiao2">
+           		<li><span class="ajaxtrueName"></span><i class="ajaxlangName"><!--真实姓名：--></i></li>
+              <li><span class="ajaxidCard"></span><i class="ajaxlangIDCard"><!--身份证：--></i></li>
+              <li><span class="ajaxbank"></span><i class="ajaxlangBank"><!--所属银行：--></i></li>
+              <li><span class="ajaxbankNumber"></span><i class="ajaxlangBankAccount"><!--银行卡号：--></i></li>
+              <li><span class="ajaxbankAddressAll"></span><i class="ajaxlangBankAddress"><!--开户行地址：--></i></li> 
+              <li><span class="ajaxbankUser"></span><i class="ajaxlangBankUser"><!--开户人：--></i></li> 
+              <li><span class="ajaxmob"></span><i class="ajaxlangMobileNumber"><!--手机：--></i></li> 
+              <li>
+                <span class="ajaxalipayNumberInput">
+                  <input id="txtAlipayNumber" maxlength="30" type="text" class="m-text-ipt ajaxalipayNumberInput" />
+                </span><i class="ajaxlangAlipay"><!--支付宝：--></i>
+              </li> 
+              <li><span class="ajaxemail"></span><i class="ajaxlangEmail"><!--邮箱：--></i></li> 
+              <li><span class="ajaxpostCode"></span><i class="ajaxlangPostcode"><!--邮编：--></i></li> 
+              <li><span class="ajaxaddress"></span><i class="ajaxlangAddress"><!--地址：--></i></li> 
+              <li><span class="ajaxtj"></span><i class="ajaxlangRecommended"><!--推荐人：--></i></li> 
+              <li><span class="ajaxregDate"></span><i class="ajaxlangRegDate"><!--创建时间：--></i></li>
+           </ul>
+          <!--  <div class="sousuo">
+				    	<button class="sousuo-btn">提 交</button>
+				    </div>    -->
+          </div>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+</script>
+</html>

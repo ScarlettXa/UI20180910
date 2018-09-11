@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>我的推荐</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css?timeStamp=1696026525">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script> 
+  
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+      var id1 = 0, classid = 0, pagesize = 5, pagecount = 1, rscount = 1;
+      var getType = "list", getName = "getMyMemberList,GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+      var _pageindex = 1;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" language="javascript">
+      para = getUrlParam('para');
+  </script>
+
+  <link href="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery.jorgchart/jquery.jorgchart.css" rel="stylesheet" />
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery.jorgchart/jquery.jorgchart.js"></script>
+
+  <style type="text/css">
+        .ms-menu {
+            min-height: 700px;
+        }
+
+        .menu {
+            border-bottom: 1px dashed #eee;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+            .menu .td-title {
+                width: 65px;
+                height: 38px;
+                text-align: right;
+                padding-right: 5px;
+                font-weight: bold;
+            }
+
+            .menu .td-value {
+                width: 105px;
+            }
+
+                .menu .td-value .m-text,
+                .menu .td-value .m-select,
+                .menu .td-value .m-date-ipt {
+                    width: 100px;
+                    height: 24px;
+                }
+
+        .ms-info .jOrgChart table {
+            width: 100%;
+        }
+
+        .ms-info .jOrgChart .down {
+            background: #888;
+        }
+
+        .ms-info .jOrgChart .top {
+            border-top: 2px solid #888;
+        }
+
+        .ms-info .jOrgChart .left {
+            border-right: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .right {
+            border-left: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .node {
+            background-color: #fcfcfc;
+            color: #888;
+            border: 3px solid #888;
+            border-radius: 3px;
+            margin: 0 6px;
+            width: 110px;
+            height: 107px;
+            padding: 5px 8px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+
+            .ms-info .jOrgChart .node p {
+                font-size: 13px;
+                margin: 0px;
+                padding: 4px 0px;
+                text-align: left;
+                border-bottom: 1px dashed #eee;
+            }
+
+                .ms-info .jOrgChart .node p:last-child {
+                    border-bottom: 0px none;
+                }
+
+        .ms-info .jOrgList {
+            margin: 0px;
+            padding: 0px;
+            list-style: square;
+            margin-left: 30px;
+            height: auto;
+            border-left: 1px dashed #ddd;
+        }
+
+            .ms-info .jOrgList li {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 1px dashed #ddd;
+                color: #888;
+                padding-left: 10px;
+            }
+
+                .ms-info .jOrgList li ul {
+                    list-style: decimal;
+                }
+
+                .ms-info .jOrgList li label span {
+                    margin-left: 9px;
+                    color: #666;
+                }
+    </style>
+
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Home/m-main.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangMyRecommended">
+       我的推荐
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom: 56px">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <ul class="am-tabs-nav am-cf zy_tit">
+         <li id="recommend" class="am-active"><a onClick="javascript:switchTab('data-tab-panel-0','data-tab-panel-1');">我的推荐 </a></li>
+          <li id="relationship" class="" style="color:black;"><a onClick="javascript:switchTab('data-tab-panel-1','data-tab-panel-0');">会员网体</a></li>
+      </ul>
+      <div id="boxLoading" style="display: block;"><img src="/images/loading.gif?timeStamp=1696026525" width="16" height="16" alt="loading" /></div>
+      <div class="am-tabs-bd" id="boxMain">
+          <div id="data-tab-panel-0" class="am-tab-panel login-quick am-active">
+          <table class="form" style="display: none;" cellpadding="0" cellspacing="0">
+            <thead>
+              <td style=" display:none;"><input id="accountType1" name="accountType" type="radio" checked="checked" value="1" /></td>
+              <tr class="form-title">
+                  <td class="ajaxlangNumber"><!--序号--></td>
+                  <td class="ajaxlangUserName"><!--会员编号--></td>
+                  <td class="ajaxlangName"><!--姓名--></td>
+                  <td class="ajaxlangRecommended"><!--推荐人--></td>
+                  <td class="ajaxlangRegDate" ><!--注册日期--></td>
+                  <td class="ajaxlangActiveDate"><!--激活日期--></td>
+                  <td class="ajaxlangStatus"><!--状态--></td>
+              </tr>
+            </thead>
+            <tbody id="boxList" align="center"></tbody>
+
+          </table>
+           <div class="zy_liebiao">开户币：<span class="ajaxqianBao"></span></div>
+           <div id="myMemberList">
+             <!-- <ul class="liebiao">
+              <li><span>810841</span>序号</li>
+                <li><span>Co，Ltd(刘广龙)</span>卖出用户</li>
+                <li><span>刘广龙</span>姓名</li>
+                <li><span>张三</span>推荐人</li>
+                <li><span>2017-5-20 11:40:56</span>注册日期</li>
+                <li><span>2017-5-20 11:40:56</span>开户日期</li>
+                <li><span><a href="#">已推荐</a></span>状态</li>
+                
+           </ul>
+           <ul class="liebiao">
+              <li><span>810841</span>序号</li>
+                <li><span>Co，Ltd(刘广龙)</span>卖出用户</li>
+                <li><span>刘广龙</span>姓名</li>
+                <li><span>张三</span>推荐人</li>
+                <li><span>2017-5-20 11:40:56</span>注册日期</li>
+                <li><span>2017-5-20 11:40:56</span>开户日期</li>
+                <li><span><a href="#">已推荐</a></span>状态</li>
+                
+           </ul> -->
+           </div>
+           
+           <div class="paging" id="boxPages"></div>
+          </div>
+          <div id="data-tab-panel-1" class="am-tab-panel login-quick">
+             <div id="BoxList"></div>
+             <div id="chart" class="orgChart"></div>
+          	 <!-- <div class="sousuo">
+				    	<button class="sousuo-btn">搜 索</button>
+				    </div> -->     
+          </div>
+          
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="8" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript" language="javascript">
+    getTop('m-recmlists');
+    function switchTab(curTabId,otherTabId) {
+      $("#"+curTabId).addClass('am-active am-in');
+      $("#"+otherTabId).removeClass('am-active am-in');
+      if (curTabId == 'data-tab-panel-0') {
+        $("#recommend").addClass('am-active');
+        $("#relationship").removeClass('am-active');
+
+        getType = "list"; 
+        getName = "getMyMemberList,GetUserInfo";
+        id1 = 0;
+        para = "";
+
+        pck = {
+            page: 0,
+            size: 0,
+            count: 0,
+            memberid: null,
+            level: 0,
+            timestart: null,
+            timeend: null,
+            search: function () {
+                this.level = m.node("#search_level").plugin("select").value();
+                this.memberid = m.node("#search_id").plugin("text").value();
+                this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+                this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+                m.redirect('/Member/recmlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                     + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+            },
+            //加载页面
+            init: function () {
+                this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+                this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+                this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+                this.memberid = m.node(".HD_MEMBERID").value();
+                this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+                this.timestart = m.node(".HD_TIMESTART").value();
+                this.timeend = m.node(".HD_TIMEEND").value();
+            }
+        }
+        pck.init();
+
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+      } else {
+        //会员类表
+        getType = "info";
+        getName = "GetUserInfo";
+        id1 = "";
+        para = "";
+
+        pck = {
+            rootid: "10000",
+            search: function () {
+                this.memberid = m.node("#search_id").plugin("text").value();
+                m.redirect("../Member/netchart?rootid=" + this.rootid);
+            },
+            init: function () {
+                m.node("#btn_enter").click(pck.search);
+            }
+        }
+
+        //加载会员列表
+        $("#BoxList").html('<iframe src="/ajax/netmaptj.aspx" id="frmNetMap" height="1000" width="100%" frameborder="0" scrolling="auto"></iframe>');
+
+        if ($("#netchart").length > 0) {
+            $("#netchart").jOrgChart({
+                chartElement: '#chart',
+                dragAndDrop: true
+            });
+            $("#show-list").click(function (e) {
+                e.preventDefault();
+                $('#list-html').toggle('fast', function () {
+                    if ($(this).is(':visible')) {
+                        $('#show-list').text('Hide underlying list.');
+                        $(".topbar").fadeTo('fast', 0.9);
+                    } else {
+                        $('#show-list').text('Show underlying list.');
+                        $(".topbar").fadeTo('fast', 1);
+                    }
+                });
+            });
+            $('#list-html').text($('#netchart').html());
+            $("#netchart").bind("DOMSubtreeModified", function () {
+                $('#list-html').text('');
+                $('#list-html').text($('#netchart').html());
+                prettyPrint();
+            });
+        }
+        $("#relationship").addClass('am-active');
+        $("#recommend").removeClass('am-active');
+      }
+    }
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        memberid: null,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.memberid = m.node("#search_id").plugin("text").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Member/recmlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.memberid = m.node(".HD_MEMBERID").value();
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+</html>

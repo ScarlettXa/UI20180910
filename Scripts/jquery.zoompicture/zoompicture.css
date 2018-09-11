@@ -1,0 +1,17 @@
+﻿.zoompicture{position:relative;width:400px; height:480px;}
+.zoompicture-lists{position:relative; height:52px; margin-top:1px; background-color:#F1F0F0; padding:6px 5px; width:390px; overflow:hidden;float:left;}
+.zoompicture-lists-scroll{width:14px; height:50px; overflow:hidden; position:relative; float:left; cursor:pointer; }
+.zoompicture-lists-scroll.zoompicture-lists-up , .zoompicture-lists-scroll.zoompicture-lists-up.disabled{background:url(images/back.png) no-repeat;}
+.zoompicture-lists-scroll.zoompicture-lists-down , .zoompicture-lists-scroll.zoompicture-lists-down.disabled{background:url(images/next.png) no-repeat; margin-left:375px; margin-top:-50px;}
+.zoompicture-lists-box {height:50px; width:360px; overflow:hidden; margin-left:0; float:left;}
+.zoompicture-lists-box ul{margin:0px;padding:0px;}
+.zoompicture-lists-box li {height:50px; width:80px; overflow:hidden; float:left; text-align:center;}
+.zoompicture-lists-box li img{width:70px; height:50px;cursor:pointer;}
+.zoompicture-lists-box li#zoompicture_choose img, .zoompicture-lists-box li:hover img{ width:66px; height:46px; border:2px solid #dc3535;}
+/* zoompicture-stage */
+.zoompicture-stage{position:relative; float:left; width:100%; height:400px; overflow:hidden;}
+.zoompicture-stage-midimg{width:100%; height:100%;}
+.zoompicture-stage-choose{width:235px; height:210px;position:absolute; cursor:crosshair; filter:alpha(opacity=15); -moz-opacity:0.15; opacity:0.15; background-color:#000; border:1px solid #fff;}
+/* zoompicture-view */
+.zoompicture-view{position:absolute;border: 1px solid #959595; overflow: hidden;z-index:999;left:0px;}
+.zoompicture-view img{position:absolute;}

@@ -1,0 +1,459 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetShopCarList,GetUserInfo", para = "", actName = "submitShopCar", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para');
+</script>
+    <style type="text/css">
+        .ms-info,
+        .ms-menu{min-height:700px;}
+
+        .form{border-bottom:1px solid #eee;border-right:1px solid #eee;width:100%;}
+        .form td{border-left:1px solid #eee;border-top:1px solid #eee;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;position:relative;}
+        .form-item td:first-child{text-align:left;}
+        .from-icon{width:80px;height:80px;}
+
+        .info{margin-top:15px;width:100%;border-top:1px dashed #eee;padding-top:10px;}
+        .info td {padding-top:18px;}
+        .info .td-title{width:200px;text-align:right;padding-right:6px;}
+        .info .m-text{height:25px;width:150px;}
+        .info .address {list-style:none;margin:0px;padding:0px;}
+        .info .address li{margin-top:6px;cursor:pointer;border:1px solid #ddd;height:25px;width:450px;line-height:25px;padding:0px 5px;}
+        .info .address .li-choose{border-color:#0088cc;color:#0088cc;}
+        .opera{margin-top:15px;width:100%;border-top:1px dashed #eee;padding-top:10px;}
+        .opera .td-span{width:130px;font-size:25px;color:#666;}
+        .opera span{color:#4ab9f3;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangShop"><!--购物--></h3>
+    <ul>
+    <script src="menu_product.js"></script>
+        <!--<li class="main"><a href="../Product/main">产品列表</a></li>
+        <li class="report"><a href="../Product/report">结算购物</a></li>
+        <li class="order"><a href="../Product/order">我的订单</a></li>
+        <li class="place"><a href="../Product/place">收货地址</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+<form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormShopCarSubmit()">
+            <div class="ms-info">
+                <div class="title ajaxlangShoppingCheckout"><!--结算购物--></div>
+                           <table class="form" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr class="form-title">
+                                    <td class="ajaxlangNumber"><!--商品编号--></td>
+                                    <td class="ajaxlangMingCheng"><!--商品名称--></td>
+                                    <td class="ajaxlangPrice"><!--单价--></td>
+                                    <td class="ajaxlangNum"><!--购买数量--></td>
+                                    <td class="ajaxlangAmount"><!--总金额--></td>
+                                    <td class="ajaxlangOperate"><!--操作--></td>   
+                                </tr>
+                            </thead>
+                             <tbody id="boxList"></tbody>
+                 
+                 </table> 
+ <table class="info" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+         <span class="ajaxlangAmount"></span><!--金额合计-->：<span class="cDRed">￥ <span class="ajaxtotalMoney"></span></span> 元 &nbsp;  &nbsp;  &nbsp; 
+         <div id="Div1" style=" display:none;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<table>
+                    <tr>
+                        <td align="right" class="ajaxlangName">
+                            <!--收货人姓名：-->
+                        </td>
+                        <td align="left" class="style1">
+                            
+                            <input type="text" id="txtContactor" maxlength="8" class="ajaxtrueNameInput" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="ajaxlangMobile">
+                            <!--联系电话：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <input type="text" id="txtMob" maxlength="15" value="" class="ajaxmobInput" />
+                        </td>
+                    </tr>
+                   
+                      <tr>
+                        <td align="right" class="ajaxlangAddress">
+                           <!-- 收货地址：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <input type="text" id="txtAddress" maxlength="40" value="" class="ajaxaddressInput" />
+                        </td>
+                    </tr>
+                      <tr>
+                        <td align="right" class="ajaxlangPayMethod">
+                           <!-- 支付方式：-->
+                        </td>
+                        <td align="left" class="style1">
+                            <select id="selPayType">
+                              <option value="0" class="ajaxlangPayMethod"><!--支付方式--></option>
+                              <option value="1" class="ajaxlangAccountBonus"><!--现金账户--></option>
+                              <option value="2" class="ajaxlangAccountHuobei2"><!--消费账户--></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            &nbsp;</td>
+                        <td align="left" class="style1">
+                            <table>
+                        <tr>
+                         <td>
+                               <input type="submit" name="btnPay" value="确认支付" onClick="return confirm('确定要支付该订单吗？');" id="btnPay" class="btn_blue" />
+                            </td>
+                            <td>
+                                <input type="button" name="btnClear" value="清空购物车" id="btnClear" class="btn_blue"  onclick="shopCarClear()"/>
+                            </td>
+                            <td>
+                                <input type="button" name="btnBack" value="继续购物" onClick="javascript:location.href='ProductList.html'" id="btnBack" class="btn_blue" />
+                            </td>
+                           
+                        </tr>
+                    </table>&nbsp;</td>
+                    </tr>
+                </table>
+      </td>
+    </tr>
+</table>   
+            </div>
+</form>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_MONEY" value="998.00" />
+<input type="hidden" class="HD_MONEY_MONEY_REBATE" value="1.00" />
+<input type="hidden" class="HD_MONEY_SCORE_REBATE" value="1.00" />
+<input type="hidden" class="HD_INSIDE" value="54862.00" />
+<input type="hidden" class="HD_INSIDE_MONEY_REBATE" value="1.00" />
+<input type="hidden" class="HD_INSIDE_SCORE_REBATE" value="1.00" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        isok: false,
+        address: 0,
+        money: 0,
+        inside: 0,
+        money_money_rebate: 0,
+        money_score_rebate: 0,
+        inside_money_rebate: 0,
+        inside_score_rebate: 0,
+        buytype: 0,
+        paytype: 0,
+        freight: 0,
+        //购物车增加
+        addcart: function (elm, color, size, id) {
+            var ajax = m.ajax("../Product/api_detail_addcart", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.success) {
+                    var val = m.node(".form-item-" + id + " .data-sum").plugin("text").value();
+                    val = m.parse.toInteger(val) + 1;
+                    m.node(".form-item-" + id + " .data-sum").plugin("text").value(val.toString());
+                    pck.refresh();
+                }
+                else { mpi.news(json.message, 3000); }
+            });
+            ajax.data.add("productid", id);
+            ajax.data.add("color", color);
+            ajax.data.add("size", size);
+            ajax.data.add("sum", 1);
+            ajax.send();
+        },
+        //购物车减少
+        subcart: function (elm, color, size, id) {
+            var ajax = m.ajax("../Product/api_detail_subcart", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.success) {
+                    var val = m.node(".form-item-" + id + " .data-sum").plugin("text").value();
+                    val = m.parse.toInteger(val) - 1;
+                    if (val > 0) {
+                        m.node(".form-item-" + id + " .data-sum").plugin("text").value(val.toString());
+                    }
+                    pck.refresh();
+                }
+                else { mpi.news(json.message, 3000); }
+            });
+            ajax.data.add("productid", id);
+            ajax.data.add("color", color);
+            ajax.data.add("size", size);
+            ajax.data.add("sum", 1);
+            ajax.send();
+        },
+        //购物车重设
+        setcart: function (elm, color, size, id) {
+            var ajax = m.ajax("../Product/api_detail_setcart", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.success) {
+                    pck.refresh();
+                }
+                else { mpi.news(json.message, 3000); }
+            });
+            ajax.data.add("productid", id);
+            ajax.data.add("color", color);
+            ajax.data.add("size", size);
+            ajax.data.add("sum", elm.value);
+            ajax.send();
+        },
+        //购物车删除
+        delcart: function (elm, color, size, id) {
+            mpi.news("正在处理...", 99999);
+            var ajax = m.ajax("../Product/api_detail_delcart", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.success) {
+                    mpi.news("删除成功", 3000);
+                    m.node(elm.parentNode.parentNode).remove(true);
+                    setTimeout(function () { pck.refresh(); }, 1000);
+                }
+                else { mpi.news(json.message, 3000); }
+            });
+            ajax.data.add("productid", id);
+            ajax.data.add("color", color);
+            ajax.data.add("size", size);
+            ajax.send();
+        },
+        //设置地址
+        setAddress: function (elm, id) {
+            m.node(".info .address li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            pck.address = id;
+            pck.refresh();
+        },
+        //刷新页面计数
+        refresh: function () {
+            var sum_money = 0;
+            var sum_score = 0;
+            m.node(".form-item").find(function (obj) {
+                var price = m.parse.toInteger(m.node(".data-price", obj).html());
+                var score = m.parse.toInteger(m.node(".data-score", obj).html());
+                var sum = m.parse.toInteger(m.node(".data-sum", obj).plugin("text").value());
+                //计算
+                sum_money += price * sum;
+                sum_score += score * sum;
+            });
+            if (pck.paytype <= 0) {
+                m.node("#btn_enter").removeClass("m-btn-blue").click(function () { });
+                return;
+            }
+            else {
+                if (pck.paytype == 1) {
+                    sum_money = sum_money * this.money_money_rebate;
+                    sum_score = sum_score * this.money_score_rebate;
+                    m.node("#sum_rebate").html(100 - this.money_money_rebate * 100);
+                }
+                else {
+                    sum_money = sum_money * this.inside_money_rebate;
+                    sum_score = sum_score * this.inside_score_rebate;
+                    m.node("#sum_rebate").html(100 - this.inside_money_rebate * 100);
+                }
+                sum_money += pck.freight;
+                m.node("#sum_money").html(sum_money);
+                m.node("#sum_score").html(sum_score);
+                m.node("#sum_freight").html(pck.freight);
+                if (pck.paytype == 1 && this.money < sum_money) {
+                    m.node("#btn_enter").removeClass("m-btn-blue").click(function () { mpi.news("奖金币不足", 3000) });
+                }
+                else if (pck.paytype == 2 && this.inside < sum_money) {
+                    m.node("#btn_enter").removeClass("m-btn-blue").click(function () { mpi.news("报单币不足", 3000) });
+                }
+                else {
+                    m.node("#btn_enter").addClass("m-btn-blue").click(pck.submit);
+                }
+            }
+            if (pck.isok == true) {
+                pck.isok = false;
+                m.node("#btn_enter").value("确定选择");
+            }
+        },
+        //结算订单
+        submit: function () {
+            var safeword = m.node("#safeword").plugin("text").value();
+            var benefitid = m.node("#benefitid").plugin("text").value();
+            var checkcode = m.node("#checkcode").plugin("text").value();
+            //判断数据
+            if (pck.paytype <= 0) {
+                mpi.news("请选择支付方式", 3000);
+                return;
+            }
+            if (pck.buytype <= 0) {
+                mpi.news("请选择购买方式", 3000);
+                return;
+            }
+            else if (pck.buytype == 1) {
+                if (pck.address <= 0) {
+                    mpi.news("请选择收货地址", 3000);
+                    return;
+                }
+            }
+            else {
+                if (benefitid.length <= 0) {
+                    mpi.news("请输入对方编号", 3000);
+                    return;
+                }
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (checkcode.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            if (pck.isok == false) {
+                m.node("#btn_enter").value("正在计算运费...");
+                var ajax = m.ajax("../Product/api_report_freight", null, function (obj) {
+                    pck.freight = parseFloat(m.parse.toJson(obj).Data);
+                    setTimeout(function () {
+                        pck.refresh();
+                        pck.isok = true;
+                        m.node("#btn_enter").value("立即提交订单");
+                    }, 300);
+                });
+                ajax.data.add("benefitid", benefitid);
+                ajax.data.add("placeid", pck.address);
+                ajax.send();
+                return;
+            }
+            //提交购买请求
+            mpi.confirm("购买确认", "是否确认提交购买订单 ?", function () {
+                var ajax = m.ajax("../Product/api_report_submit", null, function (obj) {
+                    var json = m.parse.toJson(obj);
+                    if (json.Success) {
+                        mpi.news("购买成功正在跳转...", 99999);
+                        setTimeout(function () {
+                            m.redirect("../Product/order");
+                        }, 1000);
+                    }
+                    else { mpi.news(json.Data, 3000); }
+                    m.node("#checkimg").click();
+                });
+                ajax.data.add("benefitid", benefitid);
+                ajax.data.add("paymode", pck.paytype == 1 ? 0 : 1);
+                ajax.data.add("safeword", safeword);
+                ajax.data.add("checkcode", checkcode);
+                ajax.data.add("placeid", pck.address);
+                ajax.send();
+            });
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+            this.money_money_rebate = m.parse.toFloat(m.node(".HD_MONEY_MONEY_REBATE").value());
+            this.money_score_rebate = m.parse.toFloat(m.node(".HD_MONEY_SCORE_REBATE").value());
+            this.inside_money_rebate = m.parse.toFloat(m.node(".HD_INSIDE_MONEY_REBATE").value());
+            this.inside_score_rebate = m.parse.toFloat(m.node(".HD_INSIDE_SCORE_REBATE").value());
+            this.money = m.parse.toFloat(m.node(".HD_MONEY").value());
+            this.inside = m.parse.toFloat(m.node(".HD_INSIDE").value());
+        }
+    }
+    //pck.init();
+    m.event("ready").add(function () {
+        m.node(".ms-menu .report").addClass("choose");
+        m.node(".mn-meter-menu .product").addClass("choose");
+        pck.refresh(); //刷新计数
+        //绑定事件
+        m.node("#buytype_1").click(function () {
+            m.node("#buytype_2_div").hide();
+            m.node("#buytype_1_div").show();
+            pck.buytype = 1;
+            pck.refresh();
+        });
+        m.node("#buytype_2").click(function () {
+            m.node("#buytype_1_div").hide();
+            m.node("#buytype_2_div").show();
+            pck.buytype = 2;
+            pck.refresh();
+        });
+        m.node("#paytype_1").click(function () {
+            pck.paytype = 1;
+            pck.refresh();
+        });
+        m.node("#paytype_2").click(function () {
+            pck.paytype = 2;
+            pck.refresh();
+        });
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

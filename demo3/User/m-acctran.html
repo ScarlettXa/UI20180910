@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>互转门票</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+      var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+      var getType = "info", getName = "GetUserInfo", para = "", actName = "zhuanHuan", chkPwd2Flag = 1;
+      var _pageindex = 1;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Member/m-member.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="">
+       互转门票
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="zy_liebiao"><span class="ajaxlangAccountBonus"></span><!--开户币-->：<span class="ajaxqianBao"></span> <span class="ajaxlangAccountHuobei1"></span><!--门票-->：<span class="ajaxhuobei1"></span></div>
+      <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormZhuanHuan()">
+        <div class="am-tabs-bd">
+            <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+             <ul class="liebiao2">
+             		<li>
+                <span>
+                  <select id="selType" class="styled" data-prompt-position="topLeft:-1,-5">
+                     <option value="1" selected="selected" class="ajaxlangBonusConvertHuobei1"><!--开户币转门票--></option>
+                  </select>
+                </span>类型</li>
+                <li><span><input name="txtMoney" type="text" id="txtMoney" placeholder="" onkeypress="if ((event.keyCode &lt; 48 || event.keyCode > 57) &amp;&amp; (event.keyCode != 46)) event.returnValue = false;"/></span><i class="ajaxlangAmount"><!--转账金额：--></i></li>
+                <li><span><input name="txtPwd" type="password" maxlength="20" id="txtPwd" placeholder=""/></span><i class="ajaxlangSecurityPassword"><!--二级密码：--></i></li>        
+             </ul>
+             <div class="sousuo">
+  				    	<button id="BtnSave" type="submit" class="sousuo-btn ajaxlangSubmit">提 交</button>
+  				    </div>   
+            </div>
+        </div>
+      </form>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+    var pck = {
+        submit: function () {
+            var memberid = m.node("#memberid").plugin("text").value();
+            var type = 0;
+            type = m.node("#type_1").count() > 0 && m.node("#type_1").plugin("radio").value() == true ? 1 : type;
+            type = m.node("#type_2").count() > 0 && m.node("#type_2").plugin("radio").value() == true ? 2 : type;
+            var money = m.node("#money").plugin("text").value();
+            var remarks = m.node("#remarks").plugin("text").value();
+            var safeword = m.node("#safeword").plugin("text").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            if (memberid.length <= 0) {
+                mpi.news("请输入收款人编号", 3000);
+                return;
+            }
+            if (type <= 0) {
+                mpi.news("请选择转账类型", 3000);
+                return;
+            }
+            if (money.length <= 0) {
+                mpi.news("请输入转账金额", 3000);
+                return;
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../User/api_transfer_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("内部转账已成功,正在跳转详情页...", 99999, true);
+                        setTimeout(function () {
+                            m.redirect("../Deal/" + jso.Data + ".html");
+                        }, 1000);
+                        break;
+                    case -10000:
+                        mpi.news("转账处理失败", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("memberid", memberid);
+            ajax.data.add("type", type);
+            ajax.data.add("money", money);
+            ajax.data.add("remarks", remarks);
+            ajax.data.add("safeword", safeword);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    pck.init();
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".ms-menu .acctran").addClass("choose");
+        /*m.node(".mn-meter-menu .user").addClass("choose");*/
+        m.node(".p-left-menu .user").addClass("active");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+</html>

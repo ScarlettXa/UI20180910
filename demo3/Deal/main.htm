@@ -1,0 +1,289 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetMoneyHistoryList,GetUserInfo", para = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para') + '&page=' + getUrlParam('page') + '&type=' + getUrlParam('type') + '&accounttype=' + getUrlParam('accounttype') + '&state=' + getUrlParam('state') + '&bonus=' + getUrlParam('bonus') + '&timestart=' + getUrlParam('timestart') + '&timeend=' + getUrlParam('timeend');
+    date1 = getUrlParam('addtime');
+</script>
+    <style type="text/css">
+        /*交易分类*/
+        .pg-deal-classify ul{width:100%;margin:0px;padding:0px;list-style:none;}
+        .pg-deal-classify ul li{position:relative;width:100%;float:left;padding:15px 0px;border-bottom:1px dotted #e5e5e5;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;cursor:pointer;}
+        .pg-deal-classify ul li:last-child{border-bottom:0px none;}
+        .pg-deal-classify ul li .title{color:#666;position:absolute;margin-left:4px;padding-right:20px;font-weight:bold;font-size:15px;border-right:1px solid #e5e5e5;border-bottom:0px none;}
+        .pg-deal-classify ul li ul{margin-left:11%;width:92%;font-size:12px}
+        .pg-deal-classify ul li ul li{width:10%;cursor:pointer;margin:4px 0px;text-align:left;border-bottom:0px none;padding:0px;}
+        .pg-deal-classify ul li ul .li-choose a{background:#3d9ed1;color:#fff;padding:1px 6px}
+        /*资金记录*/
+        .pg-deal-lists{height:auto;position:relative;min-height:457px;}
+        .pg-deal-lists p{line-height:30px;height:30px;}
+        .pg-deal-opera{position:absolute;right:11px;top:9px;color:#777}
+        .pg-deal-opera td{padding-left:8px;}
+        .pg-deal-opera .m-date-ipt{width:90px;border-color:#ddd;cursor:pointer;}
+        .pg-deal-list .time,
+        .pg-deal-list .name,
+        .pg-deal-list .money,
+        .pg-deal-list .state,
+        .pg-deal-list .opera{height:32px;line-height:28px;border-bottom:1px dashed #e2e2e2;}
+        .pg-deal-list .time{width:138px;}
+        .pg-deal-list .name{width:400px;}
+        .pg-deal-list .money{width:210px;font-weight:bold;}
+        .pg-deal-list .money-in{color:#53a000;}
+        .pg-deal-list .money-out{color:#3d9ed1;}
+        .pg-deal-list .money-actual{font-weight:400;color:#999;margin-left:5px;}
+        .pg-deal-list .state{width:150px;}
+        .pg-deal-list .opera{text-align:right;}
+        .pg-deal-list .opera a{margin-left:8px;}
+        
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangAccountRecord"><!--账户记录--></h3>
+    <ul>
+    <script src="menu_deal.js"></script>
+       <!-- <li class="main"><a href="../Deal/main.htm">资金记录</a></li>
+        <li class="recordlists"><a href="../Deal/recordlists.htm">奖金记录</a></li>-->
+        <!--<li class="convertinside"><a href="../Deal/convertinside.htm">奖金币转报单币</a></li>
+        <li class="convertcredit"><a href="../Deal/convertcredit.htm">奖金币转积分币</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+            <div class="mn-box pg-deal-classify" style="margin-top:0px; ">
+                <ul>
+                    <li>
+                        <label class="title ajaxlangTradeType"><!--交易类型--></label>
+                        <ul class="pg-types">
+                            <li onclick="pck.setType(this, -1)" class="li-choose li-type-none"><a class="ajaxlangUnlimited"><!--不限--></a></li>
+                                <li onclick="pck.setType(this, 1)" class="li-type-1"><a class="ajaxlangRecharge"><!--充值--></a></li>
+                                <li onclick="pck.setType(this, 2)" class="li-type-2"><a class="ajaxlangChangeIn"><!--转入--></a></li>
+                                <li onclick="pck.setType(this, 3)" class="li-type-3"><a class="ajaxlangChangeOut"><!--转出--></a></li>
+                                <li onclick="pck.setType(this, 4)" class="li-type-4"><a class="ajaxlangBonus"><!--奖金--></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label class="title ajaxlangTradeStatus"><!--交易状态--></label>
+                        <ul class="pg-states">
+                            <li onclick="pck.setState(this, -1)" class="li-choose li-state-none"><a class="ajaxlangUnlimited"><!--不限--></a></li>
+                                <li onclick="pck.setState(this, 1)" class="li-state-1"><a class="ajaxlangComplete"><!--完成--></a></li>
+                                <li onclick="pck.setState(this, 2)" class="li-state-2"><a class="ajaxlangWaitSet"><!--待结算--></a></li>
+                                <li onclick="pck.setState(this, 3)" class="li-state-3"><a class="ajaxlangProcessing"><!--处理中--></a></li>
+                        </ul>
+                    </li>
+                    <li style=" display:none;">
+                        <label class="title ajaxlangBonusType"><!--奖金类型--></label>
+                        <ul class="pg-bonus">
+                            <li onclick="pck.setBonus(this, -1)" class="li-choose li-bonus-none"><a class="ajaxlangUnlimited"><!--不限--></a></li>
+                            <li onclick="pck.setBonus(this, 5)" class="li-bonus-5"><a class="ajaxlangjj5"><!--管理奖--></a></li>
+                            <li onclick="pck.setBonus(this, 2)" class="li-bonus-2"><a class="ajaxlangjj2"><!--市场奖--></a></li>
+                            <li onclick="pck.setBonus(this, 7)" class="li-bonus-7"><a class="ajaxlangInterest"><!--利息--></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div style="clear:both"></div>
+            </div>
+
+                <div class="title ajaxlangAccountDetail"><!--资金记录--></div>
+                
+                <table class="form" cellpadding="0" cellspacing="0">
+                  <thead>
+                    <tr class="form-title">
+                        
+                        <td class="ajaxlangDate"><!--日期--></td>
+                        <td class="ajaxlangAccountType"><!--账户类型--></td>
+                        <td class="ajaxlangAmount"><!--变动金额--></td>
+                        <td class="ajaxlangBalance"><!--本次余额--></td>
+                        <td class="ajaxlangExplain"><!--说明--></td>
+                        <td class="ajaxlangAbstract"><!--摘要--></td>
+                    </tr>
+                  </thead>
+                  <tbody id="boxList" align="center"></tbody>
+                           
+
+                </table>
+                <!--<div class="paging m-paging" id="boxPages"></div>-->
+                <div class="paging" id="boxPages"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_TYPE" value="-1" />
+<input type="hidden" class="HD_STATE" value="-1" />
+<input type="hidden" class="HD_BONUS" value="-1" />
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="14" />
+<input type="hidden" class="HD_COUNT" value="72" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+
+    var pck = {
+        page: 0,
+        type: 0,
+        state: 0,
+        bonus: 0,
+        size: 0,
+        count: 0,
+        timestart: "",//2000-1-1
+        timeend: "",//2016-04-01
+        //设置类型
+        setType: function (elm, id) {
+            m.node(".pg-types li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.type = id;
+            this.page = 0;
+            this.search();
+        },
+        //设置状态
+        setState: function (elm, id) {
+            m.node(".pg-states li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.state = id;
+            this.page = 0;
+            this.search();
+        },
+        //设置奖金
+        setBonus: function (elm, id) {
+            m.node(".pg-bonus li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            this.bonus = id;
+            this.type = 4;
+            this.page = 0;
+            this.search();
+        },
+        search: function () {
+            m.redirect('main.htm?page=' + this.page + '&type=' + this.type + '&state=' + this.state + '&bonus=' + this.bonus + '&timestart=' + this.timestart + '&timeend=' + this.timeend);
+        },
+        //加载页面
+        init: function () {
+            this.type = getUrlParam('type');
+            this.state = getUrlParam('state');
+            this.bonus = getUrlParam('bonus');
+            this.timestart = getUrlParam('timestart');
+            this.timeend = getUrlParam('timeend');
+            //设置类型标记
+            m.node(".pg-types li").removeClass("li-choose");
+            if (this.type <= 0) {
+                m.node(".li-type-none").addClass("li-choose");
+            }
+            else {
+                m.node(".li-type-" + this.type).addClass("li-choose");
+            }
+            //设置状态标记
+            m.node(".pg-states li").removeClass("li-choose");
+            if (this.state <= 0) {
+                m.node(".li-state-none").addClass("li-choose");
+            }
+            else {
+                m.node(".li-state-" + this.state).addClass("li-choose");
+            }
+            //设置奖金标记
+            m.node(".pg-bonus li").removeClass("li-choose");
+            if (this.bonus <= 0) {
+                m.node(".li-bonus-none").addClass("li-choose");
+            }
+            else {
+                m.node(".li-bonus-" + this.bonus).addClass("li-choose");
+            }
+        }
+    }
+    pck.init();
+    m.event("ready").add(function () {
+        m.node(".ms-menu .main").addClass("choose");
+        m.node(".mn-meter-menu .deal").addClass("choose");
+        //绑定选中
+        m.node("#starttime").plugin("date").onchange = function (val) {
+            pck.timestart = mDate(val).toFormatString("yyyy-mm-dd");
+            pck.page = 0;
+            pck.search();
+        };
+        m.node("#endtime").plugin("date").onchange = function (val) {
+            pck.timeend = mDate(val).toFormatString("yyyy-mm-dd");
+            pck.page = 0;
+            pck.search();
+        };
+        m.node(".mn-deal-detail .menu li").css("width", 100 / m.node(".mn-deal-detail .menu li").count() - 0.1 + "%");
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

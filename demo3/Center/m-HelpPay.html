@@ -1,0 +1,191 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>我要付款</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+      <script type="text/javascript" language="javascript">
+          var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+          var getType = "info", getName = "GetUserInfo,GetMemberInfo", id1, para = "", actName = "", chkPwd2Flag = 1;
+          var _pageindex = 1;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?r=1"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+  <script type="text/javascript" language="javascript">
+      id1 = getUrlParam('id');
+  </script>
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Home/m-main.html" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="">
+       我要付款
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom: 56px">
+	<div class="login-con">
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="am-tabs-bd">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+          <div class="liebiao">
+          	<div class="liebiao-tishi">您的买入订单匹配成功，请在24小时内完成<br>付款确认！</div>
+			
+            <ul>
+           		<li><span class="ajaxuserName2"><!-- coetd --></span>会员编号</li>
+              <li><span class="ajaxmob2"><!-- 13390256894 --></span>手机</li>
+              <li><span class="ajaxalipayNumber2"><!-- 13390256894 --></span>支付宝</li>
+              <li><span class="ajaxbank2"><!-- 中国银行 --></span>开户行</li>
+              <li><span class="ajaxbankAddress2"><!-- 辽宁省营口市 --></span>开户行地址</li>
+              <li><span class="ajaxbankNumber2"><!-- 62220217024896579 --></span>卡号</li>
+              <li><span class="ajaxbankUser2"><!-- 刘光龙 --></span>收款人</li>
+              <li><span class="ajaxpayAmount"><!-- 100 --></span>付款金额</li>
+              <li>
+                  <span id="boxUpload">
+                   <iframe id="iframepic" src="" frameborder="0"  width="100%" scrolling="no" onload="setiFrameHeight('iframepic')"></iframe>
+                  </span>已付款凭证
+              </li>
+
+           </ul>
+		  </div>
+           
+          </div>
+          
+      </div>
+  	</div>
+		<div class="sousuo">
+			<button id="btnOk" type="submit" class="sousuo-btn">确 认</button>
+		</div>  
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-main');
+
+    $("#btnOk").click(function () {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetHelpPay&id=" + helpid + "&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+            function (data) {
+                if (data.result == "success") {
+                    if (data.picFlag == "1")
+                        location.href = "/demo3/home/main.htm";
+                    else
+                        mbox("请上传凭证");
+                }
+                else {
+                    alert(data.errInfo);
+                }
+            }
+        );
+    });
+
+    var helpid;
+    helpid = getUrlParam('helpid');
+    
+    window.onload = function () {
+//document.getElementById("boxUpload").innerHTML = '<iframe id="iframepic" src="' + ajaxUrl + '/ajax/uploadFrm.aspx?helpid=' + helpid + '" frameborder="0" scrolling="no" style="width: 500px; height: 150px;"  onload=setiFrameHeight("iframepic")></iframe>';
+        document.getElementById("iframepic").src = ajaxUrl + '/ajax/uploadFrm.aspx?helpid=' + helpid;
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetHelpPay&id=" + helpid + "&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+            function (data) {
+                if (data.result == "success") {
+                    $(".ajaxpayAmount").html(data.m1);
+                }
+                else {
+                    alert(data.errInfo);
+                }
+            }
+        );
+    }
+</script>
+</html>

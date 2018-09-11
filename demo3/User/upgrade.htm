@@ -1,0 +1,204 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "shengJi", chkPwd2Flag = 1;
+        var id1 = 0;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+    <style type="text/css">
+        .form {
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+            .form .levels {list-style:none;margin:0px;padding:0px;}
+            .form .levels li{margin-top:6px;cursor:pointer;border:1px solid #ddd;height:25px;width:304px;line-height:25px;padding:0px 5px;}
+            .form .levels .li-choose{border-color:#0088cc;color:#0088cc;}
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 314px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangSetting"><!--设置--></h3>
+    <ul>
+    <script src="menu_user.js"></script>
+        <!--<li class="basicinfo"><a href="../User/basicinfo.htm">账户资料</a></li>
+            <li class="upgrade"><a href="../User/upgrade.htm">原点升级</a></li>
+                        <li class="basicedit"><a href="../User/basicedit.htm">资料修改</a></li>
+        <li class="safeinfo"><a href="../User/safeinfo.htm">密码修改</a></li>
+            <li class="deposit"><a href="../User/deposit.htm">充值</a></li>
+                        <li class="withdraw"><a href="../User/withdraw.htm">提现</a></li>
+                        <li class="transfer"><a href="../User/transfer.htm">内部转账</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangAccountUpgrade"><!--原点升级--></div>
+<form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormShengji()">
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title ajaxlangCurrentLevel"><!--当前等级：--></td>
+                        <td class="ajaxjiBie"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title" valign="top" style="padding-top:15px;"><label class="m-label-red">*</label><span class="ajaxlangSelectLevel"></span><!--选择等级：--></td>
+                        <td valign="top">
+                                   <select id="selJiBie"></select>
+						            <span id="regJibienotice"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <!--<input id="btn_enter" type="button" class="m-btn m-btn-blue" onclick="pck.submit()" value="确认升级" style="width:75px" />-->
+                            <!--<input id="BtnSave" type="submit" class="m-btn m-btn-blue" value="确认升级" style="width:75px" />-->
+                           <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+
+                        </td>
+                    </tr>
+                </table>
+</form>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        level: -1,
+        //设置地址
+        setLevel: function (elm, id) {
+            m.node(".form .levels li").removeClass("li-choose");
+            m.node(elm).addClass("li-choose");
+            pck.level = id;
+        },
+        submit: function () {
+            var safeword = m.node("#safeword").plugin("text").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            if (pck.level <= 0) {
+                mpi.news("请选择所升等级", 3000);
+                return;
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../User/api_upgrade_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("升级成功", 3000, true);
+                        break;
+                    case -1:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("level", pck.level);
+            ajax.data.add("safeword", safeword);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    //pck.init();
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".ms-menu .upgrade").addClass("choose");
+        m.node(".mn-meter-menu .user").addClass("choose");
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

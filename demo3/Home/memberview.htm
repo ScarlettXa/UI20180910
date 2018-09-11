@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>基础信息</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+        var getType = "info", getName = "GetUserInfo,GetMemberInfo", id1, para = "", actName = "", chkPwd2Flag = 1;
+        var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    id1 = getUrlParam('id');
+</script>
+    <style type="text/css">
+        .form{margin-top:17px;padding:8px;}
+        .form td{width:250px;height:38px;line-height:15px;font-size:14px;}
+        .form .m-text,
+        .form .m-select{height:25px;width:414px;}
+        .form .td-title{width:135px;text-align:right;padding-right:15px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangTeam"><!--团队--></h3>
+    <ul>
+    <script src="../member/menu_member.js"></script>
+        <!--<li class="recmlists"><a href="../Member/recmlists.htm">我的推荐</a></li>-->
+        <!--<li class="relationlists"><a href="../Member/relationlists.htm">关联账户</a></li>-->
+           <!-- <li class="netchart"><a href="../Member/netchart.htm">会员网络</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">会员资料</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">会员编号：</td>
+                        <td class="ajaxuserName2">&nbsp;</td>
+                        <td class="td-title"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">真实姓名：</td>
+                        <td class="ajaxtrueName2"></td>
+                        <td class="td-title">身份证：</td>
+                        <td class="ajaxidCard2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">手机：</td>
+                        <td class="ajaxmob2"></td>
+                        <td class="td-title">邮箱：</td>
+                        <td class="ajaxemail2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">邮编：</td>
+                        <td class="ajaxpostCode2"></td>
+                        <td class="td-title">地址：</td>
+                        <td class="ajaxaddress2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">AB区：</td>
+                        <td class="ajaxab"></td>
+                        <td class="td-title">成员等级：</td>
+                        <td class="ajaxjiBie2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">推荐人：</td>
+                        <td class="ajaxtj2"></td>
+                        <td class="td-title">接点人：</td>
+                        <td class="ajaxjd2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">代理中心：</td>
+                        <td class="ajaxservice2"></td>
+                        <td class="td-title">注册时间：</td>
+                        <td class="ajaxregDate2"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">激活时间：</td>
+                        <td class="ajaxactiveDate2"></td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".mn-meter-menu .member").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+      <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

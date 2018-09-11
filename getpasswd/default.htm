@@ -1,0 +1,158 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<title></title>
+<link href="/Style/getpasswd.css?r=1" rel="stylesheet" type="text/css" />
+<link href="/App_Themes/user/Style.css" type="text/css" rel="stylesheet" />
+
+<link href="/Plugins/blackbox/css/blackbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/files/jquery.min.js"></script>
+<script type="text/javascript" src="/js/comm.js?r=20170423"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=8"></script>
+<style>
+.text{ width:120px;}
+.tb{ line-height:30px;}
+.alignRight{ text-align:right;}
+.alignCenter{ text-align:center;}
+</style>
+</head>
+<body>
+
+<div id="boxMain" style=" display:none;">
+<div id="wrapMB" style=" width:350px;">
+<div class="alignCenter"><a href="/" class="ajaxlangBackHome"></a></div>
+
+<div id="boxMBAnswer">
+<form id="myForm1" name="myForm1" method="post" action="" onsubmit="return chkFormMBAnswer()">
+<fieldset class="fieldset">
+    <legend><span class="fieldset_title ajaxlangGetPasswordByMiBao"></span></legend>
+    <span id="txtErrinfo" style=" color:Red;"></span>
+    <table border="0" align="center" cellpadding="0" cellspacing="1" class="tb">
+      <tr>
+        <td class="alignRight ajaxlangPleaseInputUserName"></td>
+        <td>&nbsp;<input name="txtUserName" type="text" maxlength="15" id="txtUserName" class="text" ClientIDMode="Static" onblur="getMBQuestion('txtUserName')" />
+           
+        </td>
+      </tr>
+      <tr>
+        <td class="alignRight ajaxlangMiBaoQuestion"></td>
+        <td>&nbsp;<span id="txtQuestion"></span></td>
+      </tr>
+      <tr>
+        <td class="alignRight ajaxlangMiBaoAnswer"></td>
+        <td>&nbsp;<input name="txtAnswer" type="text" id="txtAnswer" class="text" ClientIDMode="Static" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+            <button type="submit" name="btn" class="buttom ajaxlangSubmit" ></button>
+            </td>
+      </tr>
+    </table>
+</fieldset>
+</form>
+</div>
+
+
+<div id="boxMobile">
+<form id="Form1" name="myForm1" method="post" action="" onsubmit="return chkFormMobilePwd()">
+<fieldset class="fieldset">
+    <legend><span class="fieldset_title ajaxlangGetPasswordByMobile"></span></legend>
+    <span id="txtErrinfo2" style=" color:Red;"></span>
+    <table border="0" align="center" cellpadding="0" cellspacing="1" class="tb">
+      <tr>
+        <td class="alignRight ajaxlangPleaseInputUserName"></td>
+        <td>&nbsp;<input name="txtUserName2" type="text" maxlength="15" id="txtUserName2" class="text" ClientIDMode="Static" />
+           
+        </td>
+      </tr>
+      <tr>
+        <td class="alignRight ajaxlangMobileNumber"></td>
+        <td>&nbsp;<input name="txtMobile" type="text" id="txtMobile" class="text" ClientIDMode="Static" maxlength="11" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+            <!--<input type="submit" name="btnMobilePwd" id="btnMobilePwd" value="" class="buttom" />-->
+            <button type="submit" name="btn" class="buttom ajaxlangSubmit" ></button>
+            </td>
+      </tr>
+    </table>
+</fieldset>
+</form>
+</div>
+
+
+<div id="boxEmail">
+<form id="Form2" name="myForm1" method="post" action="" onsubmit="return chkFormEmailPwd()">
+<fieldset class="fieldset">
+    <legend><span class="fieldset_title ajaxlangGetPasswordByEmail"></span></legend>
+    <span id="Span1" style=" color:Red;"></span>
+    <table border="0" align="center" cellpadding="0" cellspacing="1" class="tb">
+      <tr>
+        <td class="alignRight ajaxlangPleaseInputUserName"></td>
+        <td>&nbsp;<input name="txtUserName3" type="text" maxlength="15" id="txtUserName3" class="text" ClientIDMode="Static" />
+           
+        </td>
+      </tr>
+      <tr>
+        <td class="alignRight ajaxlangEmail"></td>
+        <td>&nbsp;<input name="txtEmail" type="text" id="txtEmail" class="text" ClientIDMode="Static" maxlength="40" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+           <!-- <input type="submit" name="btnEmailPwd" id="btnEmailPwd" value="" class="buttom" />-->
+           <button type="submit" name="btn" class="buttom ajaxlangSubmit" ></button>
+            </td>
+      </tr>
+    </table>
+</fieldset>
+</form>
+</div>
+
+
+<div id="boxMBModiPwd" style=" display:none;">
+	<form id="myForm2" name="myForm2" method="post" action="" onsubmit="return chkFormMBModiPwd()">
+<fieldset class="fieldset">
+    <legend><span class="fieldset_title ajaxlangGetPasswordByMiBao"></span>！</legend>
+    <table border="0" align="center" cellpadding="0" cellspacing="1" class="tb">
+      <tr>
+        <td class="ajaxlangNewPassword"></td>
+        <td>&nbsp;<input name="txtPwd1" type="password" id="txtPwd1" class="text" ClientIDMode="Static" /></td>
+      </tr>
+      <tr>
+        <td class="ajaxlangConfirmNewPassword"></td>
+        <td>&nbsp;<input name="txtPwd1_2" type="password" id="txtPwd1_2" class="text" ClientIDMode="Static" /></td>
+      </tr>
+      <tr>
+        <td class="ajaxlangSecurityPassword"></td>
+        <td>&nbsp;<input name="txtPwd2" type="password" id="txtPwd2" class="text" ClientIDMode="Static" /></td>
+      </tr>
+      <tr>
+        <td class="ajaxlangConfirmSecurityPassword"></td>
+        <td>&nbsp;<input name="txtPwd2_2" type="password" id="txtPwd2_2" class="text" ClientIDMode="Static" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+           <!-- <input type="submit" name="btn" value="" class="buttom" />-->
+            <button type="submit" name="btn" class="buttom ajaxlangSubmit" ></button>
+            </td>
+      </tr>
+    </table>
+</fieldset>
+</form>
+</div>
+
+    
+
+</div>
+      </div>
+<div id="boxLoading"><img src="/images/loading.gif" width="16" height="16" alt="loading" /></div> 
+</body>
+
+</html>

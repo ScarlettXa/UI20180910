@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ValidCode2.aspx.cs" Inherits="direct_demo.demo1.ValidCode2" %>

@@ -1,0 +1,373 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>空点会员</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .ms-info,
+        .ms-menu {
+            min-height: 600px;
+        }
+
+        .menu {
+            border-bottom: 1px dashed #eee;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+            .menu .td-title {
+                width: 65px;
+                height: 38px;
+                text-align: right;
+                padding-right: 5px;
+                font-weight: bold;
+            }
+
+            .menu .td-value {
+                width: 105px;
+            }
+
+                .menu .td-value .m-text,
+                .menu .td-value .m-select,
+                .menu .td-value .m-date-ipt {
+                    width: 100px;
+                    height: 24px;
+                }
+
+        .form {
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+            width: 100%;
+        }
+
+            .form td {
+                border-left: 1px solid #eee;
+                border-top: 1px solid #eee;
+            }
+
+        .form-title {
+            text-align: center;
+            height: 32px;
+            line-height: 32px;
+            font-weight: bold;
+        }
+
+        .form-item {
+            height: 28px;
+            line-height: 28px;
+        }
+
+            .form-item td {
+                padding-left: 5px;
+                text-align: center;
+            }
+
+                .form-item td:first-child {
+                    text-align: left;
+                }
+
+        .paging {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="/Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="/Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="/Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="/Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="/Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangBusiness"><!--业务--></h3>
+    <ul>
+        <li class="register"><a href="../Center/register.htm">注册会员</a></li>
+        <li class="centerlists"><a href="../Center/centerlists.htm">会员审核</a></li>
+        <!--<li class="nofulllists"><a href="../Center/nofulllists.htm?r=1">空点会员</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">空点会员</div>
+                <table class="menu" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">会员级别:</td>
+                        <td class="td-value">
+                            <div id="search_level" class="m-select"></div>
+                        </td>
+                        <td class="td-title">开始时间:</td>
+                        <td class="td-value">
+                            <div id="search_starttime" class="m-date" data-val="2000-1-1"></div>
+                        </td>
+                        <td class="td-title">结束时间:</td>
+                        <td class="td-value">
+                            <div id="search_endtime" class="m-date"></div>
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="查询记录" onclick="pck.search()" style="width:80px;" />
+                        </td>
+                    </tr>
+                </table>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr class="form-title">
+                        <td style="width:50px;">序号</td>
+                        <td style="width:110px;">会员编号</td>
+                        <td style="width:80px;">姓名</td>
+                        <td style="width:80px;">级别</td>
+                        <td style="width:110px;">推荐人</td>
+                        <td style="width:110px;">接点人</td>
+                        <td>注册日期</td>
+                        <td>登录日期</td>
+                        <td style="width:80px;">状态</td>
+                    </tr>
+                            <tr class="form-item">
+                                <td>1</td>
+                                <td><a href="../Member/detail?id=CN10337">CN10337</a></td>
+                                <td>11</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10099</td>
+                                <td>2016/02/27</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>2</td>
+                                <td><a href="../Member/detail?id=CN10355">CN10355</a></td>
+                                <td>王新可</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10230</td>
+                                <td>2016/02/29</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>3</td>
+                                <td><a href="../Member/detail?id=CN10357">CN10357</a></td>
+                                <td>11</td>
+                                <td>旗舰会员</td>
+                                <td>CN10308</td>
+                                <td>CN10308</td>
+                                <td>2016/02/29</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>4</td>
+                                <td><a href="../Member/detail?id=CN10426">CN10426</a></td>
+                                <td>阿伦</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10357</td>
+                                <td>2016/03/01</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>5</td>
+                                <td><a href="../Member/detail?id=CN10471">CN10471</a></td>
+                                <td>11111111111111111</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10426</td>
+                                <td>2016/03/01</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>6</td>
+                                <td><a href="../Member/detail?id=CN10525">CN10525</a></td>
+                                <td>11111111111</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10471</td>
+                                <td>2016/03/01</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>7</td>
+                                <td><a href="../Member/detail?id=CN10520">CN10520</a></td>
+                                <td>1</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10308</td>
+                                <td>2016/03/01</td>
+                                <td>2016/03/01</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>8</td>
+                                <td><a href="../Member/detail?id=CN10354">CN10354</a></td>
+                                <td>闹闹</td>
+                                <td>旗舰会员</td>
+                                <td>CN10193</td>
+                                <td>CN10193</td>
+                                <td>2016/02/25</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>9</td>
+                                <td><a href="../Member/detail?id=CN103082">CN103082</a></td>
+                                <td>而发生地方 </td>
+                                <td>旗舰会员</td>
+                                <td>CN10193</td>
+                                <td>CN10354</td>
+                                <td>2016/02/25</td>
+                                <td>-</td>
+                                <td>可用</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>10</td>
+                                <td><a href="../Member/detail?id=CN10314">CN10314</a></td>
+                                <td>546574</td>
+                                <td>旗舰会员</td>
+                                <td>CN10193</td>
+                                <td>CN10193</td>
+                                <td>2016/02/25</td>
+                                <td>2016/02/25</td>
+                                <td>可用</td>
+                            </tr>
+
+                </table>
+                <div class="paging m-paging"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="10" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Center/nofulllists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        m.node(".ms-menu .nofulllists").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

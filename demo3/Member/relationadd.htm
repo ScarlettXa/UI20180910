@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>新增关联</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    
+    
+    
+    
+    
+    
+
+    <style type="text/css">
+        .form{margin-top:17px;padding:8px;}
+        .form td{height:45px;line-height:15px;font-size:14px;color:#777;}
+        .form .m-text,
+        .form .m-select{height:25px;width:414px;}
+        .form .td-title{width:135px;text-align:right;padding-right:15px;color:#444;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="../Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="../Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="../Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="../Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangTeam"><!--团队--></h3>
+    <ul>
+        <li class="recmlists"><a href="../Member/recmlists.htm">我的推荐</a></li>
+        <!--<li class="relationlists"><a href="../Member/relationlists.htm">关联账户</a></li>-->
+            <li class="netchart"><a href="../Member/netchart.htm">会员网络</a></li>
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">新增关联</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">当前账户：</td>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">账户名称：</td>
+                        <td>迈泽</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">安全密码：</td>
+                        <td>
+                            <div id="membersafeword" class="m-text" data-type="password" data-tip="请输入当前账户安全密码"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">关联账户编号：</td>
+                        <td>
+                            <div id="relationid" class="m-text" data-tip="请输入关联账户编号"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">关联安全密码：</td>
+                        <td>
+                            <div id="relationsafeword" class="m-text" data-type="password" data-tip="请输入关联账户安全编号"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">关联名称：</td>
+                        <td>
+                            <div id="name" class="m-text"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">关联备注：</td>
+                        <td>
+                            <div id="explain" class="m-text" style="height: 60px;">
+                                <textarea class="m-text-ipt"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="立即关联" style="width:75px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+    var pck = {
+        submit: function () {
+            var membersafeword = m.node("#membersafeword").plugin("text").value();
+            var relationid = m.node("#relationid").plugin("text").value();
+            var relationsafeword = m.node("#relationsafeword").plugin("text").value();
+            var name = m.node("#name").plugin("text").value();
+            var explain = m.node("#explain").plugin("text").value();
+            //非空判断
+            if (membersafeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (relationid.length <= 0) {
+                mpi.news("请输入关联编号", 3000);
+                return;
+            }
+            if (relationsafeword.length <= 0) {
+                mpi.news("请输入关联安全密码", 3000);
+                return;
+            }
+            if (name.length <= 0) {
+                mpi.news("请输入名称", 3000);
+                return;
+            }
+            if (explain.length <= 0) {
+                mpi.news("请输入备注", 3000);
+                return;
+            }
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../Member/api_relationadd_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("关联会员成功，正在跳转...", 99999);
+                        setTimeout(function () {
+                            m.redirect("../Member/relationlists.htm");
+                        }, 1000);
+                        break;
+                    case -10000:
+                        mpi.news("关联会员失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("membersafeword", membersafeword);
+            ajax.data.add("relationid", relationid);
+            ajax.data.add("relationsafeword", relationsafeword);
+            ajax.data.add("name", name);
+            ajax.data.add("explain", explain);
+            ajax.send();
+        },
+        init: function () {
+        }
+    }
+    pck.init();
+    m.event("ready").add(function () {
+        m.node(".ms-menu .relationlists").addClass("choose");
+        m.node(".mn-meter-menu .member").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+
+    <!--底部栏-->
+
+</body>
+</html>

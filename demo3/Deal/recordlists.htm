@@ -1,0 +1,492 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetJJDayList,GetUserInfo", para = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para');
+</script>
+    <style type="text/css">
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangAccountRecord"><!--账户记录--></h3>
+    <ul>
+    <script src="menu_deal.js"></script>
+        <!--<li class="main"><a href="../Deal/main.htm">资金记录</a></li>
+        <li class="recordlists"><a href="../Deal/recordlists.htm">奖金记录</a></li>-->
+       <!-- <li class="convertinside"><a href="../Deal/convertinside.htm">奖金币转报单币</a></li>
+        <li class="convertcredit"><a href="../Deal/convertcredit.htm">奖金币转积分币</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangBonusRecord"><!--奖金记录--></div>
+                <table class="menu" cellpadding="0" cellspacing="0" style=" display:none;">
+                    <tr>
+                        <td class="td-title">开始时间:</td>
+                        <td class="td-value">
+                            <div id="search_starttime" class="m-date" data-val="2000-1-1"></div>
+                        </td>
+                        <td class="td-title">结束时间:</td>
+                        <td class="td-value">
+                            <div id="search_endtime" class="m-date"></div>
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="查询记录" onclick="pck.search()" style="width:80px;" />
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="form" cellpadding="0" cellspacing="0" id="boxList">
+                </table>
+                <!--<table class="form" cellpadding="0" cellspacing="0" style=" display:none;">
+                    <tr class="form-title">
+                        <td>总消费</td>
+                        <td>总业绩</td>
+                        <td>总奖金</td>
+                        <td>推荐奖</td>
+                        <td>服务奖</td>
+                        <td>辅导奖</td>
+                        <td>级差奖</td>
+                        <td>分红</td>
+                        <td>见点奖</td>
+                        <td>互助基金</td>
+                        <td>累计纳税</td>
+                        <td>管理费</td>
+                        <td style="width:120px;">日期</td>
+                    </tr>
+                            <tr class="form-item">
+                                <td>601.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/04/01</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>3205.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/03/29</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>17.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/03/12</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>625.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/03/11</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>0.00</td>
+                                <td>-2.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/03/03</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>3992.00</td>
+                                <td>4028.00</td>
+                                <td>399.20</td>
+                                <td>0.00</td>
+                                <td>399.20</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/03/01</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>5247.00</td>
+                                <td>2008.00</td>
+                                <td>199.60</td>
+                                <td>0.00</td>
+                                <td>199.60</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/29</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>0.00</td>
+                                <td>12.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/28</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>1032.00</td>
+                                <td>998.00</td>
+                                <td>99.80</td>
+                                <td>0.00</td>
+                                <td>99.80</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/27</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>17.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/26</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>1996.00</td>
+                                <td>13010.00</td>
+                                <td>199.60</td>
+                                <td>0.00</td>
+                                <td>199.60</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/25</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>6815.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/23</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>34.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/20</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>2701.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/19</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>1361.00</td>
+                                <td>1212.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/02/18</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>5.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/01/26</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>1341.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/01/25</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>161.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/01/23</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>17.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/01/19</td>
+                            </tr>
+                            <tr class="form-item">
+                                <td>998.00</td>
+                                <td>998.00</td>
+                                <td>99.80</td>
+                                <td>0.00</td>
+                                <td>99.80</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>2016/01/18</td>
+                            </tr>
+
+                </table>-->
+                <div class="paging" id="boxPages"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="22" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Deal/recordlists?&page=' + this.page + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        m.node("#search_starttime").plugin("date").value(pck.timestart);
+        m.node("#search_endtime").plugin("date").value(pck.timeend);
+    });
+    m.event("ready").add(function () {
+        m.node(".ms-menu .recordlists").addClass("choose");
+        m.node(".mn-meter-menu .deal").addClass("choose");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

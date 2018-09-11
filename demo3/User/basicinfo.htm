@@ -1,0 +1,182 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+</script>
+<script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+<script type="text/javascript">
+  var url_1 = "m-basicinfo.html";
+  var requestType = getUrlParam('requestType');
+    var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+    if (asktype == '1' && requestType == 'Mobile'){
+        window.location.href = url_1;
+    } 
+  
+</script>
+    <style type="text/css">
+        .form{margin-top:17px;padding:8px;}
+        .form td{width:250px;height:38px;line-height:15px;font-size:14px;}
+        .form .m-text,
+        .form .m-select{height:25px;width:414px;}
+        .form .td-title{width:60px;text-align:center;text-align: justify;text-justify:distribute-all-lines;text-align-last:justify; padding-right:15px;}
+    </style>
+    <script src="../navigation-bg.js"></script>
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+    <!--导航栏-->
+
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+
+        <!--<div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+  
+                </ul>
+            </div>
+        </div>-->
+        
+        <div class="ms-info" style="height: 550px;overflow: auto;">
+                <div class="title ajaxlangAccountInfo"><!--账户资料--></div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title ajaxlangName"><!--真实姓名：-->:</td>
+                        <td class="ajaxtrueName"></td>
+                        <td class="td-title ajaxlangIDCard"><!--身份证：--></td>
+                        <td class="ajaxidCard"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title ajaxlangBank"><!--所属银行：--></td>
+                        <td class="ajaxbank"></td>
+                        <td class="td-title ajaxlangBankAccount"><!--银行卡号：--></td>
+                        <td class="ajaxbankNumber"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title ajaxlangBankAddress"><!--开户行地址：--></td>
+                        <td class="ajaxbankAddressAll"></td>
+                        <td class="td-title ajaxlangBankUser"><!--开户人：--></td>
+                        <td class="ajaxbankUser"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title ajaxlangMobileNumber"><!--手机：--></td>
+                        <td class="ajaxmob"></td>
+                        <td class="td-title ajaxlangEmail"><!--邮箱：--></td>
+                        <td class="ajaxemail"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title ajaxlangPostcode"><!--邮编：--></td>
+                        <td class="ajaxpostCode"></td>
+                        <td class="td-title ajaxlangAddress"><!--地址：--></td>
+                        <td class="ajaxaddress"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-title ajaxlangRecommended"><!--推荐人：--></td>
+                        <td class="ajaxtj"></td>
+                        <td class="td-title ajaxlangRegDate"><!--创建时间：--></td>
+                        <td class="ajaxregDate"></td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>
+</main>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div> -->
+
+<script type="text/javascript">
+    getTop();
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".ms-menu .basicinfo").addClass("choose");
+        /*m.node(".mn-meter-menu .user").addClass("choose");*/
+        m.node(".p-left-menu .user").addClass("active");
+    });
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

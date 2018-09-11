@@ -1,0 +1,265 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>修改地址</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .form{margin-top:17px;padding:8px;}
+        .form td{height:45px;line-height:15px;font-size:14px;color:#777;}
+        .form .m-text,
+        .form .m-select{height:25px;width:414px;}
+        .form .td-title{width:135px;text-align:right;padding-right:15px;color:#444;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="/Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="/Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="/Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="/Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangShop"><!--购物--></h3>
+    <ul>
+        <li class="main"><a href="../Product/main">产品列表</a></li>
+        <li class="report"><a href="../Product/report">结算购物</a></li>
+        <li class="order"><a href="../Product/order">我的订单</a></li>
+        <li class="place"><a href="../Product/place">收货地址</a></li>
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">修改地址</div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-title">收货人：</td>
+                        <td>
+                            <div id="name" class="m-text" data-val="张三"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">邮箱：</td>
+                        <td>
+                            <div id="email" class="m-text" data-val="4423@qq.com"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">手机：</td>
+                        <td>
+                            <div id="moblie" class="m-text" data-val="188548582444"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">地区：</td>
+                        <td>
+                            <table id="location" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div class="country m-select" style="width:120px;"></div>
+                                    </td>
+                                    <td>
+                                        <div class="province m-select" style="width:90px;margin-left:5px;"></div>
+                                    </td>
+                                    <td>
+                                        <div class="county m-select" style="width:90px;margin-left:5px;"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">地址：</td>
+                        <td>
+                            <div id="address" class="m-text" style="height: 60px;">
+                                <textarea class="m-text-ipt">西八里店</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-title"></td>
+                        <td>
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="修改" style="width:75px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    var pck = {
+        //设置地址
+        setplace: function (selt, root, callback) {
+            if (root < 0) { return; }
+            engine.ajax.place(root, function (json) {
+                selt.clear();
+                selt.add("请选择", -1);
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //是否调用回调
+                if (callback) { callback(); }
+            });
+        },
+        submit: function () {
+            var name = m.node("#name").plugin("text").value();
+            var moblie = m.node("#moblie").plugin("text").value();
+            var email = m.node("#email").plugin("text").value();
+            var address = m.node("#address").plugin("text").value();
+            var place = m.node("#location .county").plugin("select").value();
+            //非空判断
+            if (name.length <= 0) {
+                mpi.news("请输入姓名", 3000);
+                return;
+            }
+            if (moblie.length <= 0) {
+                mpi.news("请输入手机", 3000);
+                return;
+            }
+            if (email.length <= 0) {
+                mpi.news("请输入邮箱", 3000);
+                return;
+            }
+            if (place == null || place.length <= 0) {
+                mpi.news("请选择地区", 3000);
+                return;
+            }
+            if (address.length <= 0) {
+                mpi.news("请输入地址", 3000);
+                return;
+            }
+            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../Product/api_place_set", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("修改地址成功正在跳转...", 99999);
+                        setTimeout(function () {
+                            m.redirect("../Product/place");
+                        }, 1000);
+                        break;
+                    case -10000:
+                        mpi.news("修改会员失败", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+            });
+            ajax.data.add("id", 10000005);
+            ajax.data.add("name", name);
+            ajax.data.add("moblie", moblie);
+            ajax.data.add("email", email);
+            ajax.data.add("address", address);
+            ajax.data.add("placeid", place);
+            ajax.send();
+        },
+        init: function () {
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取地区
+        engine.ajax.place('001', function (json) {
+            var lt = m.node("#location .country").plugin("select");
+            lt.onchange = function (text, val) {
+                var pv = m.node("#location .province").plugin("select");
+                pck.setplace(pv, val);
+            };
+            var ltpv = m.node("#location .province").plugin("select");
+            ltpv.onchange = function (text, val) {
+                var ct = m.node("#location .county").plugin("select");
+                pck.setplace(ct, val);
+            };
+            //填充初始数据
+            lt.add("请选择", -1);
+            for (var i in json) {
+                lt.add(json[i].name, json[i].id);
+            }
+            lt.value('00101');
+            pck.setplace(ltpv, '00101', function () {
+                ltpv.value('0010101');
+            });
+            pck.setplace(m.node("#location .county").plugin("select"), '0010101', function () {
+                m.node("#location .county").plugin("select").value('001010105');
+            });
+        });
+    });
+    m.event("ready").add(function () {
+        m.node(".ms-menu .place").addClass("choose");
+        m.node(".mn-meter-menu .product").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

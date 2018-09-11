@@ -1,0 +1,277 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+        <link href="/cdn/jquery.jorgchart/jquery.jorgchart.css" rel="stylesheet" />
+        <script src="/cdn/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+        <script src="/cdn/jquery.jorgchart/jquery.jorgchart.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", id1, para = "", actName = "", chkPwd2Flag = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+
+    <style type="text/css">
+        .ms-menu {
+            min-height: 700px;
+        }
+
+        .menu {
+            border-bottom: 1px dashed #eee;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+            .menu .td-title {
+                width: 65px;
+                height: 38px;
+                text-align: right;
+                padding-right: 5px;
+                font-weight: bold;
+            }
+
+            .menu .td-value {
+                width: 105px;
+            }
+
+                .menu .td-value .m-text,
+                .menu .td-value .m-select,
+                .menu .td-value .m-date-ipt {
+                    width: 100px;
+                    height: 24px;
+                }
+
+        .ms-info .jOrgChart table {
+            width: 100%;
+        }
+
+        .ms-info .jOrgChart .down {
+            background: #888;
+        }
+
+        .ms-info .jOrgChart .top {
+            border-top: 2px solid #888;
+        }
+
+        .ms-info .jOrgChart .left {
+            border-right: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .right {
+            border-left: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .node {
+            background-color: #fcfcfc;
+            color: #888;
+            border: 3px solid #888;
+            border-radius: 3px;
+            margin: 0 6px;
+            width: 110px;
+            height: 107px;
+            padding: 5px 8px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+
+            .ms-info .jOrgChart .node p {
+                font-size: 13px;
+                margin: 0px;
+                padding: 4px 0px;
+                text-align: left;
+                border-bottom: 1px dashed #eee;
+            }
+
+                .ms-info .jOrgChart .node p:last-child {
+                    border-bottom: 0px none;
+                }
+
+        .ms-info .jOrgList {
+            margin: 0px;
+            padding: 0px;
+            list-style: square;
+            margin-left: 30px;
+            height: auto;
+            border-left: 1px dashed #ddd;
+        }
+
+            .ms-info .jOrgList li {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 1px dashed #ddd;
+                color: #888;
+                padding-left: 10px;
+            }
+
+                .ms-info .jOrgList li ul {
+                    list-style: decimal;
+                }
+
+                .ms-info .jOrgList li label span {
+                    margin-left: 9px;
+                    color: #666;
+                }
+    </style>
+
+     <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+          
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+                <li class="register"><a href="/reg.html" class="ajaxlangRegisterMember" style="background:#61baff" >注册会员</a></li>
+                <li class="recmlists"><a href="../Member/recmlists.htm?para=re_1" class="ajaxlangMyRecommended" style="background:#61baff" >我的推荐</a></li>
+                <li class="netcharttj"><a href="../Member/netchartTJ.htm" class="ajaxlangRecomChat" style="background:#df4719">推荐关系图</a></li>
+            </ul>
+        </div>
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangMemberChart">推荐关系图</h2>
+            <div class="ms-info" style="text-align: center;height: 376px;overflow: auto;">
+                <div id="BoxList"></div>
+                <div id="chart" class="orgChart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        rootid: "10000",
+        search: function () {
+            this.memberid = m.node("#search_id").plugin("text").value();
+            m.redirect("../Member/netchart?rootid=" + this.rootid);
+        },
+        init: function () {
+            m.node("#btn_enter").click(pck.search);
+        }
+    }
+   // pck.init();
+    jQuery(document).ready(function () {
+        /*m.node(".ms-menu .netcharttj").addClass("choose");*/
+        m.node(".p-left-menu .member").addClass("active");
+        m.node(".mn-meter-menu .member").addClass("choose");
+        //加载图表事件
+        if ($("#netchart").length > 0) {
+            $("#netchart").jOrgChart({
+                chartElement: '#chart',
+                dragAndDrop: true
+            });
+            $("#show-list").click(function (e) {
+                e.preventDefault();
+                $('#list-html').toggle('fast', function () {
+                    if ($(this).is(':visible')) {
+                        $('#show-list').text('Hide underlying list.');
+                        $(".topbar").fadeTo('fast', 0.9);
+                    } else {
+                        $('#show-list').text('Show underlying list.');
+                        $(".topbar").fadeTo('fast', 1);
+                    }
+                });
+            });
+            $('#list-html').text($('#netchart').html());
+            $("#netchart").bind("DOMSubtreeModified", function () {
+                $('#list-html').text('');
+                $('#list-html').text($('#netchart').html());
+                prettyPrint();
+            });
+        }
+    });
+
+    window.onload = function () {
+        $("#BoxList").html('<iframe src="/ajax/netmaptj.aspx" id="frmNetMap" height="1000" width="100%" frameborder="0" scrolling="auto"></iframe>');
+    }
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+     <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "myInfoModi", chkPwd2Flag = 1;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+</script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+    <style type="text/css">
+        .form {
+            margin-top: 17px;
+            padding: 8px;
+        }
+
+            .form td {
+                height: 50px;
+                line-height: 15px;
+                font-size: 14px;
+            }
+
+            .form .m-text,
+            .form .m-select {
+                height: 25px;
+                width: 414px;
+            }
+
+            .form .td-title {
+                width: 135px;
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+    <!--导航栏-->
+
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+ 
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+        
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+            <li><a href="../User/basicedit.htm" style="background:#61baff" >资料修改</a></li>
+            <li><a href="../User/safeinfo.htm" style="background:#61baff">密码修改</a></li>
+            <li><a href="../User/mibao.htm" style="background:#df4719">密保修改</a></li>
+            <li><a href="../User/mobedit.htm" style="background:#61baff">手机修改</a></li>
+            <li><a href="../User/transfer.htm" style="background:#61baff">开户币转账</a></li>
+            <li><a href="../User/acctran.htm" style="background:#61baff">账户转换</a></li>
+            </ul>
+        </div>
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangModifyMB">密保修改</h2>
+            <div class="ms-info" style="height: 376px;overflow: auto;">             
+                <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormMBSet()">
+                    <table class="form" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="td-title ajaxlangMiBaoQuestion"><!--密保问题选择-->：</td>
+                            <td> 
+                            <div class="m-text">
+                                <select id="selQuestion"  class="m-select">
+                                   <option value="我媽媽的名字是什麼？">我媽媽的名字是什麼？</option>
+                                   <option value="我爸爸的名字是什麼？">我爸爸的名字是什麼？</option>
+                                   <option value="我愛人的名字是什麼？">我愛人的名字是什麼？</option>
+                                   <option value="我初中學校的校名是什麼？">我初中學校的校名是什麼？</option>
+                                   <option value="我外婆的名字是什麼？">我外婆的名字是什麼？</option>
+                                   <option value="我外公的名字是什麼？">我外公的名字是什麼？</option>
+                                   <option value="我第一個子女名字是什麼？">我第一個子女名字是什麼？</option>
+                                   <option value="我爺爺的名字是什麼？">我爺爺的名字是什麼？</option>
+                                   <option value="我奶奶的名字是什麼？">我奶奶的名字是什麼？</option>
+                                   <option value="我最喜歡的一部電影片名？">我最喜歡的一部電影片名？</option>
+                                   <option value="我小學班主任老師的名字？">我小學班主任老師的名字？</option>
+                                </select>    
+                                </div>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangMiBaoAnswer"><!--密码保护答案：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input name="txtAnswer" type="text" value="" maxlength="20" id="txtAnswer" class="m-text" placeholder="必填项:请输入姓名" />
+                                   
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangSecurityPassword"><!--二级密码：--></td>
+                            <td>
+                                <div class="m-text">
+                                    <input name="txtPwd" type="password" maxlength="20" id="txtPwd" class="m-text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title"></td>
+                            <td>
+                                <!--<input id="btn_enter" type="button" class="m-btn m-btn-blue" value="确认修改" style="width:75px" />-->
+                               <!-- <input id="BtnSave" type="submit" class="m-btn m-btn-blue" value="确认修改" style="width:75px" />-->
+                               <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title"></td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div> -->
+            
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        //设置地址
+        setplace: function (selt, root, callback) {
+            if (root < 0) { return; }
+            engine.ajax.place(root, function (json) {
+                selt.clear();
+                selt.add("请选择", -1);
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //是否调用回调
+                if (callback) { callback(); }
+            });
+        },
+        submit: function () {
+            var username = m.node("#username").plugin("text").value();
+            var idcard = m.node("#idcard").plugin("text").value();
+            var bankid = m.node("#bankid").plugin("select").value();
+            var bankno = m.node("#bankno").plugin("text").value();
+            var bankuser = m.node("#bankuser").plugin("text").value();
+            var bankname = m.node("#bankname").plugin("text").value();
+            var moblie = m.node("#moblie").plugin("text").value();
+            var email = m.node("#email").plugin("text").value();
+            var zipcode = m.node("#zipcode").plugin("text").value();
+            var address = m.node("#address").plugin("text").value();
+            var place = m.node("#location .county").plugin("select").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            //非空判断
+            if (username.length <= 0) {
+                mpi.news("请输入真实姓名", 3000);
+                return;
+            }
+            if (idcard.length <= 0) {
+                mpi.news("请输入身份证", 3000);
+                return;
+            }
+            if (bankid == null || bankid.length <= 0) {
+                mpi.news("请选择所属银行", 3000);
+                return;
+            }
+            if (bankno.length <= 0) {
+                mpi.news("请输入银行卡号", 3000);
+                return;
+            }
+            if (bankuser.length <= 0) {
+                mpi.news("请输入开户人", 3000);
+                return;
+            }
+            if (bankname.length <= 0) {
+                mpi.news("请输入开户行", 3000);
+                return;
+            }
+            if (moblie.length <= 0) {
+                mpi.news("请输入手机", 3000);
+                return;
+            }
+            if (email.length <= 0) {
+                mpi.news("请输入邮箱", 3000);
+                return;
+            }
+            if (place == null || place.length <= 0) {
+                mpi.news("请选择地区", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../User/api_basicedit_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("修改成功", 3000, true);
+                        break;
+                    case -10002:
+                        mpi.news("修改失败", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("username", username);
+            ajax.data.add("idcard", idcard);
+            ajax.data.add("bankid", bankid);
+            ajax.data.add("bankno", bankno);
+            ajax.data.add("bankuser", bankuser);
+            ajax.data.add("bankname", bankname);
+            ajax.data.add("moblie", moblie);
+            ajax.data.add("email", email);
+            ajax.data.add("zipcode", zipcode);
+            ajax.data.add("address", address);
+            ajax.data.add("place", place);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    //pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.bank(0, function (json) {
+            var selt = m.node("#bankid").plugin("select");
+            selt.clear();
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取地区
+            engine.ajax.place('001', function (json) {
+                var lt = m.node("#location .country").plugin("select");
+                lt.onchange = function (text, val) {
+                    var pv = m.node("#location .province").plugin("select");
+                    pck.setplace(pv, val);
+                };
+                var ltpv = m.node("#location .province").plugin("select");
+                ltpv.onchange = function (text, val) {
+                    var ct = m.node("#location .county").plugin("select");
+                    pck.setplace(ct, val);
+                };
+                //填充初始数据
+                lt.add("请选择", -1);
+                for (var i in json) {
+                    lt.add(json[i].name, json[i].id);
+                }
+                //设置默认值
+                m.node("#bankid").plugin("select").value(100);
+                lt.value('00110');
+                pck.setplace(ltpv, '00110', function () {
+                    ltpv.value('0011001');
+                });
+                pck.setplace(m.node("#location .county").plugin("select"), '0011001', function () {
+                    m.node("#location .county").plugin("select").value('001100108');
+                });
+            });
+        });
+    });
+    //载入时
+    m.event("ready").add(function () {
+        m.node(".ms-menu .mibao").addClass("choose");
+        /*m.node(".mn-meter-menu .user").addClass("choose");*/
+        m.node(".p-left-menu .user").addClass("active");
+        m.node("#btn_enter").click(pck.submit);
+    });
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

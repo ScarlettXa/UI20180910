@@ -1,0 +1,180 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>收货地址</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+
+    <style type="text/css">
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <a href="../User/basicinfo.htm">您好，张三(001)</a>
+        <ul class="mn-navigation-menu">
+                <li><a href="#" onclick="engine.language(4)">English(英文)</a></li>
+                            <li><a href="/Mail/collectlists.htm">收件箱(0)</a></li>
+            <li><a href="/Mail/message.htm">意见反馈</a></li>
+            <li>
+                <span class="m-icon m-icon-headphones"></span>
+                <label>联系热线：0512-66668888</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu">
+                <li class="home"><span class="m-icon m-icon-home"></span><a href="/Home/main">首页</a></li>
+                <li class="member"><span class="m-icon m-icon-user"></span><a href="../Member/recmlists.htm">团队</a></li>
+                    <li class="center"><span class="m-icon m-icon-star"></span><a href="../Center/register.htm">代理</a></li>
+                <li class="product"><span class="m-icon m-icon-shopping-cart"></span><a href="../Product/main">购物</a></li>
+                <li class="deal"><span class="m-icon m-icon-list-alt"></span><a href="/Deal/main.htm">奖金</a></li>
+                <li class="mail"><span class="m-icon m-icon-envelope"></span><a href="/Mail/send.htm">邮箱</a></li>
+                <li class="notice"><span class="m-icon m-icon-book"></span><a href="../Notice/main">公告</a></li>
+                <li class="user"><span class="m-icon m-icon-cog"></span><a href="../User/basicinfo.htm">设置</a></li>
+            </ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangShop"><!--购物--></h3>
+    <ul>
+        <li class="main"><a href="../Product/main">产品列表</a></li>
+        <li class="report"><a href="../Product/report">结算购物</a></li>
+        <li class="order"><a href="../Product/order">我的订单</a></li>
+        <li class="place"><a href="../Product/place">收货地址</a></li>
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title">收货地址
+                    <a href="../Product/placeadd" class="m-btn m-btn-blue" style="width:120px; line-height:26px; position:absolute;right:8px;">添加收货地址</a>
+                </div>
+                <table class="form" cellpadding="0" cellspacing="0">
+                    <tr class="form-title">
+                        <td>地址</td>
+                        <td style="width:150px;">地区</td>
+                        <td style="width:100px;">收货人</td>
+                        <td style="width:120px;">手机</td>
+                        <td style="width:120px;">邮箱</td>
+                        <td style="width:150px;">操作</td>
+                    </tr>
+                        <tr class="form-item">
+                            <td>
+                                西八里店
+                            </td>
+                            <td>中国北京市朝阳区</td>
+                            <td>张三</td>
+                            <td>188548582444</td>
+                            <td>4423@qq.com</td>
+                            <td>
+                                <a href="../Product/placeedit?id=10000005">修改</a>
+                                <a onclick="pck.del(this,10000005)">删除</a>
+                            </td>
+                        </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    var pck = {
+        setdefault: function (elm, id) {
+            var ajax = m.ajax("../Product/api_place_setdefault", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("设为默认成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("设为默认失败", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+            });
+            ajax.data.add("id", id);
+            ajax.send();
+        },
+        //删除
+        del: function (elm, id) {
+            var ajax = m.ajax("../Product/api_place_delete", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("删除成功", 3000);
+                        m.node(elm.parentNode.parentNode).remove(true);
+                        break;
+                    case -10000:
+                        mpi.news("删除失败", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+            });
+            ajax.data.add("id", id);
+            ajax.send();
+        }
+    }
+    //系统加载
+    m.event("ready").add(function () {
+        m.node(".ms-menu .place").addClass("choose");
+        m.node(".mn-meter-menu .product").addClass("choose");
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

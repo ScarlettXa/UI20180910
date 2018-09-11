@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="会员会员系统">
+    <meta name="description" content="会员会员系统">
+
+    <title>登录系统</title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+    <style type="text/css">
+        .mn-content{margin-top:160px;border-bottom:none;background:0 0}
+        .mn-inner{width:690px}
+        .pg-form{padding:20px 38px;min-height:310px;box-shadow: #888 0px 0px 10px;}
+        .pg-form h3{padding-bottom:12px;font-size:21px;}
+        .td-left{padding-right:65px;border-right:1px solid #e5e5e5}
+        .td-left td .m-text{width:220px;height:35px}
+        .td-left tr .td-title{width:55px;height:60px;font-size:15px;line-height:58px}
+        .td-right{padding-top:15px}
+        .td-right img{width:160px;height:160px;}
+    </style>
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/Scripts/engine.js"></script>
+</head>
+<body>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            <div class="mn-box pg-form">
+                <div style="font-size:30px;font-family:'YouYuan';width:100%;text-align:center;padding-bottom:18px;">直销会员结算系统</div>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="td-left" valign="top">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="td-title" valign="top">账户</td>
+                                    <td>
+                                        <div id="memberid" class="m-text" data-tip="请输入会员编号" data-val="10000"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title" valign="top">密码</td>
+                                    <td>
+                                        <div id="password" class="m-text" data-type="password" data-tip="请输入登录密码" data-val="123456"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title" valign="top">验证码</td>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="checkcode" class="m-text" data-tip="请输入右侧数字" style="width:100px;"></div>
+                                                </td>
+                                                <td>
+                                                    <img id="checkimg" alt="验证码" style="border-color:#eee;cursor:pointer;margin-left:5px;" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title"></td>
+                                    <td>
+                                        <input id="btn_login" type="button" class="m-btn m-btn-blue" value="立即登录" style="height:35px;width:220px" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="td-right" valign="top">
+                            <img style="margin-left:82px;cursor:pointer;" src="/Service/qrcode.ashx?url=http%3a%2f%2f121.41.86.171%3a8010" />
+                            <div style="margin-left:65px;width:190px;text-align:center;height:30px;line-height:30px;font-size:15px;color:#888;">扫一扫登录手机版</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" class="HD_IPADDRESS" value="222.73.135.181:8009" />
+    <script type="text/javascript">
+        var pck = {
+            init: function () {
+                m.node("#checkimg").click(function () {
+                    var checkcode = m.node("#checkimg");
+                    var randomstr = m.random.string().capitalAlphabet(16);
+                    checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+                });
+                m.node("#checkimg").click();
+                m.node(".pg-form").keydown(function (event) {
+                    if (event.keyCode == 13) { m.node("#btn_login").click(); }
+                });
+                m.node(".mn-meter-menu .login").addClass("choose");
+            }
+        }
+        pck.init();
+        m.node("#btn_login").click(function () {
+            mpi.news("正在验证账户...", 99999);
+            var memberid = m.node("#memberid").plugin("text").value();
+            var password = m.node("#password").plugin("text").value();
+            var checkcode = m.node("#checkcode").plugin("text").value();
+            if (memberid.length <= 0) {
+                mpi.news("请输入编号", 3000);
+                return;
+            }
+            if (password.length <= 0) {
+                mpi.news("请输入密码", 3000);
+                return;
+            }
+            if (checkcode.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            var ajax = m.ajax("../User/api_login_submit", null, function (obj) {
+                var jso = m.json.getObject(obj);
+                if (jso.Success == true) {
+                    mpi.news("登录成功正在跳转...", 99999);
+                    setTimeout(function () {
+                        if (m.queryString("url") != null) {
+                            m.redirect(m.encry.url.decode(m.queryString("url")));
+                        }
+                        else {
+                            m.redirect("/Home/main");
+                        }
+                    }, 1000);
+                }
+                else {
+                    if (jso.Error == -10003) {
+                        mpi.news("验证码错误", 3000);
+                    }
+                    else if (jso.Error == -10001) {
+                        mpi.news("编号或者密码错误", 3000);
+                    }
+                    else {
+                        mpi.news(jso.Data, 3000);
+                    }
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("memberid", memberid);
+            ajax.data.add("password", password);
+            ajax.data.add("checkcode", checkcode);
+            ajax.send();
+        });
+    </script>
+</body>
+</html>

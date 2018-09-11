@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="js.aspx.cs" Inherits="direct_demo.ajax.js" %>

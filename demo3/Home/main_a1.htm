@@ -1,0 +1,404 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+<!--    <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.zclip.min.js"></script>-->
+
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+<link href="/style/img_js.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" language="javascript">
+    var getType = "info", getName = "GetHelpTradeInfo1,GetHelpTradeInfo2,GetUserInfo,GetNewsList_demo3", para = "", actName = "MHome", chkPwd2Flag = 0;
+    var classid = 3, pagesize = 10;
+    function openShow() {
+        $(".openShow").css("display", "block");
+       // document.getElementById('fade').style.display = 'block'
+    }
+    function closeShow() {
+        $(".openShow").css("display", "none");
+       // document.getElementById('fade').style.display = 'none'
+    }
+
+    function openPic(imgurl) {
+        $(".picShow").css("display", "block");
+        document.getElementById("pic1").src = imgurl;
+    }
+    function closePic() {
+        $(".picShow").css("display", "none");
+        document.getElementById("pic1").src = "";
+    }
+
+    function getHelpWaiting() {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetHelpTradeList&para=t_1&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            $(".ajaxhelpTradeInfo3").html(data.list);
+           
+        }
+        else {
+            // alert(data.errInfo);
+        }
+    }
+);
+    }
+
+    window.onload = function () {
+        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetTopNews&jstype=jsonp&callback=?";
+        $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            // $(".ajaxnews").html(data.info);
+            var newsid = data.id;
+            $(".ajaxnews").html('<iframe id="frm1" src="' + ajaxUrl + '/ajax/newsview.aspx?id=' + newsid + '&act=membernewsview" frameborder="0" scrolling="auto" width="100%" height="545"></iframe>');
+            openShow();
+        }
+        else {
+            // alert(data.errInfo);
+        }
+    }
+);
+        getHelpWaiting();
+    }
+</script>
+
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=3"></script>
+<script type="text/javascript" src="/js/jquery.zclip.min.js"></script>
+
+<!--<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imgbox.pack.js"></script>-->
+
+    <style type="text/css">
+        /*信息详情*/
+        .mn-deal-detail{width:100%;padding:8px 12px;padding-right:4px;height:240px;}
+        .mn-deal-detail td{position:relative;border-left:1px solid #eee;padding:0px 8px;}
+        .mn-deal-detail td:first-child{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .title{font-size:14px;font-weight:bold;margin:0px;padding:0px;margin-bottom:6px;}
+        .mn-deal-detail .more{position:absolute;top:0px;right:8px;}
+        /*信息详情-历史*/
+        .mn-deal-detail .money td{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .money .m-btn{border:1px solid #ddd;margin-right:5px;line-height:26px;height:26px;width:50px;border:1px solid #ccc;}
+        .mn-deal-detail .money .m-btn-blue{border:1px solid #0088cc;height:25px;}
+        .mn-deal-detail .history{position:absolute;bottom:4px;width:100%;border-top:1px solid #e5e5e5;padding-top:12px;}
+        /*信息详情-菜单*/
+        .mn-deal-detail .menu{margin:0px;padding:0px;list-style:none;}
+        .mn-deal-detail .menu li{float:left;text-align:center; margin-right:5px;}
+        .mn-deal-detail .menu li a{font-weight:bold;}
+        .mn-deal-detail .menu li p{margin:0px;padding:0px;margin-top:5px;}
+        /*信息详情-列表*/
+        .mn-deal-detail .lists {position:relative;width:100%;height:auto;} 
+        .mn-deal-detail .list{width:230px;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;height:25px;}
+        .mn-deal-detail .list .time{position:absolute;right:0px;}
+        /*信息详情-表格*/
+        .mn-deal-detail .table td{border-left:0px none;padding-left:0px;}
+        .mn-deal-detail .table .name{min-width:60px;height:25px;}
+        /*资金记录*/
+        .pg-deal-table{width:100%;height:auto;position:relative;}
+        .pg-deal-table #quick{list-style:none;margin:0px;padding:0px;width:100%;}
+        .pg-deal-table #quick li{width:50px;float:left;text-align:center;margin-bottom:5px;}
+        .pg-deal-table #quick li a{font-size:32px;color:#777;}
+        .pg-deal-table #quick li p{color:#777;margin:0px;margin-bottom:18px;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;}
+        .pg-deal-table #quick li:hover a{color:#0088cc;}
+        .pg-deal-table #quick li:hover p{color:#0088cc;}
+        
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form a{ cursor:pointer;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        
+        .form-item2 tr{height:56px;line-height:28px;}
+        .form-item2 td{padding-left:5px;text-align:center;}
+        .form-item2 td:first-child{text-align:left;}
+        
+        .title1{ color:#00f; font-weight:bold;}
+        .title2{color:#f00; font-weight:bold;}
+        
+        .ajaxhelpTradeInfo1 .form-title td{ color:#00f; font-weight:bold;}
+        .ajaxhelpTradeInfo2 .form-title td{ color:#f00; font-weight:bold;}
+        .amount{ color:#f00;}
+        
+        .picShow{ text-align:center; display:none;position:fixed; margin:auto;  width: 100%;  height: 100%;  z-index:1005;}
+        .picShow img{ max-height:600px;}
+    </style>
+</head>
+<body>
+<div class="openShow">
+    <div id="light" class="white_content"> 
+      <div style=" height:25px;"><a href="javascript:void(0)" onclick="closeShow()" style=" float:right; font-size:18px; font-weight:bold;">×</a></div>
+      <div class="ajaxnews"></div>
+     </div> 
+</div>
+
+<div class="picShow">
+      <img id="pic1" src="" onclick="closePic()" />
+</div>
+
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" class="mn-deal-detail mn-boxaaaaa" style="margin-top:0px;">
+    <tr>
+        <td valign="top">
+            <div style=" margin-top:15px;">
+               <span class="ajaxlangMyLink"><!--我的推广链接--></span>：<span class="ajaxtjLink"></span>
+
+            </div>
+            <div style=" text-align:center; border:0px solid #f00; height:200px;margin-top:15px;">
+                <div class="showBigButton" style=" text-align:center; border:0px solid #f00; height:200px;">
+                    <button type="button" onClick="location.href='../center/HelpAdd2.htm'" style="height:200px;" class="bangzhu"><font size="+8" class="blu i_t_bg ajaxlangPlantDream"></font><br></button>     
+                    <button type="button" onClick="location.href='../center/HelpAdd1.htm'" style="height:200px;" class="qiuzhu"><font size="+8" class="org i_t_bg ajaxlangDreamReal"></font><br></button>
+                </div>
+            </div>
+        </td>
+        <td valign="top" style="width:250px; display:none;">
+            <p class="title ajaxlangAccountInfo"><!--账户信息--></p>
+            <table class="table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="name ajaxlangUserName"><!--会员编号:--></td>
+                    <td class="value ajaxuserName"></td>
+                </tr>
+                <tr>
+                    <td class="name ajaxlangName"><!--会员姓名:--></td>
+                    <td class="value ajaxtrueName"></td>
+                </tr>
+                <tr style=" display:none;">
+                    <td class="name ajaxlangLevel"><!--会员级别:--></td>
+                    <td class="value ajaxjiBie"></td>
+                </tr>
+                <!--<tr>
+                    <td class="name ajaxlang">账户状态:</td>
+                    <td class="value ajaxuserStatus">可用</td>
+                </tr>-->
+                <tr>
+                    <td class="name ajaxlangDirectRecommendation"><!--直接推荐:--></td>
+                    <td class="value ajaxtuiJianNum"></td>
+                </tr>
+                <tr>
+                    <td class="name ajaxlangParentTeam"><!--伞下会员:--></td>
+                    <td class="value ajaxteamNum_jd"></td>
+                </tr>
+                <tr>
+                    <td class="name ajaxlangRecommended"><!--推荐人:--></td>
+                    <td class="value ajaxtj"></td>
+                </tr>
+                <tr>
+                    <td class="name ajaxlangAccountHelp"><!--静态积分:--></td>
+                    <td class="value ajaxhuobeiHelp"></td>
+                </tr>
+                <tr>
+                    <td class="name ajaxlangAccountBonus"><!--善远币:--></td>
+                    <td class="value ajaxqianBao"></td>
+                </tr>
+            </table>
+        </td>
+        <td valign="top" style="width:250px; display:none;">
+            <p class="title ajaxlangNotice"><!--公告栏--></p>
+            <a class="more ajaxlangMore" href="../Notice/main.htm"><!--更多--></a>
+            <div class="lists" id="boxList"></div>
+        </td>
+        
+    </tr>
+</table>
+
+<table class="pg-deal-table" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <div class="mn-boxaaaaa" style="position:relative; min-height:70px;">
+                <p class="title1 ajaxlangSupplyHelp"></p>
+                <table class="ajaxhelpTradeInfo1 form" cellpadding="0" cellspacing="0" width="100%"></table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table class="pg-deal-table" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <div class="mn-boxaaaaa" style="position:relative; min-height:70px;">
+                <p class="title2 ajaxlangApplyHelp"></p>
+                <table class="ajaxhelpTradeInfo2 form" cellpadding="0" cellspacing="0" width="100%"></table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<table class="pg-deal-table" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <div class="mn-boxaaaaa" style="position:relative; min-height:70px;">
+                <p class=" ajaxlangApplyRecord"></p>
+                <table class="ajaxhelpTradeInfo3 form" cellpadding="0" cellspacing="0" width="100%"></table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<table class="pg-deal-table" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <div class="mn-boxaaaaa" style="position:relative;height:460px;">
+                <!--<p class="title ajaxlangRecentBalanceOfPayments"></p>-->
+                <div id="container" style="margin-top:30px"></div>
+            </div>
+        </td>
+        <td style="width:280px;padding-left:11px;">
+            <div class="mn-boxaaaaa" style="position:relative;height:460px;">
+                <!--<p class="title ajaxlangFastNavigation"></p>--><!--快速导航-->
+                <!--<ul id="quick">
+                    <li title="RegisterMember/会员注册"><a href="/reg.html" class="m-icon m-icon-plus-sign ajaxlang" target="_blank"></a><p class=" ajaxlangRegisterMember"></p></li>
+                    
+                    <li title="Transfer/转账"><a href="../User/transfer.htm" class="m-icon m-icon-refresh"></a><p class=" ajaxlangTransfer"></p></li>
+                </ul>-->
+                <div style="clear:both"></div>
+                <!--<p class="title">生活助手</p>-->
+                <iframe id="weather" src="" width="250" height="295" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    var chartDate, chartJJ, chartCX, chartSS;
+    var arrDate, arrJJ, arrCX, arrSS;
+    var url1 = ajaxUrl + '/WS/WSAccounts.aspx?CheckType=GetChartInfo&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000);
+    $.getJSON(url1,
+    function (data) {
+        if (data.result == "success") {
+            chartDate = data.chartDate;
+            chartJJ = data.chartJJ;
+            chartCX = data.chartChongfuxiaofei;
+            chartSS = data.chartShuishoushou;
+            arrDate = chartDate.split(',');
+            arrJJ = chartJJ.split(',');
+            arrCX = chartCX.split(',');
+            arrSS = chartSS.split(',');
+
+            //alert(chartJJ);
+           // alert(arrJJ[0] + "_" + arrJJ[1] + "_" + arrJJ[2] + "_" + arrJJ[3] + "_" + arrJJ[4] + "_" + arrJJ[5] + "_" + arrJJ[6] + "_" + arrJJ[7] + "_" + arrJJ[8] + "_" + arrJJ[9]);
+            pck.init();
+        }
+        else {
+            mpi.news(data.errInfo, 3000);
+
+        }
+    }
+);
+
+    var pck = {
+        //加载页面
+        init: function () {
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'spline',
+                        backgroundColor: 'rgba(0,0,0,0)',
+                        style: {
+                            fontFamily: "Dosis, sans-serif"
+                        }
+                    },
+                    title: {
+                        text: null
+                    },
+                    subtitle: {
+                        text: null
+                    },
+                    credits: {
+                        text: '',
+                        href: ""
+                    },
+                    xAxis: {
+                        categories: [arrDate[0],arrDate[1],arrDate[2],arrDate[3],arrDate[4],arrDate[5],arrDate[6],arrDate[7],arrDate[8],arrDate[9]]//chartDate'03/23', '03/24', '03/25', '03/26', '03/27', '03/28', '03/29', '03/30', '03/31', '04/01'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Income/收入 ￥/元'
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: '￥/元'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: 'Bonus/奖金',//
+                        data: [parseFloat(arrJJ[0]), parseFloat(arrJJ[1]), parseFloat(arrJJ[2]), parseFloat(arrJJ[3]), parseFloat(arrJJ[4]), parseFloat(arrJJ[5]), parseFloat(arrJJ[6]), parseFloat(arrJJ[7]), parseFloat(arrJJ[8]), parseFloat(arrJJ[9])]//chartJJ0, 0, 0, 0, 0, 0, 0, 200.00, 0, 0
+                    }]
+                });
+            });
+        }
+    }
+    //pck.init();
+    //arrJJ[0], arrJJ[1], arrJJ[2], arrJJ[3], arrJJ[4], arrJJ[5], arrJJ[6], arrJJ[7], arrJJ[8], arrJJ[9]
+    //arrSS[0],arrSS[1],arrSS[2],arrSS[3],arrSS[4],arrSS[5],arrSS[6],arrSS[7],arrSS[8],arrSS[9]
+    //arrCX[0], arrCX[1], arrCX[2], arrCX[3], arrCX[4], arrCX[5], arrCX[6], arrCX[7], arrCX[8], arrCX[9]
+    //
+    m.event("ready").add(function () {
+        m.node(".mn-meter-menu .home").addClass("choose");
+        m.node(".mn-deal-detail .menu li").css("width", 100 / m.node(".mn-deal-detail .menu li").count() - 0.1 + "%");
+    });
+    m.event("load").add(function () {
+        setTimeout(function () { m.node("#weather").attr("src", "http://i.tianqi.com/index.php?c=code&id=55"); }, 80);
+    });
+
+</script>
+        </div>
+    </div>
+       <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

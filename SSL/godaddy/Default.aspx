@@ -1,0 +1,94 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="direct_demo.SSL.godaddy.Default" %>
+
+
+
+
+
+
+
+
+	
+	
+		
+	
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Secure Site by GoDaddy.com</title>
+	<link href="css/seal.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+<%
+    string s_domain = Request.Url.Host.ToString();
+     %>
+<div id="seal-popin" class="seal-popin">
+	<div class="seal-main-container clear-fix">
+		<h1 class="verified">Verified</h1>
+		<h2 class="secured-by">Secure Site by  GoDaddy.com</h2>
+		<p>
+			This Web site is secured with a GoDaddy.com Web Server Certificate. Transactions on the site are protected with up to 256-bit Secure Sockets Layer encryption. 
+			
+		</p>
+		
+		
+			
+				<h3>Domain Control Verified</h3>
+				<p>
+					GoDaddy.com has verified that the certificate holder controls the domain www.<%=s_domain %>.
+					
+				</p>
+			
+			
+			
+			
+		
+		
+		<h3>Site Name</h3>
+		<p>
+			www.<%=s_domain %>
+		</p>
+		
+		<h3>Certificate Status</h3>
+		<p>
+			Certificate is valid (10/1/14 3:22 AM to 4/29/19 2:43 AM). 
+		</p>
+		
+		
+		
+		
+			<div class="cert-provider-logo">
+				<img src="images/background/gd-logo.gif" alt="Logo" />
+			</div>
+		
+		
+		<div class="cert-type">
+			Standard SSL
+		</div>
+		
+		<ul class="print-link clear-fix">
+			<li>
+				<%--<a href="https://certs.godaddy.com/anonymous/repository.pki" target="_blank"></a>--%>GoDaddy Repository
+			</li>
+				
+		</ul>
+	</div>
+</div>
+
+<!--[if IE]>
+    <script type="text/javascript">
+        var ie = true;
+    </script>
+<![endif]-->
+<script src="js/verifySeal.js" type="text/javascript"></script>
+<%--<script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=vkICljT9QwBGOXTxJKpVyvsWYED1m9jpSHIEpfTS9wQNOpHU4aJDoJOoQE"></script>--%>
+</body>
+
+</html>

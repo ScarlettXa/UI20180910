@@ -1,0 +1,240 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    
+    
+    
+    
+    
+    
+
+        <link href="/cdn/jquery.jorgchart/jquery.jorgchart.css" rel="stylesheet" />
+        
+        
+    
+        var getType = "info", getName = "", id1, para = "", actName = "GetNetMapFenLi", chkPwd2Flag = 1;
+</script>
+
+
+
+    <style type="text/css">
+        .ms-info,
+        .ms-menu {
+            min-height: 700px;
+        }
+
+        .menu {
+            border-bottom: 1px dashed #eee;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+            .menu .td-title {
+                width: 65px;
+                height: 38px;
+                text-align: right;
+                padding-right: 5px;
+                font-weight: bold;
+            }
+
+            .menu .td-value {
+                width: 105px;
+            }
+
+                .menu .td-value .m-text,
+                .menu .td-value .m-select,
+                .menu .td-value .m-date-ipt {
+                    width: 100px;
+                    height: 24px;
+                }
+
+        .ms-info .jOrgChart table {
+            width: 100%;
+        }
+
+        .ms-info .jOrgChart .down {
+            background: #888;
+        }
+
+        .ms-info .jOrgChart .top {
+            border-top: 2px solid #888;
+        }
+
+        .ms-info .jOrgChart .left {
+            border-right: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .right {
+            border-left: 1px solid #888;
+        }
+
+        .ms-info .jOrgChart .node {
+            background-color: #fcfcfc;
+            color: #888;
+            border: 3px solid #888;
+            border-radius: 3px;
+            margin: 0 6px;
+            width: 110px;
+            height: 107px;
+            padding: 5px 8px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+
+            .ms-info .jOrgChart .node p {
+                font-size: 13px;
+                margin: 0px;
+                padding: 4px 0px;
+                text-align: left;
+                border-bottom: 1px dashed #eee;
+            }
+
+                .ms-info .jOrgChart .node p:last-child {
+                    border-bottom: 0px none;
+                }
+
+        .ms-info .jOrgList {
+            margin: 0px;
+            padding: 0px;
+            list-style: square;
+            margin-left: 30px;
+            height: auto;
+            border-left: 1px dashed #ddd;
+        }
+
+            .ms-info .jOrgList li {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 1px dashed #ddd;
+                color: #888;
+                padding-left: 10px;
+            }
+
+                .ms-info .jOrgList li ul {
+                    list-style: decimal;
+                }
+
+                .ms-info .jOrgList li label span {
+                    margin-left: 9px;
+                    color: #666;
+                }
+    </style>
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangTeam"><!--团队--></h3>
+    <ul>
+       
+        <!--<li class="recmlists"><a href="../Member/recmlists.htm">我的推荐</a></li>-->
+        <!--<li class="relationlists"><a href="../Member/relationlists.htm">关联账户</a></li>-->
+           <!-- <li class="netchart"><a href="../Member/netchart.htm">会员网络</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangMemberChart"><!--会员网络--></div>
+                <div id="BoxList"></div>
+                    <div id="chart" class="orgChart"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+    getTop();
+    var pck = {
+        rootid: "10000",
+        search: function () {
+            this.memberid = m.node("#search_id").plugin("text").value();
+            m.redirect("../Member/netchart?rootid=" + this.rootid);
+        },
+        init: function () {
+            m.node("#btn_enter").click(pck.search);
+        }
+    }
+    // pck.init();
+    jQuery(document).ready(function () {
+
+        m.node(".ms-menu .netchartfenli").addClass("choose");
+        m.node(".mn-meter-menu .member").addClass("choose");
+        //加载图表事件
+        if ($("#netchart").length > 0) {
+            $("#netchart").jOrgChart({
+                chartElement: '#chart',
+                dragAndDrop: true
+            });
+            $("#show-list").click(function (e) {
+                e.preventDefault();
+                $('#list-html').toggle('fast', function () {
+                    if ($(this).is(':visible')) {
+                        $('#show-list').text('Hide underlying list.');
+                        $(".topbar").fadeTo('fast', 0.9);
+                    } else {
+                        $('#show-list').text('Show underlying list.');
+                        $(".topbar").fadeTo('fast', 1);
+                    }
+                });
+            });
+            $('#list-html').text($('#netchart').html());
+            $("#netchart").bind("DOMSubtreeModified", function () {
+                $('#list-html').text('');
+                $('#list-html').text($('#netchart').html());
+                prettyPrint();
+            });
+        }
+    });
+
+    window.onload = function () {
+        $("#BoxList").html('<iframe src="' + ajaxUrl + '/ajax/netmapfenli.aspx" id="frmNetMap" height="550" width="100%" frameborder="0" scrolling="auto"></iframe>');
+    }
+</script>
+        </div>
+    </div>
+     <!--客服页-->
+
+    <!--底部栏-->
+
+</body>
+</html>

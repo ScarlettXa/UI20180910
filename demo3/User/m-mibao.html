@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>密保修改</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+  
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt-2.1-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/jquery-1.11.1.min.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="http://mtopt.oss-cn-beijing.aliyuncs.com/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetUserInfo", para = "", actName = "myInfoModi", chkPwd2Flag = 1;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+  </script>
+  <script type="text/javascript" src="/js/utils.js"></script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Member/m-member.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangModifyMB">
+       密保修改
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="am-tabs-bd">
+        <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormMBSet()">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+           <ul class="liebiao2">
+                <li>
+                  <span>
+                    <select id="selQuestion"  class="m-select" style="width: 212px; height: 35px;">
+                     <option value="我媽媽的名字是什麼？">我媽媽的名字是什麼？</option>
+                     <option value="我爸爸的名字是什麼？">我爸爸的名字是什麼？</option>
+                     <option value="我愛人的名字是什麼？">我愛人的名字是什麼？</option>
+                     <option value="我初中學校的校名是什麼？">我初中學校的校名是什麼？</option>
+                     <option value="我外婆的名字是什麼？">我外婆的名字是什麼？</option>
+                     <option value="我外公的名字是什麼？">我外公的名字是什麼？</option>
+                     <option value="我第一個子女名字是什麼？">我第一個子女名字是什麼？</option>
+                     <option value="我爺爺的名字是什麼？">我爺爺的名字是什麼？</option>
+                     <option value="我奶奶的名字是什麼？">我奶奶的名字是什麼？</option>
+                     <option value="我最喜歡的一部電影片名？">我最喜歡的一部電影片名？</option>
+                     <option value="我小學班主任老師的名字？">我小學班主任老師的名字？</option>
+                  </select>
+                  </span>提示问题
+                </li>
+                <li><span><input name="txtAnswer" type="text" value="" maxlength="20" id="txtAnswer" placeholder="必填项:请输入姓名" value=""></span>提示答案</li> 
+                <li><span><input name="txtPwd" type="password" maxlength="20" id="txtPwd" value=""></span>二级密码</li>        
+           </ul>
+           <div class="sousuo">
+				    	<button id="BtnSave" type="submit" class="sousuo-btn ajaxlangSubmit">提 交</button>
+				    </div>   
+          </div>
+         </form>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+    var pck = {
+        //设置地址
+        setplace: function (selt, root, callback) {
+            if (root < 0) { return; }
+            engine.ajax.place(root, function (json) {
+                selt.clear();
+                selt.add("请选择", -1);
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //是否调用回调
+                if (callback) { callback(); }
+            });
+        },
+        submit: function () {
+            var username = m.node("#username").plugin("text").value();
+            var idcard = m.node("#idcard").plugin("text").value();
+            var bankid = m.node("#bankid").plugin("select").value();
+            var bankno = m.node("#bankno").plugin("text").value();
+            var bankuser = m.node("#bankuser").plugin("text").value();
+            var bankname = m.node("#bankname").plugin("text").value();
+            var moblie = m.node("#moblie").plugin("text").value();
+            var email = m.node("#email").plugin("text").value();
+            var zipcode = m.node("#zipcode").plugin("text").value();
+            var address = m.node("#address").plugin("text").value();
+            var place = m.node("#location .county").plugin("select").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            //非空判断
+            if (username.length <= 0) {
+                mpi.news("请输入真实姓名", 3000);
+                return;
+            }
+            if (idcard.length <= 0) {
+                mpi.news("请输入身份证", 3000);
+                return;
+            }
+            if (bankid == null || bankid.length <= 0) {
+                mpi.news("请选择所属银行", 3000);
+                return;
+            }
+            if (bankno.length <= 0) {
+                mpi.news("请输入银行卡号", 3000);
+                return;
+            }
+            if (bankuser.length <= 0) {
+                mpi.news("请输入开户人", 3000);
+                return;
+            }
+            if (bankname.length <= 0) {
+                mpi.news("请输入开户行", 3000);
+                return;
+            }
+            if (moblie.length <= 0) {
+                mpi.news("请输入手机", 3000);
+                return;
+            }
+            if (email.length <= 0) {
+                mpi.news("请输入邮箱", 3000);
+                return;
+            }
+            if (place == null || place.length <= 0) {
+                mpi.news("请选择地区", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../User/api_basicedit_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("修改成功", 3000, true);
+                        break;
+                    case -10002:
+                        mpi.news("修改失败", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("username", username);
+            ajax.data.add("idcard", idcard);
+            ajax.data.add("bankid", bankid);
+            ajax.data.add("bankno", bankno);
+            ajax.data.add("bankuser", bankuser);
+            ajax.data.add("bankname", bankname);
+            ajax.data.add("moblie", moblie);
+            ajax.data.add("email", email);
+            ajax.data.add("zipcode", zipcode);
+            ajax.data.add("address", address);
+            ajax.data.add("place", place);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    //pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.bank(0, function (json) {
+            var selt = m.node("#bankid").plugin("select");
+            selt.clear();
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取地区
+            engine.ajax.place('001', function (json) {
+                var lt = m.node("#location .country").plugin("select");
+                lt.onchange = function (text, val) {
+                    var pv = m.node("#location .province").plugin("select");
+                    pck.setplace(pv, val);
+                };
+                var ltpv = m.node("#location .province").plugin("select");
+                ltpv.onchange = function (text, val) {
+                    var ct = m.node("#location .county").plugin("select");
+                    pck.setplace(ct, val);
+                };
+                //填充初始数据
+                lt.add("请选择", -1);
+                for (var i in json) {
+                    lt.add(json[i].name, json[i].id);
+                }
+                //设置默认值
+                m.node("#bankid").plugin("select").value(100);
+                lt.value('00110');
+                pck.setplace(ltpv, '00110', function () {
+                    ltpv.value('0011001');
+                });
+                pck.setplace(m.node("#location .county").plugin("select"), '0011001', function () {
+                    m.node("#location .county").plugin("select").value('001100108');
+                });
+            });
+        });
+    });    
+</script>
+</html>

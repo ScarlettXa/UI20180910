@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+            var id1 = 0;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+    <style type="text/css">
+       .ms-info,
+       .ms-menu{min-height:700px;}
+       /*表单数据*/
+       .ms-info .form{}
+       .ms-info .form td{height:50px;line-height:15px;font-size:14px;}
+       .ms-info .form .m-text,
+       .ms-info .form .m-select{height:25px;width:738px;}
+       .ms-info .form .td-title{width:135px;text-align:right;padding-right:15px;}
+    </style>
+    <!--<script src="/cdn/ckeditor/ckeditor.js"></script>-->
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangEmail"><!--邮箱--></h3>
+    <ul>
+    <script src="menu_mail.js"></script>
+       <!-- <li class="message"><a href="../Mail/message.htm">发表留言</a></li>
+        <li class="messagelists"><a href="../Mail/messagelists.htm?para=to_admin">留言板</a></li>
+            <li class="send"><a href="../Mail/send.htm">发送邮件</a></li>
+            <li class="sendlists"><a href="../Mail/sendlists.htm?para=to_1">发件箱</a></li>
+            <li class="collectlists"><a href="../Mail/collectlists.htm?para=from_1">收件箱</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangSendMail"><!--发送邮件--></div>
+               
+                <form name="form" method="post" enctype="multipart/form-data" action="" onsubmit="return chkFormWriteMessage()">
+                    <table class="form" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="td-title ajaxlangUserName"><!--会员编号：--></td>
+                            <td>
+                                <div id="members" class="m-text">
+                                    <input type="text" id="txtToUser" name="members" class="m-text-ipt" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style=" display:none;">
+                            <td class="td-title ajaxlangTitle"><!--标题：--></td>
+                            <td>
+                                <div id="title" class="m-text">
+                                    <input type="text" name="title" id="txtTitle" class="m-text-ipt" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangContent" valign="top" style="padding-top:10px"><!--内容：--></td>
+                            <td>
+                                <textarea rows="10" cols="80" id="txtContent" style=" width:100%"></textarea>
+                                <input type="hidden" name="content" class="hd_content" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title"></td>
+                            <td>
+                                <!--<input id="btn_enter" type="submit" class="m-btn m-btn-blue" value="立即发送" onclick="return pck.check();" style="width:75px" />-->
+                                <!--<input id="btn_enter" type="submit" class="m-btn m-btn-blue" value="立即发送"  style="width:75px" />-->
+                                <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        ckeditor: null,
+        check: function () {
+            var members = m.node("#members").plugin("text").value();
+            var title = m.node("#title").plugin("text").value();
+            var content = pck.ckeditor.getData();
+            if (members.length <= 0) {
+                mpi.news("请输入会员编号", 3000);
+                return false;
+            }
+            if (title.length <= 0) {
+                mpi.news("请输入标题", 3000);
+                return false;
+            }
+            if (content.length <= 0) {
+                mpi.news("请输入内容", 3000);
+                return false;
+            }
+            m.node(".hd_content").value(m.encry.html.encode(content));
+            return true;
+        }
+    }
+    m.event("ready").add(function () {
+        m.node(".ms-menu .send").addClass("choose");
+        m.node(".mn-meter-menu .mail").addClass("choose");
+        pck.ckeditor = CKEDITOR.replace("content");
+        /**********************判断返回值***********************/
+        if (m.queryString("data") != null) {
+            var data = m.json.getObject(m.encry.url.decode(m.queryString("data")));
+            switch (m.parse.toInteger(data.error)) {
+                case 0:
+                    mpi.news("邮件发送成功", 3000);
+                    break;
+                case -10001:
+                    mpi.news("邮件发送失败", 3000);
+                    break;
+                default:
+                    mpi.news("服务器忙碌", 3000);
+                    break;
+            }
+        }
+    });
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

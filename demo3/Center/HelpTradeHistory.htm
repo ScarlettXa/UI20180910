@@ -1,0 +1,308 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+    
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+        var getType = "list", getName = "GetHelpTradeList,GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+        var _pageindex = 1;
+    </script>
+    <script type="text/javascript" src="/js/comm.js?r=111"></script>
+    <script type="text/javascript" src="/js/jquery_comm.js?r=711"></script>
+    <script type="text/javascript" language="javascript">
+        para = getUrlParam('para');
+        date1 = getUrlParam('addtime');
+    </script>
+    <script type="text/javascript">
+      // var url_1 = "m-HelpTradeHistory.html?para="+para;
+      // var sUserAgent = navigator.userAgent.toLowerCase();
+      // var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+      // var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+      // var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+      // var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+      // var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+      // var bIsAndroid = sUserAgent.match(/android/i) == "android";
+      // var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+      // var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+      // if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM){
+      //     window.location.href = url_1;
+      // } 
+      
+  </script>
+
+    <style type="text/css">
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+    <!--导航栏-->
+
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+            <!-- <li class="active"><a href="../Home/main.htm"><i class="p-l-icon1"></i>首页</a></li>
+            <li><a href="../Member/recmlists.htm?para=re_1"><i class="p-l-icon2"></i>团队</a></li>
+            <li><a href="../Center/HelpAdd2.htm"><i class="p-l-icon3"></i>互助</a></li>
+            <li><a href="../Deal/main.htm"><i class="p-l-icon5"></i>奖金</a></li>
+            <li><a href="../Mail/messagelists.htm?para=to_admin"><i class="p-l-icon6"></i>留言</a></li>
+            <li><a href="../Notice/main.htm"><i class="p-l-icon7"></i>公告</a></li>
+            <li><a href="../User/basicedit.htm"><i class="p-l-icon7"></i>设置</a></li> -->
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+          
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+                <script src="menu_center.js"></script>
+                <!-- <li><a href="../Center/HelpAdd2.htm" style="background:#61baff" >提供帮助</a></li>
+                <li><a href="../Center/HelpAdd1.htm?para=t_2" style="background:#61baff" >申请帮助</a></li>
+                <li><a href="../Center/HelpTrade_send.htm?para=t1_1" style="background:#61baff" >打款列表</a></li>
+                <li><a href="../Center/HelpTrade_get.htm?para=t1_2" style="background:#61baff" >收款列表</a></li>
+                <li><a href="../Center/HelpTradeHistory.htm?para=t_1" style="background:#df4719" >申请记录</a></li> -->
+            </ul>
+        </div>
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangApplyRecord">申请记录</h2>
+            <div class="ms-info" style="text-align: center;height: 376px;-webkit-overflow-scrolling:touch;overflow: auto;">
+               <table class="form" cellpadding="0" cellspacing="0" id="boxList"></table>  
+
+                 <table class="form" cellpadding="0" cellspacing="0" style=" display:none;">
+                   <thead>
+                    <tr class="form-title">
+                        <!--<td class="ajaxlangNumber"></td>--><!--序号-->
+                        <td class="ajaxlangApplyUser"><!--申请会员--></td>
+                        <td class="ajaxlangSupplyUser"><!--提供帮助会员--></td>
+                        <td class="ajaxlangPayVoucher"><!--付款凭证--></td>
+                        <td class="ajaxlangAmount"><!--金额--></td>
+                        <td class="ajaxlangApplyDate"><!--申请日期--></td>
+                        <td class="ajaxlangConfirmDate"><!--确认日期--></td>
+                        <td class="ajaxlangOperate"><!--操作--></td>
+                    </tr>
+                    </thead>
+                    <tbody class="form-item2"></tbody>
+                 </table> 
+                <div class="paging" id="boxPages"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div> -->
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="9" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        memberid: null,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.memberid = m.node("#search_id").plugin("text").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Center/centerlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //删除会员
+        del: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_del", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("删除成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("删除失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //审核会员
+        audit: function (elm, id) {
+            mpi.news("正在提交...", 99999, true);
+            var ajax = m.ajax("../Center/api_centerlists_audit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("审核成功", 3000);
+                        m.reload();
+                        break;
+                    case -10000:
+                        mpi.news("审核失败", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+            });
+            ajax.data.add("memberid", id);
+            ajax.send();
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.memberid = m.node(".HD_MEMBERID").value();
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        $('#HelpAdd2').attr("style","background:#61baff");
+        $('#HelpAdd1').attr("style","background:#61baff");
+        $('#HelpTrade_send').attr("style","background:#61baff");
+        $('#HelpTrade_get').attr("style","background:#61baff");
+        $('#HelpTradeHistory').attr("style","background:#df4719");
+        /*m.node(".mn-meter-menu .center").addClass("choose");*/
+        m.node(".p-left-menu .center").addClass("active");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

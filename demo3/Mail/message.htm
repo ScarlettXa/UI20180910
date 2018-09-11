@@ -1,0 +1,187 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+        <script type="text/javascript" language="javascript">
+            var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+            var id1 = 0;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=1"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+    <style type="text/css">
+        .ms-info,
+        .ms-menu {
+            min-height: 700px;
+        }
+            /*表单数据*/
+            .ms-info .form {
+            }
+
+                .ms-info .form td {
+                    height: 50px;
+                    line-height: 15px;
+                    font-size: 14px;
+                }
+
+                .ms-info .form .m-text,
+                .ms-info .form .m-select {
+                    height: 25px;
+                    width: 738px;
+                }
+
+                .ms-info .form .td-title {
+                    width: 135px;
+                    text-align: right;
+                    padding-right: 15px;
+                }
+    </style>
+    <!--<script src="/cdn/ckeditor/ckeditor.js"></script>-->
+</head>
+<body>
+    <!--导航栏-->
+
+<div class="mn-navigation">
+    <div class="mn-inner">
+        <span class="ajaxlangHello"></span>，<a href="../User/basicinfo.htm" class="ajaxuserName"></a>
+        <ul class="mn-navigation-menu ajaxtopMenu"></ul>
+    </div>
+</div>
+    <!--标题栏-->
+    <div class="mn-header">
+        <div class="mn-inner">
+            <div class="mn-header-logo"></div>
+        </div>
+    </div>
+    <!--菜单栏-->
+    <div class="mn-meter">
+        <div class="mn-inner">
+            <ul class="mn-meter-menu ajaxheadMenu"></ul>
+            <a class="mn-meter-cart" href="../User/exit.htm"><span class="m-icon m-icon-off" style="color:#fff;margin-right:8px;"></span><span class="ajaxlangExit"></span></a>
+        </div>
+    </div>
+    <!--内容页-->
+    <div class="mn-content">
+        <div class="mn-inner">
+            
+<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr>
+        <td valign="top" style="width:180px;padding-right:12px">
+
+<div class="ms-menu">
+    <h3 class="ajaxlangEmail"><!--邮箱--></h3>
+    <ul>
+       <script src="menu_mail.js"></script>
+       <!-- <li class="message"><a href="../Mail/message.htm">发表留言</a></li>
+        <li class="messagelists"><a href="../Mail/messagelists.htm?para=to_admin">留言板</a></li>
+            <li class="send"><a href="../Mail/send.htm">发送邮件</a></li>
+            <li class="sendlists"><a href="../Mail/sendlists.htm?para=to_1">发件箱</a></li>
+            <li class="collectlists"><a href="../Mail/collectlists.htm?para=from_1">收件箱</a></li>-->
+    </ul>
+</div>
+
+        </td>
+        <td valign="top">
+            <div class="ms-info">
+                <div class="title ajaxlangWriteMessage"><!--发表留言--></div>
+                <form name="form" method="post" enctype="multipart/form-data"  onsubmit="return chkFormWriteMessage()">
+                    <table class="form" cellpadding="0" cellspacing="0">
+                        <tr style=" display:none;">
+                            <td class="td-title ajaxlangTitle"><!--标题：--></td>
+                            <td>
+                                <div id="title" class="m-text">
+                                    <input type="text" name="title" id="txtTitle" class="m-text-ipt" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangType"><!--类型：--></td>
+                            <td>
+                                <div>
+                            <select id="selType">
+					         <option value="付款" class="ajaxlangaaa">付款</option>
+					         <option value="账号" class="ajaxlangaaa">账号</option>
+					         <option value="建议" class="ajaxlangaaa">建议</option>
+					         <option value="技术" class="ajaxlangaaa">技术</option>
+					         <option value="提现" class="ajaxlangaaa">提现</option>
+					         <option value="其他" class="ajaxlangaaa">其他</option>
+                            </select> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangContent" valign="top" style="padding-top:10px"><!--内容：--></td>
+                            <td>
+                                <textarea rows="10" cols="80" id="txtContent" style=" width:100%"></textarea>
+                                <input type="hidden" name="content" class="hd_content" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title ajaxlangPic" valign="top" style="padding-top:10px"><!--图片：--></td>
+                            <td>
+                                     <!--<div id="boxUpload" class="controls" style="">	                                
+                                      
+	                                </div>-->
+                                    <iframe id="iframepic" src="" frameborder="0"  width="100%" scrolling="no" onload="setiFrameHeight('iframepic')"></iframe>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-title"></td>
+                            <td>
+                            <input type="hidden" id="txtToUser" name="members" class="m-text-ipt" value="admin" />
+                                <!--<input id="btn_enter" type="submit" class="m-btn m-btn-blue" value="立即发表" onclick="return pck.check();" style="width:75px" />-->
+                               <!-- <input id="btn_enter" type="submit" class="m-btn m-btn-blue" value="立即发送"  style="width:75px" />-->
+                               <button id="BtnSave" type="submit" class="m-btn m-btn-blue ajaxlangSubmit" style="width:75px"></button>
+
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+      <script type="text/javascript" language="javascript">
+          var touser = getUrlParam('touser');
+          if (touser != "" && touser != null)
+              document.getElementById("txtToUser").value = touser;
+         // document.getElementById("boxUpload").innerHTML = '<iframe src="' + ajaxUrl + '/ajax/uploadFrm.aspx?msgid=1" frameborder="0" scrolling="no" style="width: 500px; height: 350px;"></iframe>';
+
+          document.getElementById("iframepic").src = ajaxUrl + '/ajax/uploadFrm.aspx?msgid=1';
+
+    </script>
+<script type="text/javascript">
+
+    getTop();
+
+    m.event("ready").add(function () {
+        m.node(".ms-menu .message").addClass("choose");
+        m.node(".mn-meter-menu .mail").addClass("choose");
+    });
+
+
+</script>
+        </div>
+    </div>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>

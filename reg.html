@@ -1,0 +1,380 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title></title>
+    <link href="/styles/ui-2.0-min.css" rel="stylesheet" />
+<link href="/Plugins/blackbox/css/blackbox.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/engine.css" rel="stylesheet" />
+    <style type="text/css">
+        .mn-content{margin-top:160px;border-bottom:none;background:0 0}
+        .mn-inner{width:690px}
+        .pg-form{padding:20px 38px;min-height:310px;box-shadow: #888 0px 0px 10px;}
+        .pg-form h3{padding-bottom:12px;font-size:21px;}
+        .td-left{padding-right:65px;border-right:1px solid #e5e5e5}
+        .td-left td .m-text{width:220px;height:35px}
+        .td-left tr .td-title{width:55px;height:60px;font-size:15px;line-height:58px}
+        .td-right{padding-top:15px}
+        .td-right img{width:160px;height:160px;}
+        .tdl{ text-align:right; line-height:30px; padding-right:5px;}
+        .tdr{ line-height:30px;}
+        .txtbox{ width:110px;}
+        .cursor1{ cursor:pointer;}
+  .openShow{ display: none;  position:fixed; margin:auto;  width: 100%;  height: 100%;  z-index:1002; }
+  .black_overlay{  display: none;  position:fixed;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  background-color: black;  z-index:1001;  -moz-opacity: 0.8;  opacity:.80;  filter: alpha(opacity=80);  } 
+   .white_content {  margin:auto;  width: 50%;  height: 98%; min-width:350px;  padding:0 5px 0 5px;  border: 5px solid #35BA61;  background-color: white;  overflow: auto;  }  
+        button{ height:25px; line-height:25px; padding:0;}
+    </style>
+    <script src="/Scripts/mtopt-2.1-min.js"></script>
+    <script src="/Scripts/ui-2.0-min.js"></script>
+    <script src="/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var getType = "info", getName = "GetConfigs", para = "", actName = "memberReg", chkPwd2Flag = 0;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+</script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/files/jquery.min.js"></script>
+<script type="text/javascript" src="/Js/json2.js"></script>
+<script type="text/javascript" src="/js/comm.js?r=2"></script>
+<script>
+    id1 = getUrlParam('tj');
+</script>
+<script type="text/javascript" src="/js/jquery_comm2.js?r=11"></script>
+
+<script type="text/javascript" language="javascript">
+    window.onload = function () {
+//        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetXieYi&jstype=jsonp&callback=?";
+//        $.getJSON(url1,
+//    function (data) {
+//        if (data.result == "success") {
+//            $(".ajaxregXieYi").html(data.info);
+//        }
+//        else {
+//            alert(data.errInfo);
+//        }
+//    }
+        //);
+        $(".ajaxregXieYi").html('<iframe id="frm1" src="' + ajaxUrl + '/ajax/newsview.aspx?id=34&act=membernewsview" frameborder="0" scrolling="auto" width="100%" height="545"></iframe>');
+    }
+
+    function openShow() {
+        $(".openShow").css("display", "block");
+        document.getElementById('fade').style.display = 'block'
+    }
+    function closeShow() {
+        $(".openShow").css("display", "none");
+        document.getElementById('fade').style.display = 'none'
+    }
+    //ajax更换会员编号
+    function changeUserName() {
+
+                document.getElementById("lblBianhao").innerHTML = '<img src="/images/loading.gif" />';
+                $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeUserName&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+            function (data) {
+                $("#txtBianhao").val(data.userName);
+                document.getElementById("lblBianhao").innerHTML = '';
+
+            }
+        );
+    }
+
+    function changeService() {
+
+        document.getElementById("lblService").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeService&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+    function (data) {
+        $("#txtService").val(data.userName);
+        $("#txtService").focus();
+        document.getElementById("lblService").innerHTML = '';
+
+    }
+);
+    }
+
+    function changeJD() {
+        document.getElementById("lblJdr").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeJieDian&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+    function (data) {
+        $("#txtJD").val(data.userName);
+        $("#txtJD").focus();
+        document.getElementById("lblJdr").innerHTML = '';
+
+    }
+);
+    }
+
+    function getUserName(oid1, showid1, msgErr, msgRight) {
+
+        $.getJSON(ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetUserName&jstype=jsonp&callback=?&UserName=" + $("#" + oid1).val(),
+    function (value) {
+        if (value.result == "nouser") {
+            document.getElementById(showid1).innerHTML = msgErr;
+            return false;
+        } else {
+            if (msgRight == "")
+                document.getElementById(showid1).innerHTML = value.result;
+            else
+                document.getElementById(showid1).innerHTML = msgRight;
+            return;
+        }
+
+    }
+);
+
+
+    }
+
+
+    function ShowValidImage() {
+        var numkey = Math.random();
+        document.getElementById("imgRandom").src = "/demo1/Validcode.aspx?ns=" + numkey;
+    }
+</script>
+</head>
+<body>
+<div class="openShow">
+    <div id="light" class="white_content"> 
+      <div style=" height:25px;"><a href="javascript:void(0)" onclick="closeShow()" class="ajaxlangClose" style=" float:right;"></a></div>
+      <div class="ajaxregXieYi"></div>
+     </div> 
+</div>
+
+<div id="fade" class="black_overlay"> </div>
+    <!--内容页-->
+
+    <div class="mn-content" style=" margin:0 auto 10px auto;">
+        <div class="mn-inner" style="  width:350px; padding:0 0 0 0;">
+            <div class="mn-boxaaaa pg-form" style=" padding:0;">
+                <div style="font-size:30px;font-family:'YouYuan';width:100%; line-height:70px; height:70px; text-align:center; ">
+                <!--<img src="/demo2/img/logo.png" height="70" style=" float:left; margin-right:50px;" />-->
+                <span class="ajaxlangMemberRegSelf"></span>
+                <span class="ajaxlangSel"></span>
+                </div>
+
+        <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormReg()">
+<div id="boxMain" style=" display:none;">
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td valign="top">
+                <table class="tableborder" border="0" align="center" cellpadding="0" cellspacing="0">
+                
+				<tr style=" display:none;">
+					<td class="tdl ajaxlangUserName" ></td>
+					<td  class="tdr"><input type="text" id="txtBianhao" class="txtbox" maxlength="15" readonly /><FONT color="#ff0000">*</FONT>
+					  <!--<input id="btnChangeUserName" type="button" value="换一个" class="buttom" />-->
+                      <button id="btnChangeUserName" type="button" class="buttom ajaxlangRandom" style=" display:none;"></button>
+				      <span id="lblBianhao"></span>
+					</td>
+				</tr>
+				<tr class="box_mobile" style="display:none;">
+					<td  class="tdl ajaxlangMobileNumber"></td>
+					<td  class="tdr"><input type="text" id="txtMob" class="txtbox" maxlength="11" /><FONT color="#ff0000">*</FONT></td>
+			
+				</tr>
+				<tr class="box_yzaaa" style="display:none;">
+					<td  class="tdl ajaxlangVerifiyMode"><!--验证方式--></td>
+					<td  class="tdr">
+                       <span><input id="CodeType1" name="CodeType" type="radio"  value="1" checked /><span class="ajaxlangMobilePhone">手机</span></span>
+                       
+                       
+                    </td>
+			
+				</tr>
+				<tr style=" display:none;">
+					<td class="tdl ajaxlangValidCode"></td>
+					<td  class="tdr">
+						<input type="text" id="txtmobilecode" class="txtbox" style="width:50px;" maxlength="6" value="123456" /><FONT color="#ff0000">*</FONT>
+                        <!--<input type="button" id="btnGetMobileCode" value="获取验证码" />-->
+                        <button id="btnGetMobileCode" type="button" class="buttom ajaxlangGetVerificationCode"></button>
+                        <span id="infoMobileCode"></span>
+                        </td>
+				</tr>
+				<tr>
+					<td width="127" class="tdl ajaxlangPassword"></td>
+					<td  class="tdr"><input type="password" id="txtPwd1" class="txtbox" maxlength="20" /><FONT color="#ff0000">*</FONT></td>
+					
+				</tr>
+				<tr>
+					<td  class="tdl ajaxlangConfirmPassword"></td>
+					<td  class="tdr"><input type="password" id="txtPwd1_2" class="txtbox" maxlength="20" /><FONT color="#ff0000">*</FONT></td>
+					
+				</tr>
+				<tr>
+					<td  class="tdl ajaxlangSecurityPassword"></td>
+					<td  class="tdr"><input type="password" id="txtPwd2" class="txtbox" maxlength="20" /><FONT color="#ff0000">*</FONT></td>
+					
+				</tr>
+				<tr>
+					<td  class="tdl ajaxlangConfirmSecurityPassword"></td>
+					<td  class="tdr"><input type="password" id="txtPwd2_2" class="txtbox" maxlength="20" /><FONT color="#ff0000">*</FONT></td>
+					
+				</tr>
+				<TR class="ajaxjibieRegShow" style=" display:none;">
+					<TD class="tdl ajaxlangLevel"></TD>
+					<TD  class="tdr">
+						<select id="selJiBie"></select>
+						<span id="regJibienotice"></span>
+					</TD>
+				</TR>
+				<tr>
+					<td class="tdl ajaxlangRecommended"></td>
+					<td  class="tdr"><input type="text" value="" id="txtTJ" class="txtbox ajaxuserNameVal" maxlength="15" /><FONT color="#ff0000">*</FONT>
+					                <span id="lblTjr"></span>
+					</td>
+				</tr>
+				<tr class="ajaxjdShow" style=" display:none;">
+					<td class="tdl ajaxlangLeader"></td>
+					<td  class="tdr">
+						<input type="text" value="" id="txtJD" class="txtbox"  maxlength="15" /><FONT color="#ff0000">*</FONT>
+                        <!--<input id="btnChangeJD" type="button" value="随机获取" class="buttom" />-->
+                        <button id="btnChangeJD" type="button" class="buttom ajaxlangRandom"></button>
+						<span id="lblJdr"></span>
+						</td>
+				</tr>
+				<tr class="ajaxjdShow" style=" display:none;">
+					<td  class="tdl ajaxlangPosition"></td>
+					<td  class="tdr">
+					    <select id="selWeiZhi">
+					      <option value="777" class="ajaxlangLeft"></option>
+					      <option value="888" class="ajaxlangRight"></option>
+					    </select>
+						
+				    </td>
+				</tr>
+				<tr style=" display:none;">
+					<td class="tdl ajaxlangServiceCentre"></td>
+					<td  class="tdr">
+						<input type="text" id="txtService" class="txtbox" maxlength="15" value="Co.,Ltd" /><FONT color="#ff0000">*</FONT>
+                       <!-- <input id="btnChangeService" type="button" value="随机获取" class="buttom" />-->
+                       <button id="btnChangeService" type="button" class="buttom ajaxlangRandom"></button>
+                        <span id="lblService"></span>
+					</td>
+				</tr>
+				<tr class="box_trueName" style="display:none;">
+					<td  class="tdl ajaxlangName"></td>
+					<td  class="tdr"><input type="text" id="txtTrueName" class="txtbox" maxlength="8" /><FONT color="#ff0000">*</FONT></td>
+				
+				</tr>
+				<tr class="box_idCard" style="display:none;">
+					<td  class="tdl ajaxlangIDCard"></td>
+					<td  class="tdr"><input type="text" id="txtIDCard" class="txtbox" maxlength="18" style="width:180px;" /><FONT color="#ff0000">*</FONT></td>
+					
+				</tr>
+				<tr class="box_sex" style="display:none;">
+					<td  class="tdl ajaxlangSex"></td>
+					<td  class="tdr">
+					    <select id="selSex">
+					       <option value="1" class="ajaxlangMale"></option>
+					       <option value="0" class="ajaxlangFemale"></option>
+					    </select>
+					</td>
+				</tr>
+				<tr class="box_address" style="display:none;">
+					<td  class="tdl ajaxlangContactAddress" valign="top"></td>
+					<td  class="tdr">
+                         <span id="reg_notice1"  style=" color:Red;"></span>
+					     <select id="selProvince" onChange="provincechange('selProvince','selCity','selArea','reg_notice1')" style="width:140px;">
+                         </select><br />
+                         <select id="selCity" onChange="citychange('selProvince','selCity','selArea','reg_notice1')" style="width:160px;">
+				         </select> <br />
+				         <select id="selArea" style="width:160px;">
+				         </select><br />
+					  <input type="text" id="txtAddress" class="txtbox" style="width:180px;" maxlength="30" /><FONT color="#ff0000">*</FONT>
+					</td>
+				</tr>
+				<TR class="box_postCode" style="display:none;">
+					<TD  class="tdl ajaxlangPostcode"></TD>
+					<TD  class="tdr"><input  type="text" maxlength="6" id="txtPostCode" class="txtbox" /></TD>
+					
+				</TR>
+				<tr class="box_alipay" style="display:none;">
+					<td  class="tdl ajaxlangAlipay"></td>
+					<td  class="tdr"><input type="text" id="txtAlipayNumber" class="txtbox" maxlength="30" /></td>
+	
+				</tr>
+				<tr class="box_qq" style="display:none;">
+					<td class="tdl">QQ</td>
+					<td  class="tdr">
+						<input type="text" id="txtQQ" class="txtbox" style="width:99px;" maxlength="20" /></td>
+				</tr>
+				<tr class="box_email" style="display:none;">
+					<td  class="tdl ajaxlangEmail"></td>
+					<td  class="tdr"><input type="text" id="txtEmail" class="txtbox" maxlength="30" /></td>
+	
+				</tr>
+				<tr class="box_weixin" style="display:none;">
+					<td class="tdl ajaxlangWeChat"></td>
+					<td  class="tdr"><input type="text" id="txtwxid" class="txtbox" style="width:99px;" maxlength="20" /></td>
+				</tr>
+				<tr class="box_bank" style="display:none;">
+					<td class="tdl ajaxlangAccountName"></td>
+					<td  class="tdr"><input type="text" id="txtBankUser" class="txtbox" style="width:99px;" maxlength="20" /><FONT color="#ff0000">*</FONT></td>
+				</tr>
+				<tr class="box_bank" style="display:none;">
+					<td class="tdl ajaxlangBank"></td>
+					<td  class="tdr"><select id="selBank"></select>
+	                 </td>
+				</tr>
+				<tr class="box_bank" style="display:none;">
+					<td class="tdl ajaxlangBankAccount"></td>
+					<td class="tdr"><input type="text" id="txtBankNumber" class="txtbox" maxlength="20" style=" width:190px;" /><FONT color="#ff0000">*</FONT></td>
+
+				</tr>
+				<tr class="box_bank" style="display:none;">
+					<td class="tdl ajaxlangBankAddress" valign="top"></td>
+					<td class="tdr"><span id="reg_notice2"  style=" color:Red;"></span>
+					     <select id="selProvince2" onChange="provincechange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:140px;">
+                         </select><br />
+                         <select id="selCity2" onChange="citychange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:160px;">
+				         </select> <br />
+				         <select id="selArea2" style="width:160px;">
+				         </select>
+					   
+					</td>
+				</tr>
+				<tr>
+					<td class="tdl ajaxlang">开户支行</td>
+					<td class="tdr">
+                        <input type="text" id="txtBankAddress" class="txtbox" style="width:190px;" maxlength="30" />
+					</td>
+				</tr>
+				<tr>
+					<td class="tdl ajaxlangAgreement"></td>
+					<td class="tdr">
+                        <input type="checkbox" id="cb_xieyi" value="1" /><span class="ajaxlangAgree"></span> <a class="cursor1 ajaxlangView" onclick="openShow()"></a>
+					</td>
+				</tr>
+				<tr>
+					<td class="tdl">
+                      &nbsp;
+					</td>
+					<td class="tdr">
+                    <input type="hidden" id="txtregFrom" name="regFrom" value="tuiguang" />
+                      <!--<input type="submit" value="提交" id="btSubmit" /> -->
+                      <button id="btSubmit" type="submit" class="buttom ajaxlangSubmit"></button>
+                      &nbsp; &nbsp; <a href="/" class="ajaxlangBackHomeaaa">会员登录</a>
+					</td>
+				</tr>
+			</table>
+                        </td>
+                    </tr>
+                </table>
+</div>
+
+<div id="boxLoading">
+   <div style="text-align:center; padding-top:50px;">请 稍 候<br><img src="/images/waiting2.gif" /></div>
+</div>	
+        </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh-cmn-Hans">
+<head>
+    <meta property="qc:admins" content="1051105554536547046375" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script src="../autoAdjust.js"></script>
+
+    <title></title>
+    <link href="/cdn/mtopt/ui-2.0-min.css" rel="stylesheet" />
+    <link href="/Styles/engine.css" rel="stylesheet" />
+
+    <script src="/cdn/mtopt-2.1-min.js"></script>
+    <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+    <script src="/cdn/jquery-1.11.1.min.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+    <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+    <script src="/Scripts/engine.js"></script>
+    <script type="text/javascript" language="javascript">
+        var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+        var getType = "list", getName = "getMyMemberList,GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+        var _pageindex = 1;
+</script>
+<script type="text/javascript" src="/js/comm.js?r=111"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=711"></script>
+<script type="text/javascript" language="javascript">
+    para = getUrlParam('para');
+</script>
+    <style type="text/css">
+        .menu{margin-bottom:10px;width:100%;}
+        .menu .td-title{width:65px;height:38px;text-align:right;padding-right:5px;font-weight:bold;}
+        .menu .td-value{width:105px;}
+        .menu .td-value .m-text,
+        .menu .td-value .m-select,
+        .menu .td-value .m-date-ipt {width:100px;height:24px;}
+
+        .form{border-bottom:1px solid #ddd;border-right:1px solid #ddd;width:100%;}
+        .form td{border-left:1px solid #ddd;border-top:1px solid #ddd;}
+        .form-title{text-align:center;height:32px;line-height:32px;font-weight:bold;}
+        .form-item{height:28px;line-height:28px;}
+        .form-item td{padding-left:5px;text-align:center;}
+        .form-item td:first-child{text-align:left;}
+        .paging{margin-top:8px;}
+    </style>
+
+    <!--tecson add-->
+<link rel="stylesheet" href="../../New_themes/css/pc-reset.css" type="text/css" />
+<link rel="stylesheet" href="../../New_themes/css/master.css" type="text/css" />
+
+<script type="text/javascript" src="../../New_themes/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.placeholder.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Invoke the plugin
+    $('input, textarea').placeholder();
+  });
+</script>
+
+<script type="text/javascript" src="../../New_themes/js/common-min.js"></script>
+<script type="text/javascript" src="../../New_themes/js/jquery.kxbdmarquee.js"></script>
+<!-- end of add-->
+
+</head>
+<body style="width:100%; height:100%;">
+<script src="../bgImage.js"></script>
+<script src="../navigation-bg.js"></script>
+
+ <!--导航栏-->   
+<div class="p-top-warp">
+    <div class="p-top w2">
+        <span>您好，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></span>|<span><a href="../User/basicinfo.htm">我的账户</a></span>|<span><a href="../User/exit.htm">退出</a></span>
+    </div>
+</div>
+
+<header class="p-header w2">
+    <script src="../headlogo.js"></script>
+    <nav class="p-nav-box fr">
+        <ul class="p-nav nav-pills ajaxtopMenu">
+
+        </ul>
+    </nav>
+
+</header>
+<!-- <div class="p-banner-warp">
+    <div class="p-banner w2">
+        <div class="p-banner-left fl ml-15">
+            <span class="fl p-bl-user"><img src=""><i><img src="../../New_themes/images/p-user-box_03.png"></i></span>
+            <div class="fl p-bl-txt">
+                <h4><font>欢迎您，<a href="../User/basicinfo.htm" class="ajaxuserName"></a></font></h4>
+            </div>
+        </div>
+      
+    </div>
+</div> -->
+
+<main>
+<div class="w2 p-main mt-25 cl">
+    <div class="p-mleft fl" style="background:#FFF">
+        <h3 class="p-mleft-tit mt-25">快捷菜单</h3>
+        <ul class="p-left-menu ajaxheadMenu">
+
+        </ul>
+    </div><!-- p-mleft end -->
+    <div class="p-mright fr" style="background:#FFF">
+        <!-- <div>
+            <span class="p-new-icon fl ajaxlangNotice"><img src="../../New_themes/images/i_j_07.png"></span>
+            <div class="i_con_right_notic fr" id="marquee4">
+                <ul class="ajaxmenuAbout">
+          
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="i_con_right_icon">
+            <ul>
+                <li class="register"><a href="/reg.html" class="ajaxlangRegisterMember menuBusiness" style="background:#61baff" >注册会员</a></li>
+                <li class="recmlists"><a href="../Member/recmlists.htm?para=re_1" class="ajaxlangMyRecommended" style="background:#df4719" >我的推荐</a></li>
+                <li class="netcharttj"><a href="../Member/netchartTJ.htm" class="ajaxlangRecomChat" style="background:#61baff">推荐关系图</a></li>
+            </ul>
+        </div>
+
+         <div class="i_con_right_help">
+            <h2 class="ajaxlangMyRecommended">我的推荐</h2>
+            <div class="ms-info" style="text-align: center;height: 376px;overflow: auto;">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style=" display:none;"><input id="accountType1" name="accountType" type="radio" checked="checked" value="1" /></td>
+                        <td style=" display:none;"><label for="accountType1">善远币</label></td>
+                        <td>
+                          善远币：<span class="ajaxqianBao"></span> &nbsp; 
+                        </td>
+                    </tr>
+                </table>  
+                <table class="menu" cellpadding="0" cellspacing="0" style=" display:none;">
+                    <tr>
+                        <td class="td-title">会员级别:</td>
+                        <td class="td-value">
+                            <div id="search_level" class="m-select"></div>
+                        </td>
+                        <td class="td-title">会员编号:</td>
+                        <td class="td-value">
+                            <div id="search_id" class="m-text"></div>
+                        </td>
+                        <td class="td-title">开始时间:</td>
+                        <td class="td-value">
+                            <div id="search_starttime" class="m-date" data-val="2000-1-1"></div>
+                        </td>
+                        <td class="td-title">结束时间:</td>
+                        <td class="td-value">
+                            <div id="search_endtime" class="m-date"></div>
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="btn_enter" type="button" class="m-btn m-btn-blue" value="查询记录" onclick="pck.search()" style="width:80px;" />
+                        </td>
+                    </tr>
+                </table>
+                <table class="form" cellpadding="0" cellspacing="0">
+                  <thead>
+                    <tr class="form-title">
+                        <td class="ajaxlangNumber"><!--序号--></td>
+                        <td class="ajaxlangUserName"><!--会员编号--></td>
+                        <td class="ajaxlangName"><!--姓名--></td>
+                        <td class="ajaxlangRecommended"><!--推荐人--></td>
+                        <td class="ajaxlangRegDate" ><!--注册日期--></td>
+                        <td class="ajaxlangActiveDate"><!--激活日期--></td>
+                        <td class="ajaxlangStatus"><!--状态--></td>
+                    </tr>
+                  </thead>
+                  <tbody id="boxList" align="center"></tbody>
+                           <!-- <tr class="form-item">
+                                <td>1</td>
+                                <td><a href="../Member/detail?id=CN10520">CN10520</a></td>
+                                <td>1</td>
+                                <td>旗舰会员</td>
+                                <td>10000</td>
+                                <td>CN10308</td>
+                                <td>2016/03/01</td>
+                                <td>2016/03/01</td>
+                                <td>可用</td>
+                            </tr>
+                            -->
+
+                </table>
+                <!--<div class="paging m-paging" id="boxPages"></div>-->
+                <div class="paging" id="boxPages"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- <div class="link-ad w2 ajaxlangMyLink">推广链接：<span class="ajaxtjLink"><a href="#">www.123456weqre.com/HD96888.aspx</a></span></div> -->
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="8" />
+<input type="hidden" class="HD_MEMBERID" value="" />
+<input type="hidden" class="HD_LEVEL" value="0" />
+<input type="hidden" class="HD_TIMESTART" value="" />
+<input type="hidden" class="HD_TIMEEND" value="" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        memberid: null,
+        level: 0,
+        timestart: null,
+        timeend: null,
+        search: function () {
+            this.level = m.node("#search_level").plugin("select").value();
+            this.memberid = m.node("#search_id").plugin("text").value();
+            this.timestart = mDate(m.node("#search_starttime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            this.timeend = mDate(m.node("#search_endtime").plugin("date").value()).toFormatString("yyyy/mm/dd");
+            m.redirect('/Member/recmlists?&page=' + this.page + "&level=" + pck.level + "&memberid=" + pck.memberid
+                 + "&timestart=" + pck.timestart + "&timeend=" + pck.timeend);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+            this.memberid = m.node(".HD_MEMBERID").value();
+            this.level = mtopt.parse.toInteger(m.node(".HD_LEVEL").value());
+            this.timestart = m.node(".HD_TIMESTART").value();
+            this.timeend = m.node(".HD_TIMEEND").value();
+        }
+    }
+    pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取银行
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#search_level").plugin("select");
+            selt.clear();
+            selt.add("请选择", "0");
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取默认数据
+            m.node("#search_level").plugin("select").value(pck.level);
+            m.node("#search_id").plugin("text").value(pck.memberid);
+            m.node("#search_starttime").plugin("date").value(pck.timestart);
+            m.node("#search_endtime").plugin("date").value(pck.timeend);
+        });
+    });
+    m.event("ready").add(function () {
+        m.node(".p-left-menu .member").addClass("active");
+        /*m.node(".ms-menu .recmlists").addClass("choose");*/
+        m.node(".mn-meter-menu .member").addClass("choose");
+        var paging = m.node(".paging").plugin("paging");
+        paging.selected = pck.page + 1;
+        if (pck.count > pck.size) {
+            paging.setpaging(pck.count / pck.size, 10);
+            paging.onclick = function (index, page) {
+                pck.page = index - 1;
+                pck.search();
+            }
+        }
+        else { paging.hide(); }
+    });
+</script>
+        </div>
+    </div>
+    <!--我的推广页-->
+<script src="../popularize.js"></script>
+    <!--客服页-->
+<script src="../kefu.js"></script>
+    <!--底部栏-->
+<script src="../bottom.js"></script>
+</body>
+</html>
