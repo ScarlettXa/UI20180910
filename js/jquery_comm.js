@@ -150,15 +150,32 @@ function getListInfo(oGetName) {
                 $(".boxProductList").html(decodeURIComponent(value.list));
             else
                 $("#boxList").html(decodeURIComponent(value.list));
-            //$("#boxList").html(value.list);
-            // $(".picSmall").imgbox();
-            //            $(".picSmall").imgbox({
-            //                'speedIn': 0,
-            //                'speedOut': 0,
-            //                'alignment': 'center',
-            //                'overlayShow': true,
-            //                'allowMultiple': false
-            //            });
+                
+                if (asktype == "1") {
+                     var data = getTableContent("boxList");
+                    console.log("boxList:"+data);
+                    var tmp = '';
+                    for(var i=0,rows=data.length; i<rows; i++){
+                      if (i > 0) {
+                         tmp = tmp + '<div class="liebiao3 orange">';
+                         tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
+                         tmp = tmp + '<ul>';
+                      }
+                      for(var j=0,cells=data[i].length; j<cells; j++){
+                        if (i > 0) {
+                            tmp = tmp + '<li>';
+                            tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            tmp = tmp + data[0][j];
+                            tmp = tmp + '</li>';
+                        }
+                      }
+                      if (i > 0) {
+                         tmp = tmp + '</ul>';
+                         tmp = tmp + '</div>';
+                      }
+                    }
+                    $("#helpTradeList").html(tmp);
+                }
 
             if (oGetName == "GetMessageList2") {
                 $(".picSmall").imgbox();
@@ -689,56 +706,61 @@ function getInfo(oGetName) {
             else if (oGetName == "GetHelpTradeInfo1") {
                 $(".ajaxhelpTradeInfo1").html(value.list);
 
-                var data = getTableContent("ajaxhelpTradeInfo1");
-                console.log("ajaxhelpTradeInfo1:"+data);
-                var tmp = '';
-                for(var i=0,rows=data.length; i<rows; i++){
-                  if (i > 0) {
-                     tmp = tmp + '<div class="liebiao3 orange">';
-                     tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
-                     tmp = tmp + '<ul>';
-                  }
-                  for(var j=0,cells=data[i].length; j<cells; j++){
-                    if (i > 0) {
-                        tmp = tmp + '<li>';
-                        tmp = tmp + '<span>' + data[i][j] + '</span>';
-                        tmp = tmp + data[0][j];
-                        tmp = tmp + '</li>';
+                if (asktype == "1") {
+                     var data = getTableContent("ajaxhelpTradeInfo1");
+                    console.log("ajaxhelpTradeInfo1:"+data);
+                    var tmp = '';
+                    for(var i=0,rows=data.length; i<rows; i++){
+                      if (i > 0) {
+                         tmp = tmp + '<div class="liebiao3 orange">';
+                         tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
+                         tmp = tmp + '<ul>';
+                      }
+                      for(var j=0,cells=data[i].length; j<cells; j++){
+                        if (i > 0) {
+                            tmp = tmp + '<li>';
+                            tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            tmp = tmp + data[0][j];
+                            tmp = tmp + '</li>';
+                        }
+                      }
+                      if (i > 0) {
+                         tmp = tmp + '</ul>';
+                         tmp = tmp + '</div>';
+                      }
                     }
-                  }
-                  if (i > 0) {
-                     tmp = tmp + '</ul>';
-                     tmp = tmp + '</div>';
-                  }
+                    $(".payInfoList").html(tmp);
                 }
-                $(".payInfoList").html(tmp);
+               
             }
             else if (oGetName == "GetHelpTradeInfo2") {
                 $(".ajaxhelpTradeInfo2").html(value.list);
                // $(".picSmall").imgbox();
-                var data = getTableContent("ajaxhelpTradeInfo2");
-                console.log("ajaxhelpTradeInfo2:"+data);
-                var tmp = '';
-                for(var i=0,rows=data.length; i<rows; i++){
-                  if (i > 0) {
-                     tmp = tmp + '<div class="liebiao3 orange">';
-                     tmp = tmp + '<div class="liebiao-tit">卖出交易匹配订单</div>';
-                     tmp = tmp + '<ul>';
-                  }
-                  for(var j=0,cells=data[i].length; j<cells; j++){
-                    if (i > 0) {
-                        tmp = tmp + '<li>';
-                        tmp = tmp + '<span>' + data[i][j] + '</span>';
-                        tmp = tmp + data[0][j];
-                        tmp = tmp + '</li>';
+                if (asktype == "1") {
+                    var data = getTableContent("ajaxhelpTradeInfo2");
+                    console.log("ajaxhelpTradeInfo2:"+data);
+                    var tmp = '';
+                    for(var i=0,rows=data.length; i<rows; i++){
+                      if (i > 0) {
+                         tmp = tmp + '<div class="liebiao3 orange">';
+                         tmp = tmp + '<div class="liebiao-tit">卖出交易匹配订单</div>';
+                         tmp = tmp + '<ul>';
+                      }
+                      for(var j=0,cells=data[i].length; j<cells; j++){
+                        if (i > 0) {
+                            tmp = tmp + '<li>';
+                            tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            tmp = tmp + data[0][j];
+                            tmp = tmp + '</li>';
+                        }
+                      }
+                      if (i > 0) {
+                         tmp = tmp + '</ul>';
+                         tmp = tmp + '</div>';
+                      }
                     }
-                  }
-                  if (i > 0) {
-                     tmp = tmp + '</ul>';
-                     tmp = tmp + '</div>';
-                  }
-                }
-                $(".getInfoList").html(tmp); 
+                    $(".getInfoList").html(tmp);
+                } 
                
             }
             else {
