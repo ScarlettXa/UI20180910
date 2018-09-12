@@ -29,6 +29,14 @@
 <script type="text/javascript" language="javascript">
     para = getUrlParam('para') + '&page=' + getUrlParam('page') + '&type=' + getUrlParam('type') + '&accounttype=' + getUrlParam('accounttype') + '&state=' + getUrlParam('state') + '&bonus=' + getUrlParam('bonus') + '&timestart=' + getUrlParam('timestart') + '&timeend=' + getUrlParam('timeend');
     date1 = getUrlParam('addtime');
+
+    var accounttype = getUrlParam('accounttype');
+
+    var url_1 = "m-main.html?accounttype=" + accounttype +"&requestType=Mobile";
+    var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+    if (asktype == '1'){
+        window.location.href = url_1;
+    } 
 </script>
     <style type="text/css">
         /*交易分类*/
@@ -126,19 +134,19 @@
                         <label class="title ajaxlangTradeType"><!--交易类型--></label>
                         <ul class="pg-types">
                             <li onclick="pck.setType(this, -1)" class="li-choose li-type-none"><a class="ajaxlangUnlimited"><!--不限--></a></li>
-                                <li onclick="pck.setType(this, 1)" class="li-type-1"><a class="ajaxlangRecharge"><!--充值--></a></li>
-                                <li onclick="pck.setType(this, 2)" class="li-type-2"><a class="ajaxlangChangeIn"><!--转入--></a></li>
-                                <li onclick="pck.setType(this, 3)" class="li-type-3"><a class="ajaxlangChangeOut"><!--转出--></a></li>
-                                <li onclick="pck.setType(this, 4)" class="li-type-4"><a class="ajaxlangBonus"><!--奖金--></a></li>
+                            <li onclick="pck.setType(this, 1)" class="li-type-1"><a class="ajaxlangRecharge"><!--充值--></a></li>
+                            <li onclick="pck.setType(this, 2)" class="li-type-2"><a class="ajaxlangChangeIn"><!--转入--></a></li>
+                            <li onclick="pck.setType(this, 3)" class="li-type-3"><a class="ajaxlangChangeOut"><!--转出--></a></li>
+                            <li onclick="pck.setType(this, 4)" class="li-type-4"><a class="ajaxlangBonus"><!--奖金--></a></li>
                         </ul>
                     </li>
                     <li>
                         <label class="title ajaxlangTradeStatus"><!--交易状态--></label>
                         <ul class="pg-states">
                             <li onclick="pck.setState(this, -1)" class="li-choose li-state-none"><a class="ajaxlangUnlimited"><!--不限--></a></li>
-                                <li onclick="pck.setState(this, 1)" class="li-state-1"><a class="ajaxlangComplete"><!--完成--></a></li>
-                                <li onclick="pck.setState(this, 2)" class="li-state-2"><a class="ajaxlangWaitSet"><!--待结算--></a></li>
-                                <li onclick="pck.setState(this, 3)" class="li-state-3"><a class="ajaxlangProcessing"><!--处理中--></a></li>
+                            <li onclick="pck.setState(this, 1)" class="li-state-1"><a class="ajaxlangComplete"><!--完成--></a></li>
+                            <li onclick="pck.setState(this, 2)" class="li-state-2"><a class="ajaxlangWaitSet"><!--待结算--></a></li>
+                            <li onclick="pck.setState(this, 3)" class="li-state-3"><a class="ajaxlangProcessing"><!--处理中--></a></li>
                         </ul>
                     </li>
                     <li style=" display:none;">

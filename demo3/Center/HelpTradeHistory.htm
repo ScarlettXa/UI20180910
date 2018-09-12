@@ -30,6 +30,12 @@
     <script type="text/javascript" language="javascript">
         para = getUrlParam('para');
         date1 = getUrlParam('addtime');
+
+        var url_1 = "m-HelpTradeHistory.html?para=" + para +"&requestType=Mobile";
+        var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+        if (asktype == '1'){
+            window.location.href = url_1;
+        } 
     </script>
     <script type="text/javascript">
       // var url_1 = "m-HelpTradeHistory.html?para="+para;

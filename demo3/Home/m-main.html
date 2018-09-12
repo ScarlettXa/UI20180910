@@ -33,6 +33,7 @@
 
   <link rel="stylesheet" href="/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/assets/css/app.css">
+
   <script src="/assets/js/jquery-1.9.1.min.js"></script>
   <script src="/assets/js/amazeui.min.js"></script>
 
@@ -111,10 +112,10 @@
 <div class="i-kuaijie">
 	<ul>
     	<li><i><img src="/assets/images/tb1.png"></i>
-          <a href="#" onClick="location.href='../center/HelpAdd2.htm'" class="ajaxlangPlantDream"><!-- 买入交易（投资） --></a>
+          <a href="#" onClick="location.href='../center/m-HelpAdd2.html?requestType=Mobile'" class="ajaxlangPlantDream"><!-- 买入交易（投资） --></a>
       </li>
         <li><i><img src="/assets/images/tb2.png"></i>
-          <a href="#" onClick="location.href='../center/HelpAdd1.htm'" class="ajaxlangDreamReal"><!-- 卖出交易（提现） --></a>
+          <a href="#" onClick="location.href='../center/m-HelpAdd1.html?requestType=Mobile'" class="ajaxlangDreamReal"><!-- 卖出交易（提现） --></a>
         </li>
     </ul>
     <div class="clear"></div>
@@ -166,31 +167,31 @@
 <div class="i-liebiao-tit">交易状态</div>
 <div class="i-list" onclick="window.location.href='m-payConfirmList.html?requestType=Mobile'">
 	<i><img src="/assets/images/t1.png"></i>
-    <em>付款确认</em>
+    <em>付款确认<a style="display:none;" id="payComfirmNum">0</a></em>
     <span class="am-fr"><img src="/assets/images/jt.png"></span>
     <table id="ajaxhelpTradeInfo1" style="display:none;" width="807" border="0" cellpadding="0" cellspacing="0" class="i_con_table ajaxhelpTradeInfo1">
     </table> 
 </div>
 <div class="i-list" onclick="window.location.href='m-getConfirmList.html?requestType=Mobile'">
 	<i><img src="/assets/images/t2.png"></i>
-    <em>收款确认</em>
+    <em>收款确认<a style="display:none;" id="getComfirmNum">0</a></em>
     <span class="am-fr"><img src="/assets/images/jt.png"></span>
     <table id="ajaxhelpTradeInfo2" style="display:none;" width="807" border="0" cellpadding="0" cellspacing="0" class="i_con_table ajaxhelpTradeInfo2">
     </table> 
 </div>
 
 <div class="i-liebiao-tit">交易管理</div>
-<div class="i-list" onclick="window.location.href='../Center/m-HelpTrade_send.html?requestType=Mobile'">
+<div class="i-list" onclick="window.location.href='../Center/m-HelpTrade_send.html?para=t1_1&requestType=Mobile'">
 	<i><img src="/assets/images/t3.png"></i>
     <em>打款列表</em>
     <span class="am-fr"><img src="/assets/images/jt.png"></span>
 </div>
-<div class="i-list" onclick="window.location.href='../Center/m-HelpTrade_get.html?requestType=Mobile'">
+<div class="i-list" onclick="window.location.href='../Center/m-HelpTrade_get.html?para=t1_2&requestType=Mobile'">
 	<i><img src="/assets/images/t4.png"></i>
     <em>收款列表</em>
     <span class="am-fr"><img src="/assets/images/jt.png"></span>
 </div>
-<div class="i-list">
+<div class="i-list" onclick="window.location.href='../Center/m-HelpTradeHistory.html?para=t_1&requestType=Mobile'">
 	<i><img src="/assets/images/t5.png"></i>
     <em>交易列表</em>
     <span class="am-fr"><img src="/assets/images/jt.png"></span>

@@ -33,9 +33,20 @@
 
   <link rel="stylesheet" href="/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/assets/css/app.css">
+
+  <link rel="stylesheet" href="/assets/css/swiper.min.css">
+  <!-- PhotoSwipe styles -->
+  <link rel="stylesheet prefetch" href="/assets/css/photoswipe.css">
+  <link rel="stylesheet prefetch" href="/assets/css/default-skin/default-skin.css">
+
   <script src="/assets/js/jquery-1.9.1.min.js"></script>
   <script src="/assets/js/amazeui.min.js"></script>
   <script src="/assets/layer/layer.js?timestamp=1231313" type="text/javascript" ></script>
+
+  <script src="/assets/js/photoswipe.js"></script>
+  <script src="/assets/js/photoswipe-ui-default.min.js"></script>
+
+  <script src="/assets/js/swiper.min.js"></script>
 
   <script src="/cdn/mtopt-2.1-min.js"></script>
   <script src="/cdn/mtopt/ui-2.0-min.js"></script>
@@ -55,7 +66,34 @@
 
     function openPic(imgurl) {
         $(".picShow").css("display", "block");
-        document.getElementById("pic1").src = imgurl;
+        // document.getElementById("pic1").src = imgurl;
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+
+        var items = [];
+        var imageObj = new Image();
+        imageObj.src=imgurl;
+        var item = {
+              src: imgurl,
+              w: imageObj.naturalWidth,
+              h: imageObj.naturalHeight
+            };
+        items.push(item);
+
+        // define options (if needed)
+        var options = {
+          // history & focus options are disabled on CodePen
+          // history & focus options are disabled on CodePen
+          history: false,
+          focus: false,
+          index: 0,
+          showAnimationDuration: 0,
+          hideAnimationDuration: 0
+
+        };
+
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
     }
     function closePic() {
         $(".picShow").css("display", "none");
@@ -106,7 +144,7 @@
 <body class="i-body">
 <header data-am-widget="header" class="am-header am-header-default ny-header">
     <div class="am-header-left am-header-nav">
-      <a href="index.html" class="">
+      <a href="../Home/m-main.html" class="">
         <i class="am-header-icon am-icon-angle-left"></i>
       </a>
     </div>
@@ -125,7 +163,9 @@
 
 <main class="i-main">
   <div class="login-con">
-    
+    <div class="picShow">
+      <img id="pic1" src="" onclick="closePic()" />
+    </div>
     
     <div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
       
@@ -169,48 +209,98 @@
 
 </main>
 
-<div class="picShow">
-      <img id="pic1" src="" onclick="closePic()" />
-</div>
+<!-- PhotoSwipe 放大图片的固定代码 -->
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
+    <!-- Background of PhotoSwipe. 
+       It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides. 
+        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+        Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share" style="display:none;"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen" style="display:none;"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div> 
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 <!--i-main end-->
 
 <script src="../m-menu.js"></script>
 
 <script type="text/javascript">
     getTop('m-main');
-
-    $("img").click(function(){
-　　　　　　　　　//获取窗口可视大小
-            var width=$(window).width();
-            var height=$(window).height();
-            var img=$(this);
-            var html='';
-　　　　　　　　　//获取图片的真实宽高
-            $("<img/>").attr("src", $(img).attr("src")).load(function() {               
-                realWidth = this.width;
-                realHeight = this.height;
-               //如果真实的宽度大于浏览器的宽度就按照100%显示
-                if(realWidth>=width ){
-                       //$(img).css("width","100%").css("height","auto");
-                       width="100%";
-                       height="auto";
-                    }
-                    else{//如果小于浏览器的宽度按照原尺寸显示
-                      //$(img).css("width",realWidth+'px').css("height",realHeight+'px');
-                      width=realWidth;
-                      height=realHeight;
-                    }
-                html='<img src="'+$(this).attr("src")+'" style=" width:'+width+'"/>';
-　　　　　　　　　　　//这里借用了layer.mobile弹出插件
-                var pagei = layer.open({
-                    type: 1,
-                    content: html,
-                  //  style: 'position:fixed; left:0; top:0; width:100%; height:100%; border:none;'
-                });
-            });
-            
-        });
 </script>
+
+<!-- Initialize Swiper -->
+  <script>
+      var swiperCenter = new Swiper('.swiper-container-center', {
+        scrollbar: '.swiper-scrollbar',
+        scrollbarHide: true,
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        grabCursor: true
+      });
+      </script>
+      <!-- next prev -->
+      <script>
+      function next() {
+        $(".swiper-button-next").html("下一页");
+      }
+      function prev() {
+        $(".swiper-button-next").html("上一页");
+      }
+  </script>
 </body>
 </html>

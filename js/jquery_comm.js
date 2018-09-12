@@ -152,29 +152,50 @@ function getListInfo(oGetName) {
                 $("#boxList").html(decodeURIComponent(value.list));
                 
                 if (asktype == "1") {
-                     var data = getTableContent("boxList");
-                    console.log("boxList:"+data);
-                    var tmp = '';
-                    for(var i=0,rows=data.length; i<rows; i++){
-                      if (i > 0) {
-                         tmp = tmp + '<div class="liebiao3 orange">';
-                         tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
-                         tmp = tmp + '<ul>';
-                      }
-                      for(var j=0,cells=data[i].length; j<cells; j++){
-                        if (i > 0) {
-                            tmp = tmp + '<li>';
-                            tmp = tmp + '<span>' + data[i][j] + '</span>';
-                            tmp = tmp + data[0][j];
-                            tmp = tmp + '</li>';
+                    if (oGetName == "GetHelpTradeList") {
+                        var data = getTableContent("boxList");
+                        console.log("boxList:"+data);
+                        var tmp = '';
+                        for(var i=0,rows=data.length; i<rows; i++){
+                          if (i > 0) {
+                             tmp = tmp + '<div class="liebiao3 orange">';
+                             if (opara == 't1_1') {
+                                tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
+                             } else if (opara == 't1_2') {
+                                tmp = tmp + '<div class="liebiao-tit">卖出交易匹配订单</div>';
+                             } else if (opara == 't_1') {
+                                tmp = tmp + '<div class="liebiao-tit">'+ data[i][1] +'交易匹配订单</div>';
+                             }
+                             tmp = tmp + '<ul>';
+                          }
+                          for(var j=0,cells=data[i].length; j<cells; j++){
+                            if (i > 0) {
+                                tmp = tmp + '<li>';
+                                tmp = tmp + '<span>' + data[i][j] + '</span>';
+                                tmp = tmp + data[0][j];
+                                tmp = tmp + '</li>';
+                            }
+                          }
+                          if (i > 0) {
+                             tmp = tmp + '</ul>';
+                             tmp = tmp + '</div>';
+                          }
                         }
-                      }
-                      if (i > 0) {
-                         tmp = tmp + '</ul>';
-                         tmp = tmp + '</div>';
-                      }
+                        $("#helpTradeList").html(tmp);
+                    } else if (oGetName == "GetMoneyHistoryList") {
+                        var data = getTableContent("boxList");
+                        console.log("boxList:"+data);
+                        var tmp = '';
+                        for(var i=0,rows=data.length; i<rows; i++){
+                          tmp = tmp + '<ul class="shouru_neirong">';
+                          for(var j=0,cells=data[i].length; j<cells; j++){
+                            tmp = tmp + '<li>' + data[i][j] + '</li>';
+                          }
+                          tmp = tmp + '</ul>';
+                        }
+                        $("#helpTradeList").html(tmp);
                     }
-                    $("#helpTradeList").html(tmp);
+                    
                 }
 
             if (oGetName == "GetMessageList2") {
@@ -710,16 +731,23 @@ function getInfo(oGetName) {
                      var data = getTableContent("ajaxhelpTradeInfo1");
                     console.log("ajaxhelpTradeInfo1:"+data);
                     var tmp = '';
+                    var num = 0;
                     for(var i=0,rows=data.length; i<rows; i++){
                       if (i > 0) {
                          tmp = tmp + '<div class="liebiao3 orange">';
                          tmp = tmp + '<div class="liebiao-tit">买入交易匹配订单</div>';
                          tmp = tmp + '<ul>';
+                         num = num + 1;
                       }
                       for(var j=0,cells=data[i].length; j<cells; j++){
                         if (i > 0) {
-                            tmp = tmp + '<li>';
-                            tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            if (j == 3) {
+                                tmp = tmp + '<li style="height: 50px;">';
+                                tmp = tmp + '<span style="width: 66px;height: 50px;">' + data[i][j] + '</span>';
+                            } else {
+                                tmp = tmp + '<li>';
+                                tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            }
                             tmp = tmp + data[0][j];
                             tmp = tmp + '</li>';
                         }
@@ -730,6 +758,14 @@ function getInfo(oGetName) {
                       }
                     }
                     $(".payInfoList").html(tmp);
+                    if (num > 0) {
+                        $("#payComfirmNum").show();
+                        $("#payComfirmNum").html('('+num+')');
+                    } else {
+                        $("#payComfirmNum").hide();
+                        $("#payComfirmNum").html('('+num+')');
+                    }
+                    
                 }
                
             }
@@ -740,16 +776,24 @@ function getInfo(oGetName) {
                     var data = getTableContent("ajaxhelpTradeInfo2");
                     console.log("ajaxhelpTradeInfo2:"+data);
                     var tmp = '';
+                    var num = 0;
                     for(var i=0,rows=data.length; i<rows; i++){
                       if (i > 0) {
                          tmp = tmp + '<div class="liebiao3 orange">';
                          tmp = tmp + '<div class="liebiao-tit">卖出交易匹配订单</div>';
                          tmp = tmp + '<ul>';
+                         num = num + 1;
                       }
                       for(var j=0,cells=data[i].length; j<cells; j++){
                         if (i > 0) {
-                            tmp = tmp + '<li>';
-                            tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            if (j == 3) {
+                                tmp = tmp + '<li style="height: 50px;">';
+                                tmp = tmp + '<span style="width: 66px;height: 50px;">' + data[i][j] + '</span>';
+                            } else {
+                                tmp = tmp + '<li>';
+                                tmp = tmp + '<span>' + data[i][j] + '</span>';
+                            }
+                            
                             tmp = tmp + data[0][j];
                             tmp = tmp + '</li>';
                         }
@@ -760,6 +804,13 @@ function getInfo(oGetName) {
                       }
                     }
                     $(".getInfoList").html(tmp);
+                    if (num > 0) {
+                        $("#getComfirmNum").show();
+                        $("#getComfirmNum").html('('+num+')');
+                    } else {
+                        $("#getComfirmNum").hide();
+                        $("#getComfirmNum").html('('+num+')');
+                    }
                 } 
                
             }
