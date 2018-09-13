@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>系统公告</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script type="text/javascript" language="javascript">
+       var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
+            var id1 = 0;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026529"></script>
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="index.html" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangWriteMessage">
+       系统公告
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div class="am-tabs-bd" style="margin-top:3%;">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+            <form name="form" method="post" enctype="multipart/form-data"  onsubmit="return chkFormWriteMessage()">
+                <ul class="liebiao2">
+                    <li>
+                      <span>
+                        <select id="selQuestion"  class="m-select" style="width: 212px; height: 35px;">
+                         <option value="付款" class="ajaxlangaaa">付款</option>
+                         <option value="账号" class="ajaxlangaaa">账号</option>
+                         <option value="建议" class="ajaxlangaaa">建议</option>
+                         <option value="技术" class="ajaxlangaaa">技术</option>
+                         <option value="提现" class="ajaxlangaaa">提现</option>
+                         <option value="其他" class="ajaxlangaaa">其他</option>
+                      </select>
+                      </span><i class="ajaxlangType"></i>
+                    </li>
+                    <li style="height: 150px">
+                        <span>
+                          <textarea rows="5" cols="80" id="txtContent" style=" width:100%"></textarea>
+                          <input type="hidden" name="content" class="hd_content" />
+                        </span>
+                        <i class="ajaxlangContent"></i>
+                      </li> 
+                    <li style="height: 150px">
+                        <span>
+                            <iframe id="iframepic" src="" frameborder="0"  width="100%" scrolling="no" onload="setiFrameHeight('iframepic')"></iframe>
+                        </span>
+                        <i class="ajaxlangPic"></i>
+                    </li>        
+               </ul>
+               <input type="hidden" id="txtToUser" name="members" class="m-text-ipt" value="admin" />
+              <div class="sousuo">
+                <button id="BtnSave" type="submit" class="sousuo-btn ajaxlangSubmit">提 交</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+          var touser = getUrlParam('touser');
+          if (touser != "" && touser != null)
+              document.getElementById("txtToUser").value = touser;
+         // document.getElementById("boxUpload").innerHTML = '<iframe src="' + ajaxUrl + '/ajax/uploadFrm.aspx?msgid=1" frameborder="0" scrolling="no" style="width: 500px; height: 350px;"></iframe>';
+
+          document.getElementById("iframepic").src = ajaxUrl + '/ajax/uploadFrm.aspx?msgid=1';
+
+    </script>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+</script>
+</html>

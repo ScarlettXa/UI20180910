@@ -41,8 +41,8 @@
       var getType = "list", getName = "GetMoneyHistoryList,GetUserInfo", para = "", chkPwd2Flag = 1;
       var _pageindex = 1;
   </script>
-  <script type="text/javascript" src="/js/comm.js?r=1"></script>
-  <script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026529"></script>
   <script type="text/javascript" language="javascript">
       para = getUrlParam('para') + '&page=' + getUrlParam('page') + '&type=' + getUrlParam('type') + '&accounttype=' + getUrlParam('accounttype') + '&state=' + getUrlParam('state') + '&bonus=' + getUrlParam('bonus') + '&timestart=' + getUrlParam('timestart') + '&timeend=' + getUrlParam('timeend');
       date1 = getUrlParam('addtime');
@@ -59,7 +59,7 @@
   	</div>
     
     <h1 class="am-header-title">
-      <a href="#title-link" class="ajaxlangAccountDetail">
+      <a href="#title-link">
        收入明细
       </a>
     </h1>
@@ -67,7 +67,17 @@
     	
 </header>
 
-<table style=" display:none;" class="form" cellpadding="0" cellspacing="0">
+<table id="moneyHistoryList" style=" display:none;" class="form" cellpadding="0" cellspacing="0">
+  <thead>
+    <tr class="form-title">
+        <td class="ajaxlangDate"><!--日期--></td>
+        <td class="ajaxlangAccountType"><!--账户类型--></td>
+        <td class="ajaxlangAmount"><!--变动金额--></td>
+        <td class="ajaxlangBalance"><!--本次余额--></td>
+        <td class="ajaxlangExplain"><!--说明--></td>
+        <td class="ajaxlangAbstract"><!--摘要--></td>
+    </tr>
+  </thead>
   <tbody id="boxList" align="center"></tbody>
 </table>
 <main class="i-main">
@@ -85,14 +95,14 @@
       <a href="#" onclick="pck.setState(this, 2)" class="ajaxlangWaitSet">待结算</a> 
       <a href="#" onclick="pck.setState(this, 3)" class="ajaxlangProcessing">处理中</a> 
     </div>		
-		<ul class="shouru_tit">
-    	  <li class="ajaxlangDate"><!-- 日期 --></li>
-        <li class="ajaxlangAccountType"><!-- 账户类型 --></li>
-        <li class="ajaxlangAmount"><!--变动金额--></li>
-        <li class="ajaxlangBalance"><!--本次余额--></li>
-        <li class="ajaxlangExplain"><!--说明--></li>
-        <li class="ajaxlangAbstract"><!--说明--></li>
-    </ul>
+		<!-- <ul class="shouru_tit">
+            <li class="ajaxlangDate">日期</li>
+            <li class="ajaxlangAccountType">账户类型</li>
+            <li class="ajaxlangAmount">变动金额</li>
+            <li class="ajaxlangBalance">本次余额</li>
+            <li class="ajaxlangExplain">说明</li>
+            <li class="ajaxlangAbstract">说明</li>
+        </ul> -->
     
     <div id="helpTradeList">
        

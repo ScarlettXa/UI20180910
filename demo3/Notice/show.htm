@@ -21,12 +21,18 @@
     <script src="/Scripts/engine.js"></script>
     <script type="text/javascript" language="javascript">
         var getType = "info", getName = "GetUserInfo,GetNewsInfo,GetMenuInfo_demo3_2", id1, para = "";
-</script>
-<script type="text/javascript" src="/js/comm.js?r=1"></script>
-<script type="text/javascript" src="/js/jquery_comm.js?r=1"></script>
-<script type="text/javascript" language="javascript">
-    id1 = getUrlParam('id');
-</script>
+    </script>
+    <script type="text/javascript" src="/js/comm.js?r=1"></script>
+    <script type="text/javascript" src="/js/jquery_comm.js?r=1"></script>
+    <script type="text/javascript" language="javascript">
+        id1 = getUrlParam('id');
+
+          var url_1 = "m-show.html?id=" + id1 +"&requestType=Mobile";
+          var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+          if (asktype == '1'){
+              window.location.href = url_1;
+          }
+    </script>
     <style type="text/css">
        .ms-info,
         .ms-menu{min-height:700px;}

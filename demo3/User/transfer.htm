@@ -24,6 +24,12 @@
     var id1 = 0, classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
     var getType = "info", getName = "GetUserInfo", para = "", actName = "zhuanZhang", chkPwd2Flag = 1;
     var _pageindex = 1;
+
+    var url_1 = "m-transfer.html?requestType=Mobile";
+        var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+        if (asktype == '1'){
+            window.location.href = url_1;
+        } 
 </script>
 <script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>
 <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026529"></script>

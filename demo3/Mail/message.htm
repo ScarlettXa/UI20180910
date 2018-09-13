@@ -22,7 +22,12 @@
         <script type="text/javascript" language="javascript">
             var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
             var id1 = 0;
-</script>
+            var url_1 = "m-message.html?requestType=Mobile";
+            var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+            if (asktype == '1'){
+              window.location.href = url_1;
+            }
+    </script>
 <script type="text/javascript" src="/js/comm.js?r=1"></script>
 <script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
     <style type="text/css">

@@ -11,7 +11,7 @@ if (asktype == "2") {
     str_top += '<li class="display-ib"><a class="ajaxlangAccountHuobei1"></a>(<a class="ajaxhuobei1" style="color:#00f;"></a>)</li>'; //激活币
     str_top += '<li class="display-ib"><a class="ajaxlangAccountBonus"></a>(<a class="ajaxqianBao" style="color:#00f;"></a>)</li>'; //排单币
     str_top += '<li class="display-ib"><a class="ajaxlangAccountHuobei2"></a>(<a class="ajaxhuobei2" style="color:#00f;"></a>)</li>'; //购物币
-    str_top += '<li class="display-ib"><a class="ajaxlangStockNum"></a>(<a class="ajaxstockNum" style="color:#00f;"></a>)</a></li>'; //购物币
+    // str_top += '<li class="display-ib"><a class="ajaxlangStockNum"></a>(<a class="ajaxstockNum" style="color:#00f;"></a>)</a></li>'; //购物币
     str_top += '<li class="display-ib"><a class="ajaxlangDirectRecommendation"></a>(<a class="ajaxtuiJianNum" style="color:#00f;"></a>)</li>'; //直接推荐
     str_top += '<li class="display-ib"><a href="../Mail/messagelists.htm?para=to_admin" class="ajaxlangMessageBoard"></a>(<a class="ajaxmailNew" style="color:#00f;"></a>)</li>';
     str_top += '<li class="display-ib"><a href="../Mail/message.htm" class="ajaxlangFeedback">意见反馈</a></li>';
@@ -21,7 +21,7 @@ if (asktype == "2") {
     str_top += '<a href="#"><img src="/assets/images/i-m1-icon3.png"><p class="ajaxlangAccountHuobei1"></p>(<span class="ajaxhuobei1" style="color:#00f;"></span>)</a>'; // 激活币
     str_top += '<a href="#"><img src="/assets/images/i-m1-icon4.png"><p class="ajaxlangAccountBonus"></p>(<span class="ajaxqianBao" style="color:#00f;"></span>)</a>'; // 排单币
     str_top += '<a href="#"><img src="/assets/images/i-m1-icon5.png"><p class="ajaxlangAccountHuobei2"></p>(<span class="ajaxhuobei2" style="color:#00f;"></span>)</a>'; //动态币
-    str_top += '<a href="#"><img src="/assets/images/i-m1-icon6.png"><p class="ajaxlangStockNum"></p>(<span class="ajaxstockNum" style="color:#00f;"></span>)</a>'; // 购物币
+    // str_top += '<a href="#"><img src="/assets/images/i-m1-icon6.png"><p class="ajaxlangStockNum"></p>(<span class="ajaxstockNum" style="color:#00f;"></span>)</a>'; // 购物币
     str_top += '<a href=""><img src="/assets/images/i-m1-icon7.png"><p class="ajaxlangDirectRecommendation"></p>(<span class="ajaxtuiJianNum" style="color:#00f;"></span>)</a>'; //直接推荐
     str_top += '<a href="../Mail/messagelists.htm?para=to_admin"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangMessageBoard"></p>(<span class="ajaxmailNew" style="color:#00f;"></span>)</a>'; //动态币
     str_top += '<a href="../Mail/message.htm"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangFeedback"></p></a>'; //动态币
@@ -183,15 +183,31 @@ function getListInfo(oGetName) {
                         }
                         $("#helpTradeList").html(tmp);
                     } else if (oGetName == "GetMoneyHistoryList") {
-                        var data = getTableContent("boxList");
-                        console.log("boxList:"+data);
+                        var data = getTableContent("moneyHistoryList");
+                        console.log("moneyHistoryList:"+data);
                         var tmp = '';
                         for(var i=0,rows=data.length; i<rows; i++){
-                          tmp = tmp + '<ul class="shouru_neirong">';
-                          for(var j=0,cells=data[i].length; j<cells; j++){
-                            tmp = tmp + '<li>' + data[i][j] + '</li>';
-                          }
-                          tmp = tmp + '</ul>';
+                            if (i > 0) {
+                               tmp = tmp + '<ul class="liebiao">';
+                              for(var j=0,cells=data[i].length; j<cells; j++){
+                                tmp = tmp + '<li><span>' + data[i][j] + '</span> ' + data[0][j] + '</li>';
+                              }
+                              tmp = tmp + '</ul>';
+                            }
+                        }
+                        $("#helpTradeList").html(tmp);
+                    } else if (oGetName == "GetMessageList2") {
+                        var data = getTableContent("messageList");
+                        console.log("messageList:"+data);
+                        var tmp = '';
+                        for(var i=0,rows=data.length; i<rows; i++){
+                            if (i > 0) {
+                               tmp = tmp + '<ul class="liebiao">';
+                              for(var j=0,cells=data[i].length; j<cells; j++){
+                                tmp = tmp + '<li><span>' + data[i][j] + '</span> ' + data[0][j] + '</li>';
+                              }
+                              tmp = tmp + '</ul>';
+                            }
                         }
                         $("#helpTradeList").html(tmp);
                     }

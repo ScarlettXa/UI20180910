@@ -1394,17 +1394,19 @@ body {
 .shouru_neirong{ width:94%; height:50px; line-height:50px; background:#fff; margin-bottom:1px; margin:0 3%;}
 .shouru_neirong li{ float:left; text-align:center;}
 
-.shouru_tit li:nth-child(1){ width:20%;}
-.shouru_tit li:nth-child(2){ width:20%;}
+.shouru_tit li:nth-child(1){ width:18%;}
+.shouru_tit li:nth-child(2){ width:16%;}
 .shouru_tit li:nth-child(3){ width:15%;}
-.shouru_tit li:nth-child(4){ width:25%;}
+.shouru_tit li:nth-child(4){ width:16%;}
 .shouru_tit li:nth-child(5){ width:20%;}
+.shouru_tit li:nth-child(6){ width:1%;}
 
-.shouru_neirong li:nth-child(1){ width:20%;}
-.shouru_neirong li:nth-child(2){ width:20%;}
+.shouru_neirong li:nth-child(1){ width:18%;}
+.shouru_neirong li:nth-child(2){ width:16%;}
 .shouru_neirong li:nth-child(3){ width:15%;}
-.shouru_neirong li:nth-child(4){ width:25%;}
+.shouru_neirong li:nth-child(4){ width:16%;}
 .shouru_neirong li:nth-child(5){ width:20%;}
+.shouru_neirong li:nth-child(6){ width:1%;}
 
 
 

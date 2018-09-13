@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>收入明细</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script type="text/javascript" language="javascript">
+            var classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
+            var getType = "list", getName = "GetMessageList2,GetUserInfo", para = "", chkPwd2Flag = 1;
+            var _pageindex = 1;
+  </script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026529"></script>
+  <script type="text/javascript" language="javascript">
+      para = getUrlParam('para');
+  </script>
+  <script src="/js/jquery.imgbox.pack.js"></script>
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Home/m-main.html" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link" class="ajaxlangMessageBoard">
+       留言板
+      </a>
+    </h1>
+    
+    	
+</header>
+
+<table id="messageList" style=" display:none;" class="form" cellpadding="0" cellspacing="0">
+  <thead>
+    <tr class="form-title">
+        <td style="width:100px;" class="ajaxlangSender"><!--发件人--></td>
+        <td style="width:100px;" class="ajaxlangRecipient"><!--收件人--></td>
+        <td style="width:100px;" class="ajaxlangType"><!--类型--></td>
+        <td class="ajaxlangContent"><!--标题--></td>
+        <td style="width:160px;" class="ajaxlangPic"><!--图片--></td>
+        <td style="width:160px;" class="ajaxlangDate"><!--时间--></td>
+        <td style="width:120px;" class="ajaxlangOperate"><!--操作--></td>
+    </tr>
+  </thead>
+  <tbody id="boxList"></tbody>
+</table>
+
+<main class="i-main">
+	<div class="login-con">    
+    <div id="helpTradeList">
+       
+    </div>
+    <div class="paging" id="boxPages"></div>
+		
+  </div>
+	<!--my-con end-->
+
+</main>
+
+<!--i-main end-->
+
+
+
+<script src="../m-menu.js"></script>
+
+<script type="text/javascript">
+    getTop('m-member');
+</script>
+
+<!--隐藏域开始-->
+<input type="hidden" class="HD_PAGE" value="0" />
+<input type="hidden" class="HD_SIZE" value="20" />
+<input type="hidden" class="HD_COUNT" value="0" />
+<!--隐藏域结束-->
+<script type="text/javascript">
+    getTop();
+    var pck = {
+        page: 0,
+        size: 0,
+        count: 0,
+        //删除
+        del: function (elm, id) {
+            var ajax = m.ajax("../Mail/api_messagelists_delete", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("删除成功", 3000);
+                        m.node(elm.parentNode.parentNode).remove(true);
+                        break;
+                    case -10000:
+                        mpi.news("删除失败", 3000);
+                        break;
+                    default:
+                        mpi.news("服务器忙碌", 3000);
+                        break;
+                }
+            });
+            ajax.data.add("id", id);
+            ajax.send();
+        },
+        search: function () {
+            m.redirect('/Mail/messagelists?&page=' + this.page);
+        },
+        //加载页面
+        init: function () {
+            this.page = mtopt.parse.toInteger(m.node(".HD_PAGE").value());
+            this.size = mtopt.parse.toInteger(m.node(".HD_SIZE").value());
+            this.count = mtopt.parse.toInteger(m.node(".HD_COUNT").value());
+        }
+    }
+    pck.init();
+    //系统加载
+    m.event("ready").add(function () {
+        m.node(".ms-menu .messagelists").addClass("choose");
+        m.node(".mn-meter-menu .mail").addClass("choose");
+//        var paging = m.node(".paging").plugin("paging");
+//        paging.selected = pck.page + 1;
+//        if (pck.count > pck.size) {
+//            paging.setpaging(pck.count / pck.size, 10);
+//            paging.onclick = function (index, page) {
+//                pck.page = index - 1;
+//                pck.search();
+//            }
+//        }
+//        else { paging.hide(); }
+    });
+</script>
+
+</body>
+</html>

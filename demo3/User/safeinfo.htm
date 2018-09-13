@@ -23,6 +23,12 @@
     <script type="text/javascript" language="javascript">
         var getType = "info", getName = "GetUserInfo", para = "", actName = "", chkPwd2Flag = 1;
         var id1 = 0;
+
+        var url_1 = "m-safeinfo.html?requestType=Mobile";
+        var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+        if (asktype == '1'){
+            window.location.href = url_1;
+        } 
 </script>
 <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
 <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>

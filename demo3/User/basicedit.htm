@@ -24,6 +24,12 @@
         var getType = "info", getName = "GetUserInfo", para = "", actName = "myInfoModi", chkPwd2Flag = 1;
         var id1 = 0;
         var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+
+        var url_1 = "m-basicedit.html?id=" + id1 + "&helpid="+ helpid +"&requestType=Mobile";
+        var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+        if (asktype == '1'){
+            window.location.href = url_1;
+        } 
 </script>
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/js/comm.js?timeStamp=1696026529"></script>

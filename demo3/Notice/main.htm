@@ -21,6 +21,12 @@
 <script type="text/javascript" language="javascript">
     var getType = "info", getName = "GetUserInfo,GetNewsList_demo3list,GetMenuInfo_demo3_2", para = "", actName = "", chkPwd2Flag = 0;
     var classid = 3, pagesize = 10;
+
+      var url_1 = "m-notice.html?requestType=Mobile";
+      var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+      if (asktype == '1'){
+          window.location.href = url_1;
+      }
 </script>
 <script type="text/javascript" src="/js/comm.js?r=1"></script>
 <script type="text/javascript" src="/js/jquery_comm.js?r=1"></script>

@@ -20,15 +20,21 @@
     <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
     <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
     <script src="/Scripts/engine.js"></script>
-        <script type="text/javascript" language="javascript">
+    <script type="text/javascript" language="javascript">
             var classid = 0, pagesize = 20, pagecount = 1, rscount = 1;
             var getType = "list", getName = "GetMessageList2,GetUserInfo", para = "", chkPwd2Flag = 1;
             var _pageindex = 1;
 </script>
 <script type="text/javascript" src="/js/comm.js?r=1"></script>
-<script type="text/javascript" src="/js/jquery_comm.js?r=7"></script>
+<script type="text/javascript" src="/js/jquery_comm.js?r=73435"></script>
 <script type="text/javascript" language="javascript">
     para = getUrlParam('para');
+
+    var url_1 = "m-messagelists.html?requestType=Mobile";
+      var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+      if (asktype == '1'){
+          window.location.href = url_1;
+      }
 </script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.imgbox.pack.js"></script>
