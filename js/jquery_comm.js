@@ -758,8 +758,8 @@ function getInfo(oGetName) {
                       for(var j=0,cells=data[i].length; j<cells; j++){
                         if (i > 0) {
                             if (j == 3) {
-                                tmp = tmp + '<li style="height: 50px;">';
-                                tmp = tmp + '<span style="width: 66px;height: 50px;">' + data[i][j] + '</span>';
+                                tmp = tmp + '<li style="height: 96px;">';
+                                tmp = tmp + '<span style="width: 86px;height: 86px;">' + data[i][j] + '</span>';
                             } else {
                                 tmp = tmp + '<li>';
                                 tmp = tmp + '<span>' + data[i][j] + '</span>';
@@ -803,8 +803,8 @@ function getInfo(oGetName) {
                       for(var j=0,cells=data[i].length; j<cells; j++){
                         if (i > 0) {
                             if (j == 3) {
-                                tmp = tmp + '<li style="height: 50px;">';
-                                tmp = tmp + '<span style="width: 66px;height: 50px;">' + data[i][j] + '</span>';
+                                tmp = tmp + '<li style="height: 96px;">';
+                                tmp = tmp + '<span style="width: 86px;height: 86px;">' + data[i][j] + '</span>';
                             } else {
                                 tmp = tmp + '<li>';
                                 tmp = tmp + '<span>' + data[i][j] + '</span>';
