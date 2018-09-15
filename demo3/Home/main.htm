@@ -87,7 +87,7 @@
   var url_1 = "m-main.html?requestType=Mobile";
   var requestType = getUrlParam('requestType');
     var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
-    if (asktype == '1'){
+    if (asktype == '1' || asktype == '2'){
         window.location.href = url_1;
     } 
   

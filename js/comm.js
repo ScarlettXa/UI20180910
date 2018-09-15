@@ -3453,7 +3453,7 @@ function setiFrameHeight(oid) {
 function getTop(label) {
     var str1 = '';
 
-    if (asktype == '1'){
+    if (asktype == "1" || asktype == "2") {
       if (label=='m-main') {
         str1 += '<li><a href="../Home/m-main.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-home"></span><span class="am-navbar-label">主页</span></a></li>';
       } else {

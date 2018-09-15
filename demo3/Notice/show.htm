@@ -29,7 +29,7 @@
 
           var url_1 = "m-show.html?id=" + id1 +"&requestType=Mobile";
           var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
-          if (asktype == '1'){
+          if (asktype == '1' || asktype == '2'){
               window.location.href = url_1;
           }
     </script>

@@ -2,7 +2,18 @@
 
 var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
 
-if (asktype == "2") {
+if (asktype == "1" || asktype == "2") {
+    str_top += '<a href="../Deal/main.htm?accounttype=901719FE304E474CED9DDA2602DE5387"><img src="/assets/images/i-m1-icon1.png"><p class="ajaxlangAccountHelp"></p>(<span class="ajaxhuobeiHelp" style="color:#00f;"></span>)</a>'; //静态币
+    str_top += '<a href="../Deal/main.htm?accounttype=787298534B692B9D26A75C18EF464B40"><img src="/assets/images/i-m1-icon2.png"><p class="ajaxlangAccountHelp2"></p>(<span class="ajaxhuobeiHelp2" style="color:#00f;"></span>)</a>'; //动态币
+    str_top += '<a href="#"><img src="/assets/images/i-m1-icon3.png"><p class="ajaxlangAccountHuobei1"></p>(<span class="ajaxhuobei1" style="color:#00f;"></span>)</a>'; // 激活币
+    str_top += '<a href="#"><img src="/assets/images/i-m1-icon4.png"><p class="ajaxlangAccountBonus"></p>(<span class="ajaxqianBao" style="color:#00f;"></span>)</a>'; // 排单币
+    str_top += '<a href="#"><img src="/assets/images/i-m1-icon5.png"><p class="ajaxlangAccountHuobei2"></p>(<span class="ajaxhuobei2" style="color:#00f;"></span>)</a>'; //动态币
+    // str_top += '<a href="#"><img src="/assets/images/i-m1-icon6.png"><p class="ajaxlangStockNum"></p>(<span class="ajaxstockNum" style="color:#00f;"></span>)</a>'; // 购物币
+    str_top += '<a href=""><img src="/assets/images/i-m1-icon7.png"><p class="ajaxlangDirectRecommendation"></p>(<span class="ajaxtuiJianNum" style="color:#00f;"></span>)</a>'; //直接推荐
+    str_top += '<a href="../Mail/messagelists.htm?para=to_admin"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangMessageBoard"></p>(<span class="ajaxmailNew" style="color:#00f;"></span>)</a>'; //动态币
+    str_top += '<a href="../Mail/message.htm"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangFeedback"></p></a>'; //动态币
+    
+} else {
     str_top += '<li class="display-ib">';
     str_top += str_langSel;
     str_top += '</li>';
@@ -15,16 +26,6 @@ if (asktype == "2") {
     str_top += '<li class="display-ib"><a class="ajaxlangDirectRecommendation"></a>(<a class="ajaxtuiJianNum" style="color:#00f;"></a>)</li>'; //直接推荐
     str_top += '<li class="display-ib"><a href="../Mail/messagelists.htm?para=to_admin" class="ajaxlangMessageBoard"></a>(<a class="ajaxmailNew" style="color:#00f;"></a>)</li>';
     str_top += '<li class="display-ib"><a href="../Mail/message.htm" class="ajaxlangFeedback">意见反馈</a></li>';
-} else {
-    str_top += '<a href="../Deal/main.htm?accounttype=901719FE304E474CED9DDA2602DE5387"><img src="/assets/images/i-m1-icon1.png"><p class="ajaxlangAccountHelp"></p>(<span class="ajaxhuobeiHelp" style="color:#00f;"></span>)</a>'; //静态币
-    str_top += '<a href="../Deal/main.htm?accounttype=787298534B692B9D26A75C18EF464B40"><img src="/assets/images/i-m1-icon2.png"><p class="ajaxlangAccountHelp2"></p>(<span class="ajaxhuobeiHelp2" style="color:#00f;"></span>)</a>'; //动态币
-    str_top += '<a href="#"><img src="/assets/images/i-m1-icon3.png"><p class="ajaxlangAccountHuobei1"></p>(<span class="ajaxhuobei1" style="color:#00f;"></span>)</a>'; // 激活币
-    str_top += '<a href="#"><img src="/assets/images/i-m1-icon4.png"><p class="ajaxlangAccountBonus"></p>(<span class="ajaxqianBao" style="color:#00f;"></span>)</a>'; // 排单币
-    str_top += '<a href="#"><img src="/assets/images/i-m1-icon5.png"><p class="ajaxlangAccountHuobei2"></p>(<span class="ajaxhuobei2" style="color:#00f;"></span>)</a>'; //动态币
-    // str_top += '<a href="#"><img src="/assets/images/i-m1-icon6.png"><p class="ajaxlangStockNum"></p>(<span class="ajaxstockNum" style="color:#00f;"></span>)</a>'; // 购物币
-    str_top += '<a href=""><img src="/assets/images/i-m1-icon7.png"><p class="ajaxlangDirectRecommendation"></p>(<span class="ajaxtuiJianNum" style="color:#00f;"></span>)</a>'; //直接推荐
-    str_top += '<a href="../Mail/messagelists.htm?para=to_admin"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangMessageBoard"></p>(<span class="ajaxmailNew" style="color:#00f;"></span>)</a>'; //动态币
-    str_top += '<a href="../Mail/message.htm"><img src="/assets/images/i-m1-icon8.png"><p class="ajaxlangFeedback"></p></a>'; //动态币
 }
 
 
@@ -151,7 +152,7 @@ function getListInfo(oGetName) {
             else
                 $("#boxList").html(decodeURIComponent(value.list));
                 
-                if (asktype == "1") {
+                if (asktype == "1" || asktype == "2") {
                     if (oGetName == "GetHelpTradeList") {
                         var data = getTableContent("boxList");
                         console.log("boxList:"+data);
@@ -757,7 +758,7 @@ function getInfo(oGetName) {
             else if (oGetName == "GetHelpTradeInfo1") {
                 $(".ajaxhelpTradeInfo1").html(value.list);
 
-                if (asktype == "1") {
+                if (asktype == "1" || asktype == "2") {
                      var data = getTableContent("ajaxhelpTradeInfo1");
                     console.log("ajaxhelpTradeInfo1:"+data);
                     var tmp = '';
@@ -802,7 +803,7 @@ function getInfo(oGetName) {
             else if (oGetName == "GetHelpTradeInfo2") {
                 $(".ajaxhelpTradeInfo2").html(value.list);
                // $(".picSmall").imgbox();
-                if (asktype == "1") {
+                if (asktype == "1" || asktype == "2") {
                     var data = getTableContent("ajaxhelpTradeInfo2");
                     console.log("ajaxhelpTradeInfo2:"+data);
                     var tmp = '';
