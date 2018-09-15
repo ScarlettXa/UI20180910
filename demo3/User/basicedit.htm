@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 
 <html lang="zh-cmn-Hans">
@@ -25,7 +25,7 @@
         var id1 = 0;
         var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
 
-        var url_1 = "m-basicedit.html?id=" + id1 + "&helpid="+ helpid +"&requestType=Mobile";
+        var url_1 = "m-basicedit.html?requestType=Mobile";
         var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
         if (asktype == '1'){
             window.location.href = url_1;
@@ -132,7 +132,7 @@
             <li><a href="../User/safeinfo.htm" style="background:#61baff">密码修改</a></li>
             <li><a href="../User/mibao.htm" style="background:#61baff">密保修改</a></li>
             <li><a href="../User/mobedit.htm" style="background:#61baff">手机修改</a></li>
-            <li><a href="../User/transfer.htm" style="background:#61baff">开户币转账</a></li>
+            <li><a href="../User/transfer.htm" style="background:#61baff">理想通证转账</a></li>
             <li><a href="../User/acctran.htm" style="background:#61baff">账户转换</a></li>
             </ul>
         </div>

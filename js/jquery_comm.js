@@ -210,6 +210,20 @@ function getListInfo(oGetName) {
                             }
                         }
                         $("#helpTradeList").html(tmp);
+                    }  else if (oGetName == "getMyMemberList") {
+                        var data = getTableContent("memberList");
+                        console.log("memberList:"+data);
+                        var tmp = '';
+                        for(var i=0,rows=data.length; i<rows; i++){
+                            if (i > 0) {
+                               tmp = tmp + '<ul class="liebiao">';
+                              for(var j=0,cells=data[i].length; j<cells; j++){
+                                tmp = tmp + '<li><span>' + data[i][j] + '</span> ' + data[0][j] + '</li>';
+                              }
+                              tmp = tmp + '</ul>';
+                            }
+                        }
+                        $("#myMemberList").html(tmp);
                     }
                     
                 }

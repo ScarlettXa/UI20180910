@@ -49,7 +49,7 @@
       var _pageindex = 1;
   </script>
   <script type="text/javascript" src="/js/comm.js?timeStamp=1696026525"></script>
-  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026525"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1696026526"></script>
   <script type="text/javascript" language="javascript">
       para = getUrlParam('para');
   </script>
@@ -192,9 +192,10 @@
       <div id="boxLoading" style="display: block;"><img src="/images/loading.gif?timeStamp=1696026525" width="16" height="16" alt="loading" /></div>
       <div class="am-tabs-bd" id="boxMain">
           <div id="data-tab-panel-0" class="am-tab-panel login-quick am-active">
-          <table class="form" style="display: none;" cellpadding="0" cellspacing="0">
+          <table id="memberList" class="form" style="display: none;" cellpadding="0" cellspacing="0">
+            <input id="accountType1" name="accountType" type="hidden" checked="checked" value="1" />
             <thead>
-              <td style=" display:none;"><input id="accountType1" name="accountType" type="radio" checked="checked" value="1" /></td>
+              <!-- <td style=" display:none;"><input id="accountType1" name="accountType" type="radio" checked="checked" value="1" /></td> -->
               <tr class="form-title">
                   <td class="ajaxlangNumber"><!--序号--></td>
                   <td class="ajaxlangUserName"><!--会员编号--></td>
@@ -208,7 +209,7 @@
             <tbody id="boxList" align="center"></tbody>
 
           </table>
-           <div class="zy_liebiao">开户币：<span class="ajaxqianBao"></span></div>
+           <div class="zy_liebiao">善远币：<span class="ajaxqianBao"></span></div>
            <div id="myMemberList">
              <!-- <ul class="liebiao">
               <li><span>810841</span>序号</li>
