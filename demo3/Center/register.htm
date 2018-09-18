@@ -25,6 +25,12 @@
             var getType = "reg", getName = "GetUserInfo", para = "", actName = "memberReg", chkPwd2Flag = 0;
             var id1 = 0;
             var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+
+           var url_1 = "m-register.html?requestType=Mobile";
+          var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+          if (asktype == '1' || asktype == '2'){
+              window.location.href = url_1;
+          }
 </script>
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/Js/json2.js"></script>

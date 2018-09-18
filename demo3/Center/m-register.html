@@ -1,0 +1,664 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>修改资料</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=""/>
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="">
+
+  <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="/assets/js/amazeui.min.js"></script>
+
+  <script src="/cdn/mtopt-2.1-min.js"></script>
+  <script src="/cdn/mtopt/ui-2.0-min.js"></script>
+  <script src="/cdn/jquery-1.11.1.min.js"></script>
+  <script src="/cdn/highcharts-4.0.4/js/highcharts.js"></script>
+  <script src="/cdn/highcharts-4.0.4/js/highcharts-more.js"></script>
+  <script src="/Scripts/engine.js"></script>
+  
+  <script type="text/javascript" language="javascript">
+            var getType = "reg", getName = "GetUserInfo", para = "", actName = "memberReg", chkPwd2Flag = 0;
+            var id1 = 0;
+            var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+
+          //  var url_1 = "m-register.html?requestType=Mobile";
+          // var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+          // if (asktype == '1' || asktype == '2'){
+          //     window.location.href = url_1;
+          // }
+</script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/Js/json2.js"></script>
+  <script type="text/javascript" src="/js/comm.js?timeStamp=1296026639"></script>
+  <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1296026639"></script>
+
+  <script type="text/javascript" language="javascript">
+
+    //ajax更换会员编号
+    function changeUserName() {
+
+        document.getElementById("lblBianhao").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeUserName&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+    function (data) {
+        $("#txtBianhao").val(data.userName);
+        document.getElementById("lblBianhao").innerHTML = '';
+
+    }
+);
+    }
+
+    function getUserName(oid1, showid1, msgErr, msgRight) {
+
+        $.getJSON(ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetUserName&jstype=jsonp&callback=?&UserName=" + $("#" + oid1).val(),
+    function (value) {
+        if (value.result == "nouser") {
+            document.getElementById(showid1).innerHTML = msgErr;
+            return false;
+        } else {
+            if (msgRight == "")
+                document.getElementById(showid1).innerHTML = value.result;
+            else
+                document.getElementById(showid1).innerHTML = msgRight;
+            return;
+        }
+
+    }
+);
+
+    }
+
+
+//    function ShowValidImage() {
+//        var numkey = Math.random();
+//        document.getElementById("imgRandom").src = "/demo1/Validcode2.aspx?ns=" + numkey;
+    //    }
+</script>
+
+  
+</head>
+<body class="i-body">
+
+<header data-am-widget="header" class="am-header am-header-default ny-header">
+    <div class="am-header-left am-header-nav">
+      <a href="../Member/m-member.html?requestType=Mobile" class="">
+				<i class="am-header-icon am-icon-angle-left"></i>
+      </a>
+  	</div>
+    
+    <h1 class="am-header-title">
+      <a href="#title-link">
+       注册会员
+      </a>
+    </h1>
+    
+    	
+</header>
+
+
+<main class="i-main" style="margin-bottom:56px">
+	<div class="login-con">
+		
+		
+		<div data-am-widget="tabs" class="am-tabs am-tabs-d2 login-tab">
+      <div id="boxMain" class="am-tabs-bd">
+        <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormReg()">
+          <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
+           <ul class="liebiao2">
+           		<li>
+                 <span><select id="selJiBie"></select><span id="regJibienotice"></span></span>
+                <i class="">会员等级：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtBianhao" style="width: 120px;float: left;" type="text" maxlength="11" id="txtBianhao" class="span4" placeholder="必填项:请输入编号" />
+                  <a id="btnChangeUserName" class="">换一个</a>
+                  <span id="lblBianhao"></span>
+                </span>
+                <i class="">会员编号：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPwd1" type="password" maxlength="20" id="txtPwd1" class="span4" placeholder="必填项:请输入密码" />
+                </span>
+                <i class="">一级密码：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPwd1_2" type="password" maxlength="20" id="txtPwd1_2" class="span4" placeholder="必填项:请输入密码" />
+                </span>
+                <i class="">确认一级密码：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPwd2" type="password" maxlength="20" id="txtPwd2" class="span4" placeholder="必填项:请输入密码" />
+                </span>
+                <i class="">二级密码：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPwd2_2" type="password" maxlength="20" id="txtPwd2_2" class="span4" placeholder="必填项:请输入密码" />
+                </span>
+                <i class="">确认二级密码：</i>
+              </li>
+
+              <li>
+                <span id="lblTjr"></span>
+                <span>
+                  <input name="txtTJ" type="text" value="" maxlength="15" id="txtTJ" class="span4" placeholder="必填项:请输入推荐人" />
+                </span>
+                <i class="">推荐人：</i>
+              </li>
+
+              <li>
+                <span id="lblJdr"></span>
+                <span>
+                  <input name="txtJD" type="text" maxlength="20" id="txtJD" class="span4" placeholder="必填项:请输入安置人" />
+                </span>
+                <i class="">安置人：</i>
+              </li>
+
+              <li>
+                 <span>
+                    <select id="selWeiZhi">
+                      <option value="777">左</option>
+                      <option value="888">右</option>
+                    </select>
+                 </span>
+                <i class="">安置位置：</i>
+              </li>
+
+              <li>
+                <span id="lblService"></span>
+                <span>
+                  <input name="txtService" type="text" maxlength="20" id="txtService" class="span4" placeholder="必填项:请输入所属服务中心" />
+                </span>
+                <i class="">服务中心：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtTrueName" type="text" maxlength="15" id="txtTrueName" class="span4" placeholder="必填项:请输入姓名" />
+                </span>
+                <i class="">真实姓名：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtIDCard" type="text" maxlength="18" id="txtIDCard" class="span4" placeholder="请输入身份证" />
+                </span>
+                <i class="">身份证：</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selSex">
+                     <option value="1">男</option>
+                     <option value="0">女</option>
+                  </select>
+                </span>
+                <i class="">称谓：</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selProvince" onChange="provincechange('selProvince','selCity','selArea','reg_notice1')" style="width:140px;"></select>
+                  <span id="reg_notice1"  style=" color:Red;"></span>
+                </span>
+                <i class="">(地址)省：</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selCity" onChange="citychange('selProvince','selCity','selArea','reg_notice1')" style="width:160px;"></select>
+                </span>
+                <i class="">(地址)市：</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selArea" style="width:160px;"></select>
+                </span>
+                <i class="">(地址)县：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtAddress" type="text" maxlength="30" id="txtAddress" class="span4" placeholder="请输入省市县以外的详细地址" />
+                </span>
+                <i class="">(地址)详细：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtPostCode" type="text" maxlength="6" id="txtPostCode" class="span4" placeholder="请输入邮编" />
+                </span>
+                <i class="">邮编：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtEmail" type="text" maxlength="40" id="txtEmail" class="span4" placeholder="请输入Email" />
+                </span>
+                <i class="">Email：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtAlipayNumber" type="text" maxlength="20" id="txtAlipayNumber" class="span4" placeholder="请输入支付宝" />
+                </span>
+                <i class="">支付宝：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtQQ" type="text" maxlength="20" id="txtQQ" class="span4" placeholder="请输入常用QQ" />
+                </span>
+                <i class="">QQ：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtwxid" type="text" maxlength="20" id="txtwxid" class="span4" placeholder="请输入微信" />
+                </span>
+                <i class="">微信：</i>
+              </li>
+
+              <li>
+                <span>
+                  <select id="selBank" class="span4"></select> 
+                </span>
+                <i class="">银行名称：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtBankUser" type="text" maxlength="20" id="txtBankUser" class="span4" placeholder="必填项:请输入开户名" />
+                </span>
+                <i class="">开户名：</i>
+              </li>
+
+              <li>
+                <span>
+                  <input name="txtBankNumber" type="text" maxlength="20" id="txtBankNumber" class="span4" placeholder="必填项:请输入银行账号" />
+                </span>
+                <i class="">银行账号：</i>
+              </li>
+
+              <li style="height:120px;align-items: left">
+                  <span>
+                    <span id="reg_notice2"  style=" color:Red;"></span>
+                    <select id="selProvince2" onChange="provincechange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:140px;" class="span4">
+                    </select>
+                    <select id="selCity2" onChange="citychange('selProvince2','selCity2','selArea2','reg_notice2')" style="width:160px;" class="span4">
+                    </select>
+                    <select id="selArea2" style="width:160px;" class="span4">
+                    </select>
+                    <input name="txtBankAddress" type="text" maxlength="30" id="txtBankAddress" class="span4" placeholder="必填项:请输入开户地址" />
+                  </span>
+                  <i class="ajaxlangBankAddress"><!--开户地址：--></i>:
+              </li>
+
+              <li>
+                <span>
+                  <div class="ajaxmob" style="display:none"></div>
+                  <input name="txtMob" type="text" maxlength="11" id="txtMob" class="span4" placeholder="请输入手机号码" />
+                </span>
+                <i class="ajaxlangMobileNumber"><!-- 手机 --></i>
+              </li>
+
+              <li style=" display:none;">
+                <span>
+                  <input type="text" id="txtmobilecode" class="paw_inp" style="width: 120px;float: left;" maxlength="6" value="" />
+                  <a href="#infoMobileCode" id="btnGetMobileCode" class="ajaxlangGetVerificationCode"></a>
+                  <span id="infoMobileCode"></span>
+                  <input type="hidden" id="txtmodi" value="1" />
+                </span>
+                <i class="ajaxlangValidCode"><!--验证码：--></i>
+              </li>
+           </ul>
+           <div class="sousuo">
+              <button id="BtnSave" type="submit" class="sousuo-btn ajaxlangSubmit"></button>
+				    </div>   
+          </div>
+        </form>
+      </div>
+  	</div>
+		
+		
+  </div>
+	<!--my-con end-->
+  <div id="boxLoading"><img src="/images/loading.gif" width="16" height="16" alt="loading" /></div>
+</main>
+
+<!--i-main end-->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default i-footer-navbar am-no-layout" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 ajaxheadMenu">
+      <!--
+      <li>
+        <a href="m-main.htm" class="i-footer-active">
+          <span class="i-icon icon-home"></span>
+            <span class="am-navbar-label">主页</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-Showings"></span>
+            <span class="am-navbar-label">团队</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+            <span class="i-icon icon-release"></span>
+            <span class="am-navbar-label">商城</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="i-icon icon-my"></span>
+            <span class="am-navbar-label">我的</span>
+        </a>
+      </li>
+      -->
+      
+  </ul>
+</div>
+
+</body>
+<script type="text/javascript" language="javascript">
+    getTop('m-member');
+    // $("#btnGetMobileCode").click(function () {
+    //       sendMobileCode('txtMob', 'infoMobileCode');
+    //   });
+    // window.onload = function () {
+    //   $("#txtMob").val($(".ajaxmob").html());
+    // }
+    // document.getElementById("iframepic1").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=1';
+    // document.getElementById("iframepic2").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=2';
+    // document.getElementById("iframepic3").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=3';
+</script>
+
+<script type="text/javascript">
+    var pck = {
+        //设置地址
+        setplace: function (selt, root, callback) {
+            if (root < 0) { return; }
+            engine.ajax.place(root, function (json) {
+                selt.clear();
+                selt.add("请选择", -1);
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //是否调用回调
+                if (callback) { callback(); }
+            });
+        },
+        //是否存在
+        exists: function (memberid, reverse) {
+            if (memberid.length <= 0) {
+                mpi.news("请输入编号", 3000);
+                return;
+            }
+            mpi.news("正在验证...", 99999);
+            var ajax = m.ajax("../Center/api_member_exists", null, function (obj) {
+                var json = m.parse.toJson(obj);
+                if (json.Success) {
+                    if (reverse == true) {
+                        mpi.news("会员编号已存在", 3000);
+                    }
+                    else {
+                        mpi.news("会员编号可用", 3000);
+                    }
+                }
+                else {
+                    mpi.news(json.Data, 3000);
+                }
+            });
+            ajax.data.add("memberid", memberid);
+            ajax.send();
+        },
+        submit: function () {
+            var id = m.node("#id").plugin("text").value();
+            var parentid = m.node("#parentid").plugin("text").value();
+            var recmid = m.node("#recmid").plugin("text").value();
+            var centerid = m.node("#centerid").plugin("text").value();
+            var area = m.node("#area").plugin("select").value();
+            var level = m.node("#level").plugin("select").value();
+            var password = m.node("#password").plugin("text").value();
+            var cpassword = m.node("#cpassword").plugin("text").value();
+            var safeword = m.node("#safeword").plugin("text").value();
+            var csafeword = m.node("#csafeword").plugin("text").value();
+            var username = m.node("#username").plugin("text").value();
+            var idcard = m.node("#idcard").plugin("text").value();
+            var bankid = m.node("#bankid").plugin("select").value();
+            var bankno = m.node("#bankno").plugin("text").value();
+            var bankuser = m.node("#bankuser").plugin("text").value();
+            var bankname = m.node("#bankname").plugin("text").value();
+            var moblie = m.node("#moblie").plugin("text").value();
+            var email = m.node("#email").plugin("text").value();
+            var zipcode = m.node("#zipcode").plugin("text").value();
+            var address = m.node("#address").plugin("text").value();
+            var place = m.node("#location .county").plugin("select").value();
+            var ckd = m.node("#checkcode").plugin("text").value();
+            //非空判断
+            if (id.length <= 0) {
+                mpi.news("请输入编号", 3000);
+                return;
+            }
+            if (recmid.length <= 0) {
+                engine.news("请输入推荐人", 2000);
+                return;
+            }
+            if (parentid.length <= 0) {
+                mpi.news("请输入接点人", 3000);
+                return;
+            }
+            if (centerid.length <= 0) {
+                mpi.news("请输入代理中心", 3000);
+                return;
+            }
+            if (area == null || area.length <= 0) {
+                mpi.news("请选择安置位置", 3000);
+                return;
+            }
+            if (level == null || level.length <= 0) {
+                mpi.news("请选择会员等级", 3000);
+                return;
+            }
+            if (password.length <= 0) {
+                mpi.news("请输入登录密码", 3000);
+                return;
+            }
+            if (password != cpassword) {
+                mpi.news("登录密码输入不一致", 3000);
+                return;
+            }
+            if (safeword.length <= 0) {
+                mpi.news("请输入安全密码", 3000);
+                return;
+            }
+            if (safeword != csafeword) {
+                mpi.news("安全密码输入不一致", 3000);
+                return;
+            }
+            if (username.length <= 0) {
+                mpi.news("请输入真实姓名", 3000);
+                return;
+            }
+            if (idcard.length <= 0) {
+                mpi.news("请输入身份证", 3000);
+                return;
+            }
+            if (bankid == null || bankid.length <= 0) {
+                mpi.news("请选择所属银行", 3000);
+                return;
+            }
+            if (bankno.length <= 0) {
+                mpi.news("请输入银行卡号", 3000);
+                return;
+            }
+            if (bankuser.length <= 0) {
+                mpi.news("请输入开户人", 3000);
+                return;
+            }
+            if (bankname.length <= 0) {
+                mpi.news("请输入开户行", 3000);
+                return;
+            }
+            if (moblie.length <= 0) {
+                mpi.news("请输入手机", 3000);
+                return;
+            }
+            if (place == null || place.length <= 0) {
+                mpi.news("请选择地区", 3000);
+                return;
+            }
+            if (address.length <= 0) {
+                mpi.news("请输入地址", 3000);
+                return;
+            }
+            if (ckd.length <= 0) {
+                mpi.news("请输入验证码", 3000);
+                return;
+            }
+            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
+            mpi.news("正在提交...", 999999);
+            //发送请求
+            var ajax = m.ajax("../Center/api_register_submit", null, function (jso) {
+                var jso = m.json.getObject(jso);
+                switch (jso.Error) {
+                    case 0:
+                        mpi.news("新增会员成功", 3000, true);
+                        break;
+                    case -10002:
+                        mpi.news("新增会员失败", 3000);
+                        break;
+                    case -10001:
+                        mpi.news("验证码错误", 3000);
+                        break;
+                    default:
+                        mpi.news(jso.Data, 3000);
+                        break;
+                }
+                m.node("#checkimg").click();
+            });
+            ajax.data.add("id", id);
+            ajax.data.add("parentid", parentid);
+            ajax.data.add("recmid", recmid);
+            ajax.data.add("centerid", centerid);
+            ajax.data.add("area", area);
+            ajax.data.add("level", level);
+            ajax.data.add("password", password);
+            ajax.data.add("safeword", safeword);
+            ajax.data.add("username", username);
+            ajax.data.add("idcard", idcard);
+            ajax.data.add("bankid", bankid);
+            ajax.data.add("bankno", bankno);
+            ajax.data.add("bankuser", bankuser);
+            ajax.data.add("bankname", bankname);
+            ajax.data.add("moblie", moblie);
+            ajax.data.add("email", email);
+            ajax.data.add("zipcode", zipcode);
+            ajax.data.add("address", address);
+            ajax.data.add("place", place);
+            ajax.data.add("checkcode", ckd);
+            ajax.send();
+        },
+        init: function () {
+            m.node("#checkimg").click(function () {
+                var checkcode = m.node("#checkimg");
+                var randomstr = m.random.string().capitalAlphabet(16);
+                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
+            });
+            m.node("#checkimg").click();
+        }
+    }
+    //pck.init();
+    //加载完
+    m.event("load").add(function () {
+        //获取等级
+        engine.ajax.memberlevel(0, function (json) {
+            var selt = m.node("#level").plugin("select");
+            selt.clear();
+            for (var i in json) {
+                selt.add(json[i].name, json[i].id);
+            }
+            //获取位置
+            engine.ajax.memberarea(0, function (json) {
+                var selt = m.node("#area").plugin("select");
+                selt.clear();
+                for (var i in json) {
+                    selt.add(json[i].name, json[i].id);
+                }
+                //获取银行
+                engine.ajax.bank(0, function (json) {
+                    var selt = m.node("#bankid").plugin("select");
+                    selt.clear();
+                    for (var i in json) {
+                        selt.add(json[i].name, json[i].id);
+                    }
+                    //获取地区
+                    engine.ajax.place('001', function (json) {
+                        var lt = m.node("#location .country").plugin("select");
+                        lt.onchange = function (text, val) {
+                            var pv = m.node("#location .province").plugin("select");
+                            pck.setplace(pv, val);
+                        };
+                        var ltpv = m.node("#location .province").plugin("select");
+                        ltpv.onchange = function (text, val) {
+                            var ct = m.node("#location .county").plugin("select");
+                            pck.setplace(ct, val);
+                        };
+                        //填充初始数据
+                        lt.add("请选择", -1);
+                        for (var i in json) {
+                            lt.add(json[i].name, json[i].id);
+                        }
+                        m.node("#parentid").plugin("text").value(m.queryString("root"));
+                        m.node("#area").plugin("select").value(m.queryString("area"));
+                    });
+                });
+            });
+        });
+    });
+    //载入时
+    m.event("ready").add(function () {
+        //alert("aaa");
+        m.node(".ms-menu .register").addClass("choose");
+        m.node(".mn-meter-menu .center").addClass("choose");
+        m.node("#btn_enter").click(pck.submit);
+        //alert("bbbb");
+    });
+</script>
+</html>
