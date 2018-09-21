@@ -46,6 +46,11 @@
 <script type="text/javascript" src="/js/comm.js?r=2"></script>
 <script>
     id1 = getUrlParam('tj');
+      var url_1 = "m-reg.html?tj="+id1+"&requestType=Mobile";
+	  var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
+	  if (asktype == '1' || asktype == '2'){
+	      window.location.href = url_1;
+	  }
 </script>
 <script type="text/javascript" src="/js/jquery_comm2.js?r=11"></script>
 

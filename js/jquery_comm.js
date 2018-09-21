@@ -536,7 +536,8 @@ function getInfo(oGetName) {
                 s2 =  curUrl + '/reg.html?tj=' + value.userName;
                 s1 = '<a href="' + s2 + '" target="_blank">' + s2 + '</a>';
                 // if (asktype != "1")
-                    s1 += ' <input type="hidden" id="copy_value" value="' + s2 + '"/> <input class="copy_btn" type="button" value="复制"/> ';//<a href="' + s2 + '" target="_blank">注册</a>
+                    // s1 += ' <input type="hidden" id="copy_value" value="' + s2 + '"/> <input class="copy_btn" type="button" value="复制"/> ';
+                s1 += ' <input type="hidden" id="copy_value" value="' + s2 + '"/>';
                 $(".ajaxtjLink").html(s1);
                 s1 = ' <img src="http://qr.topscan.com/api.php?text=' + s2 + '" style=" margin:5px 0 0 0; width:120px;height:120px;"/>';
                 $(".ajaxtjPic").html(s1);

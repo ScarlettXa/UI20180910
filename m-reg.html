@@ -44,31 +44,74 @@
   <script src="/Scripts/engine.js"></script>
   
   <script type="text/javascript" language="javascript">
-            var getType = "reg", getName = "GetUserInfo", para = "", actName = "memberReg", chkPwd2Flag = 0;
-            var id1 = 0;
-            var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
+             var getType = "info", getName = "GetConfigs", para = "", actName = "memberReg", chkPwd2Flag = 0;
+        var id1 = 0;
+        var sex = "0", bank = "", bankProvince, bankCity, bankArea, addressProvince, addressCity, addressArea;
 
-          //  var url_1 = "m-register.html?requestType=Mobile";
-          // var asktype = navigator.userAgent.match(/.*Mobile.*/) ? "1" : "2";
-          // if (asktype == '1' || asktype == '2'){
-          //     window.location.href = url_1;
-          // }
+            id1 = getUrlParam('tj');
 </script>
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/Js/json2.js"></script>
   <script type="text/javascript" src="/js/comm.js?timeStamp=1576026639"></script>
   <script type="text/javascript" src="/js/jquery_comm.js?timeStamp=1576026639"></script>
 
-  <script type="text/javascript" language="javascript">
+ <script type="text/javascript" language="javascript">
+    window.onload = function () {
+//        var url1 = ajaxUrl + "/WS/WSAccounts.aspx?CheckType=GetCommInfo&type1=GetXieYi&jstype=jsonp&callback=?";
+//        $.getJSON(url1,
+//    function (data) {
+//        if (data.result == "success") {
+//            $(".ajaxregXieYi").html(data.info);
+//        }
+//        else {
+//            alert(data.errInfo);
+//        }
+//    }
+        //);
+        $(".ajaxregXieYi").html('<iframe id="frm1" src="' + ajaxUrl + '/ajax/newsview.aspx?id=34&act=membernewsview" frameborder="0" scrolling="auto" width="100%" height="545"></iframe>');
+    }
 
+    function openShow() {
+        $(".openShow").css("display", "block");
+        document.getElementById('fade').style.display = 'block'
+    }
+    function closeShow() {
+        $(".openShow").css("display", "none");
+        document.getElementById('fade').style.display = 'none'
+    }
     //ajax更换会员编号
     function changeUserName() {
 
-        document.getElementById("lblBianhao").innerHTML = '<img src="/images/loading.gif" />';
-        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeUserName&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+                document.getElementById("lblBianhao").innerHTML = '<img src="/images/loading.gif" />';
+                $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeUserName&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+            function (data) {
+                $("#txtBianhao").val(data.userName);
+                document.getElementById("lblBianhao").innerHTML = '';
+
+            }
+        );
+    }
+
+    function changeService() {
+
+        document.getElementById("lblService").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeService&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
     function (data) {
-        $("#txtBianhao").val(data.userName);
-        document.getElementById("lblBianhao").innerHTML = '';
+        $("#txtService").val(data.userName);
+        $("#txtService").focus();
+        document.getElementById("lblService").innerHTML = '';
+
+    }
+);
+    }
+
+    function changeJD() {
+        document.getElementById("lblJdr").innerHTML = '<img src="/images/loading.gif" />';
+        $.getJSON(ajaxUrl + '/WS/WSAccounts.aspx?CheckType=changeJieDian&jstype=jsonp&callback=?&rand=' + Math.round(Math.random() * 10000),
+    function (data) {
+        $("#txtJD").val(data.userName);
+        $("#txtJD").focus();
+        document.getElementById("lblJdr").innerHTML = '';
 
     }
 );
@@ -92,13 +135,14 @@
     }
 );
 
+
     }
 
 
-//    function ShowValidImage() {
-//        var numkey = Math.random();
-//        document.getElementById("imgRandom").src = "/demo1/Validcode2.aspx?ns=" + numkey;
-    //    }
+    function ShowValidImage() {
+        var numkey = Math.random();
+        document.getElementById("imgRandom").src = "/demo1/Validcode.aspx?ns=" + numkey;
+    }
 </script>
 
   
@@ -419,258 +463,5 @@
     // document.getElementById("iframepic1").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=1';
     // document.getElementById("iframepic2").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=2';
     // document.getElementById("iframepic3").src = ajaxUrl + '/ajax/uploadFrm.aspx?idcard=3';
-</script>
-
-<script type="text/javascript">
-    var pck = {
-        //设置地址
-        setplace: function (selt, root, callback) {
-            if (root < 0) { return; }
-            engine.ajax.place(root, function (json) {
-                selt.clear();
-                selt.add("请选择", -1);
-                for (var i in json) {
-                    selt.add(json[i].name, json[i].id);
-                }
-                //是否调用回调
-                if (callback) { callback(); }
-            });
-        },
-        //是否存在
-        exists: function (memberid, reverse) {
-            if (memberid.length <= 0) {
-                mpi.news("请输入编号", 3000);
-                return;
-            }
-            mpi.news("正在验证...", 99999);
-            var ajax = m.ajax("../Center/api_member_exists", null, function (obj) {
-                var json = m.parse.toJson(obj);
-                if (json.Success) {
-                    if (reverse == true) {
-                        mpi.news("会员编号已存在", 3000);
-                    }
-                    else {
-                        mpi.news("会员编号可用", 3000);
-                    }
-                }
-                else {
-                    mpi.news(json.Data, 3000);
-                }
-            });
-            ajax.data.add("memberid", memberid);
-            ajax.send();
-        },
-        submit: function () {
-            var id = m.node("#id").plugin("text").value();
-            var parentid = m.node("#parentid").plugin("text").value();
-            var recmid = m.node("#recmid").plugin("text").value();
-            var centerid = m.node("#centerid").plugin("text").value();
-            var area = m.node("#area").plugin("select").value();
-            var level = m.node("#level").plugin("select").value();
-            var password = m.node("#password").plugin("text").value();
-            var cpassword = m.node("#cpassword").plugin("text").value();
-            var safeword = m.node("#safeword").plugin("text").value();
-            var csafeword = m.node("#csafeword").plugin("text").value();
-            var username = m.node("#username").plugin("text").value();
-            var idcard = m.node("#idcard").plugin("text").value();
-            var bankid = m.node("#bankid").plugin("select").value();
-            var bankno = m.node("#bankno").plugin("text").value();
-            var bankuser = m.node("#bankuser").plugin("text").value();
-            var bankname = m.node("#bankname").plugin("text").value();
-            var moblie = m.node("#moblie").plugin("text").value();
-            var email = m.node("#email").plugin("text").value();
-            var zipcode = m.node("#zipcode").plugin("text").value();
-            var address = m.node("#address").plugin("text").value();
-            var place = m.node("#location .county").plugin("select").value();
-            var ckd = m.node("#checkcode").plugin("text").value();
-            //非空判断
-            if (id.length <= 0) {
-                mpi.news("请输入编号", 3000);
-                return;
-            }
-            /*if (recmid.length <= 0) {
-                engine.news("请输入推荐人", 2000);
-                return;
-            }*/
-            if (parentid.length <= 0) {
-                mpi.news("请输入接点人", 3000);
-                return;
-            }
-            /*if (centerid.length <= 0) {
-                mpi.news("请输入代理中心", 3000);
-                return;
-            }*/
-            /*if (area == null || area.length <= 0) {
-                mpi.news("请选择安置位置", 3000);
-                return;
-            }
-            if (level == null || level.length <= 0) {
-                mpi.news("请选择会员等级", 3000);
-                return;
-            }*/
-            if (password.length <= 0) {
-                mpi.news("请输入登录密码", 3000);
-                return;
-            }
-            if (password != cpassword) {
-                mpi.news("登录密码输入不一致", 3000);
-                return;
-            }
-            if (safeword.length <= 0) {
-                mpi.news("请输入安全密码", 3000);
-                return;
-            }
-            if (safeword != csafeword) {
-                mpi.news("安全密码输入不一致", 3000);
-                return;
-            }
-            // if (username.length <= 0) {
-            //     mpi.news("请输入真实姓名", 3000);
-            //     return;
-            // }
-            // if (idcard.length <= 0) {
-            //     mpi.news("请输入身份证", 3000);
-            //     return;
-            // }
-            if (bankid == null || bankid.length <= 0) {
-                mpi.news("请选择所属银行", 3000);
-                return;
-            }
-            if (bankno.length <= 0) {
-                mpi.news("请输入银行卡号", 3000);
-                return;
-            }
-            if (bankuser.length <= 0) {
-                mpi.news("请输入开户人", 3000);
-                return;
-            }
-            if (bankname.length <= 0) {
-                mpi.news("请输入开户行", 3000);
-                return;
-            }
-            if (moblie.length <= 0) {
-                mpi.news("请输入手机", 3000);
-                return;
-            }
-            // if (place == null || place.length <= 0) {
-            //     mpi.news("请选择地区", 3000);
-            //     return;
-            // }
-            // if (address.length <= 0) {
-            //     mpi.news("请输入地址", 3000);
-            //     return;
-            // }
-            if (ckd.length <= 0) {
-                mpi.news("请输入验证码", 3000);
-                return;
-            }
-            var place = (place == -1) ? m.node("#location .province").plugin("select").value() : place;
-            mpi.news("正在提交...", 999999);
-            //发送请求
-            var ajax = m.ajax("../Center/api_register_submit", null, function (jso) {
-                var jso = m.json.getObject(jso);
-                switch (jso.Error) {
-                    case 0:
-                        mpi.news("新增会员成功", 3000, true);
-                        break;
-                    case -10002:
-                        mpi.news("新增会员失败", 3000);
-                        break;
-                    case -10001:
-                        mpi.news("验证码错误", 3000);
-                        break;
-                    default:
-                        mpi.news(jso.Data, 3000);
-                        break;
-                }
-                m.node("#checkimg").click();
-            });
-            ajax.data.add("id", id);
-            ajax.data.add("parentid", parentid);
-            ajax.data.add("recmid", recmid);
-            ajax.data.add("centerid", centerid);
-            ajax.data.add("area", area);
-            ajax.data.add("level", level);
-            ajax.data.add("password", password);
-            ajax.data.add("safeword", safeword);
-            ajax.data.add("username", username);
-            ajax.data.add("idcard", idcard);
-            ajax.data.add("bankid", bankid);
-            ajax.data.add("bankno", bankno);
-            ajax.data.add("bankuser", bankuser);
-            ajax.data.add("bankname", bankname);
-            ajax.data.add("moblie", moblie);
-            ajax.data.add("email", email);
-            ajax.data.add("zipcode", zipcode);
-            ajax.data.add("address", address);
-            ajax.data.add("place", place);
-            ajax.data.add("checkcode", ckd);
-            ajax.send();
-        },
-        init: function () {
-            m.node("#checkimg").click(function () {
-                var checkcode = m.node("#checkimg");
-                var randomstr = m.random.string().capitalAlphabet(16);
-                checkcode.attr("src", "/service/check.asmx/getocode?rd=" + randomstr);
-            });
-            m.node("#checkimg").click();
-        }
-    }
-    //pck.init();
-    //加载完
-    m.event("load").add(function () {
-        //获取等级
-        engine.ajax.memberlevel(0, function (json) {
-            var selt = m.node("#level").plugin("select");
-            selt.clear();
-            for (var i in json) {
-                selt.add(json[i].name, json[i].id);
-            }
-            //获取位置
-            engine.ajax.memberarea(0, function (json) {
-                var selt = m.node("#area").plugin("select");
-                selt.clear();
-                for (var i in json) {
-                    selt.add(json[i].name, json[i].id);
-                }
-                //获取银行
-                engine.ajax.bank(0, function (json) {
-                    var selt = m.node("#bankid").plugin("select");
-                    selt.clear();
-                    for (var i in json) {
-                        selt.add(json[i].name, json[i].id);
-                    }
-                    //获取地区
-                    engine.ajax.place('001', function (json) {
-                        var lt = m.node("#location .country").plugin("select");
-                        lt.onchange = function (text, val) {
-                            var pv = m.node("#location .province").plugin("select");
-                            pck.setplace(pv, val);
-                        };
-                        var ltpv = m.node("#location .province").plugin("select");
-                        ltpv.onchange = function (text, val) {
-                            var ct = m.node("#location .county").plugin("select");
-                            pck.setplace(ct, val);
-                        };
-                        //填充初始数据
-                        lt.add("请选择", -1);
-                        for (var i in json) {
-                            lt.add(json[i].name, json[i].id);
-                        }
-                        m.node("#parentid").plugin("text").value(m.queryString("root"));
-                        m.node("#area").plugin("select").value(m.queryString("area"));
-                    });
-                });
-            });
-        });
-    });
-    //载入时
-    m.event("ready").add(function () {
-        //alert("aaa");
-        m.node(".ms-menu .register").addClass("choose");
-        m.node(".mn-meter-menu .center").addClass("choose");
-        m.node("#btn_enter").click(pck.submit);
-        //alert("bbbb");
-    });
 </script>
 </html>
