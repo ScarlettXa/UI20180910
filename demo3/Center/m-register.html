@@ -131,10 +131,10 @@
         <form id="myForm" name="myForm" method="post" action="" onsubmit="return chkFormReg()">
           <div data-tab-panel-0 class="am-tab-panel am-active login-quick">
            <ul class="liebiao2">
-           		<li>
+           		<!-- <li>
                  <span><select id="selJiBie"></select><span id="regJibienotice"></span></span>
                 <i class="">会员等级：</i>
-              </li>
+              </li> -->
 
               <li>
                 <span>
@@ -181,7 +181,7 @@
                 <i class="">推荐人：</i>
               </li>
 
-              <li>
+             <!--  <li>
                 <span id="lblJdr"></span>
                 <span>
                   <input name="txtJD" type="text" maxlength="20" id="txtJD" class="span4" placeholder="必填项:请输入安置人" />
@@ -197,9 +197,9 @@
                     </select>
                  </span>
                 <i class="">安置位置：</i>
-              </li>
+              </li> -->
 
-              <li>
+              <!-- <li>
                 <span id="lblService"></span>
                 <span>
                   <input name="txtService" type="text" maxlength="20" id="txtService" class="span4" placeholder="必填项:请输入所属服务中心" />
@@ -272,7 +272,7 @@
                   <input name="txtEmail" type="text" maxlength="40" id="txtEmail" class="span4" placeholder="请输入Email" />
                 </span>
                 <i class="">Email：</i>
-              </li>
+              </li> -->
 
               <li>
                 <span>
@@ -281,7 +281,7 @@
                 <i class="">支付宝：</i>
               </li>
 
-              <li>
+              <!-- <li>
                 <span>
                   <input name="txtQQ" type="text" maxlength="20" id="txtQQ" class="span4" placeholder="请输入常用QQ" />
                 </span>
@@ -293,7 +293,7 @@
                   <input name="txtwxid" type="text" maxlength="20" id="txtwxid" class="span4" placeholder="请输入微信" />
                 </span>
                 <i class="">微信：</i>
-              </li>
+              </li> -->
 
               <li>
                 <span>
@@ -476,26 +476,26 @@
                 mpi.news("请输入编号", 3000);
                 return;
             }
-            if (recmid.length <= 0) {
+            /*if (recmid.length <= 0) {
                 engine.news("请输入推荐人", 2000);
                 return;
-            }
+            }*/
             if (parentid.length <= 0) {
                 mpi.news("请输入接点人", 3000);
                 return;
             }
-            if (centerid.length <= 0) {
+            /*if (centerid.length <= 0) {
                 mpi.news("请输入代理中心", 3000);
                 return;
-            }
-            if (area == null || area.length <= 0) {
+            }*/
+            /*if (area == null || area.length <= 0) {
                 mpi.news("请选择安置位置", 3000);
                 return;
             }
             if (level == null || level.length <= 0) {
                 mpi.news("请选择会员等级", 3000);
                 return;
-            }
+            }*/
             if (password.length <= 0) {
                 mpi.news("请输入登录密码", 3000);
                 return;
@@ -512,14 +512,14 @@
                 mpi.news("安全密码输入不一致", 3000);
                 return;
             }
-            if (username.length <= 0) {
-                mpi.news("请输入真实姓名", 3000);
-                return;
-            }
-            if (idcard.length <= 0) {
-                mpi.news("请输入身份证", 3000);
-                return;
-            }
+            // if (username.length <= 0) {
+            //     mpi.news("请输入真实姓名", 3000);
+            //     return;
+            // }
+            // if (idcard.length <= 0) {
+            //     mpi.news("请输入身份证", 3000);
+            //     return;
+            // }
             if (bankid == null || bankid.length <= 0) {
                 mpi.news("请选择所属银行", 3000);
                 return;
@@ -540,14 +540,14 @@
                 mpi.news("请输入手机", 3000);
                 return;
             }
-            if (place == null || place.length <= 0) {
-                mpi.news("请选择地区", 3000);
-                return;
-            }
-            if (address.length <= 0) {
-                mpi.news("请输入地址", 3000);
-                return;
-            }
+            // if (place == null || place.length <= 0) {
+            //     mpi.news("请选择地区", 3000);
+            //     return;
+            // }
+            // if (address.length <= 0) {
+            //     mpi.news("请输入地址", 3000);
+            //     return;
+            // }
             if (ckd.length <= 0) {
                 mpi.news("请输入验证码", 3000);
                 return;
