@@ -953,12 +953,12 @@ function loadData(pwd2Status) {
                          sendMobileCode('txtMob', 'infoMobileCode');
                      });
 
-                     provinceBind("selProvince", "selCity", "selArea", "reg_notice1", "", "", "");
+                     // provinceBind("selProvince", "selCity", "selArea", "reg_notice1", "", "", "");
                      provinceBind("selProvince2", "selCity2", "selArea2", "reg_notice2", "", "", "");
 
 
                      bankBind("selBank", "regBank_notice", "");
-                     jiBieBind("selJiBie", "regJibienotice", "");
+                     // jiBieBind("selJiBie", "regJibienotice", "");
 
                      $("#boxLoading").css("display", "none");
                      $("#boxMain").css("display", "");
