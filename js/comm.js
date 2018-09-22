@@ -3455,27 +3455,27 @@ function getTop(label) {
 
     if (asktype == '1' || asktype == '2'){
       if (label=='m-main') {
-        str1 += '<li><a href="../Home/m-main.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-home"></span><span class="am-navbar-label">主页</span></a></li>';
+        str1 += '<li><a href="/demo3/Home/m-main.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-home"></span><span class="am-navbar-label">主页</span></a></li>';
       } else {
-        str1 += '<li><a href="../Home/m-main.html?requestType=Mobile"><span class="i-icon icon-home"></span><span class="am-navbar-label">主页</span></a></li>';
+        str1 += '<li><a href="/demo3/Home/m-main.html?requestType=Mobile"><span class="i-icon icon-home"></span><span class="am-navbar-label">主页</span></a></li>';
       }
 
       if (label=='m-recmlists') {
-        str1 += '<li><a href="../Member/m-recmlists.html?para=re_1&requestType=Mobile" class="i-footer-active"><span class="i-icon icon-Showings"></span><span class="am-navbar-label">团队</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-recmlists.html?para=re_1&requestType=Mobile" class="i-footer-active"><span class="i-icon icon-Showings"></span><span class="am-navbar-label">团队</span></a></li>';
       } else {
-        str1 += '<li><a href="../Member/m-recmlists.html?para=re_1&requestType=Mobile"><span class="i-icon icon-Showings"></span><span class="am-navbar-label">团队</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-recmlists.html?para=re_1&requestType=Mobile"><span class="i-icon icon-Showings"></span><span class="am-navbar-label">团队</span></a></li>';
       }
 
       if (label=='m-shopping-mall') {
-        str1 += '<li><a href="../Member/m-shopping-mall.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-release"></span><span class="am-navbar-label">商城</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-shopping-mall.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-release"></span><span class="am-navbar-label">商城</span></a></li>';
       } else {
-        str1 += '<li><a href="../Member/m-shopping-mall.html?requestType=Mobile"><span class="i-icon icon-release"></span><span class="am-navbar-label">商城</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-shopping-mall.html?requestType=Mobile"><span class="i-icon icon-release"></span><span class="am-navbar-label">商城</span></a></li>';
       }
 
       if (label=='m-member') {
-        str1 += '<li><a href="../Member/m-member.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-my"></span><span class="am-navbar-label">我的</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-member.html?requestType=Mobile" class="i-footer-active"><span class="i-icon icon-my"></span><span class="am-navbar-label">我的</span></a></li>';
       } else {
-        str1 += '<li><a href="../Member/m-member.html?requestType=Mobile" ><span class="i-icon icon-my"></span><span class="am-navbar-label">我的</span></a></li>';
+        str1 += '<li><a href="/demo3/Member/m-member.html?requestType=Mobile" ><span class="i-icon icon-my"></span><span class="am-navbar-label">我的</span></a></li>';
       }
 
     } else {
@@ -3486,17 +3486,17 @@ function getTop(label) {
 
         //$(".ajaxtopMenu").html(str1);
 
-        str1 = '<li class="home"><a href="../Home/main.htm"><i class="p-l-icon1"></i>首页</a></li>';//首页
-        str1 += '<li class="member"><a href="../Member/recmlists.htm?para=re_1"><i class="p-l-icon2"></i>团队</a></li>';//团队
-        str1 += '<li class="center"><a href="../Center/HelpAdd2.htm"><i class="p-l-icon3"></i>交易</a></li>'; //业务
-        str1 += '<li class="product"><a href="../Product/main.htm"><i class="p-l-icon7"></i>购物</a></li>'; //
-        str1 += '<li class="deal"><a href="../Deal/main.htm"><i class="p-l-icon5"></i>奖金</a></li>';//奖金
-        str1 += '<li class="mail"><a href="../Mail/messagelists.htm?para=to_admin"><i class="p-l-icon6"></i>留言</a></li>'; //邮箱
-        str1 += '<li class="notice"><a href="../Notice/main.htm"><i class="p-l-icon7"></i>公告</a></li>';//公告
-        str1 += '<li class="user"><a href="../User/basicedit.htm"><i class="p-l-icon7"></i>设置</a></li>'; //设置
+        str1 = '<li class="home"><a href="/demo3/Home/main.htm"><i class="p-l-icon1"></i>首页</a></li>';//首页
+        str1 += '<li class="member"><a href="/demo3/Member/recmlists.htm?para=re_1"><i class="p-l-icon2"></i>团队</a></li>';//团队
+        str1 += '<li class="center"><a href="/demo3/Center/HelpAdd2.htm"><i class="p-l-icon3"></i>交易</a></li>'; //业务
+        str1 += '<li class="product"><a href="/demo3/Product/main.htm"><i class="p-l-icon7"></i>购物</a></li>'; //
+        str1 += '<li class="deal"><a href="/demo3/Deal/main.htm"><i class="p-l-icon5"></i>奖金</a></li>';//奖金
+        str1 += '<li class="mail"><a href="/demo3/Mail/messagelists.htm?para=to_admin"><i class="p-l-icon6"></i>留言</a></li>'; //邮箱
+        str1 += '<li class="notice"><a href="/demo3/Notice/main.htm"><i class="p-l-icon7"></i>公告</a></li>';//公告
+        str1 += '<li class="user"><a href="/demo3/User/basicedit.htm"><i class="p-l-icon7"></i>设置</a></li>'; //设置
     }    
     
-   // str1 += '<li class="transfer"><span class="m-icon m-icon-refresh"></span><a href="../User/transfer.htm" class="ajaxlangTransfer"></a></li>'; //转账
+   // str1 += '<li class="transfer"><span class="m-icon m-icon-refresh"></span><a href="/demo3/User/transfer.htm" class="ajaxlangTransfer"></a></li>'; //转账
     $(".ajaxheadMenu").html(str1);
 }
 
